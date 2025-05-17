@@ -1,6 +1,14 @@
+
 import Image from 'next/image';
 import { galleryPhotos } from '@/data/gallery';
 import { Card, CardContent } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function GalleryPage() {
   return (
@@ -12,29 +20,43 @@ export default function GalleryPage() {
         </p>
       </section>
 
-      <section>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryPhotos.map((photo) => (
-            <Card key={photo.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-              <CardContent className="p-0 aspect-w-4 aspect-h-3">
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                  data-ai-hint={photo.dataAiHint}
-                />
-              </CardContent>
-              {photo.category && (
-                 <div className="p-4 bg-card">
-                    <p className="text-sm font-medium text-primary">{photo.category}</p>
-                    <p className="text-xs text-muted-foreground">{photo.alt}</p>
-                 </div>
-              )}
-            </Card>
-          ))}
-        </div>
+      <section className="flex justify-center">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-xl md:max-w-2xl lg:max-w-4xl"
+        >
+          <CarouselContent>
+            {galleryPhotos.map((photo) => (
+              <CarouselItem key={photo.id} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                    <CardContent className="p-0 aspect-w-4 aspect-h-3">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={photo.dataAiHint}
+                      />
+                    </CardContent>
+                    {photo.category && (
+                       <div className="p-4 bg-card">
+                          <p className="text-sm font-medium text-primary">{photo.category}</p>
+                          <p className="text-xs text-muted-foreground truncate">{photo.alt}</p>
+                       </div>
+                    )}
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </section>
     </div>
   );
