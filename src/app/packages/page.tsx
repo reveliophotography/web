@@ -9,9 +9,9 @@ export default function PackagesPage() {
   return (
     <div className="space-y-12">
       <section className="text-center">
-        <h1 className="text-5xl font-serif font-bold text-primary mb-4">Our Photography Packages</h1>
+        <h1 className="text-5xl font-serif font-bold text-primary mb-4">Nuestros Paquetes de Fotografía</h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          Choose the perfect package to capture your wedding day memories. Each package is thoughtfully designed to provide exceptional coverage and beautiful, high-quality photographs. We are also happy to create custom packages to suit your unique needs.
+          Elige el paquete perfecto para capturar los recuerdos del día de tu boda. Cada paquete está cuidadosamente diseñado para proporcionar una cobertura excepcional y fotografías hermosas de alta calidad. También estamos encantados de crear paquetes personalizados que se adapten a tus necesidades únicas.
         </p>
       </section>
 
@@ -55,7 +55,7 @@ export default function PackagesPage() {
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href={`/contact?package=${encodeURIComponent(pkg.name)}`}>Inquire About This Package</Link>
+                <Link href={`/contact?package=${encodeURIComponent(pkg.name)}`}>Consultar Sobre Este Paquete</Link>
               </Button>
             </CardFooter>
           </Card>
@@ -63,12 +63,12 @@ export default function PackagesPage() {
       </section>
 
       <section className="text-center mt-12 bg-card p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-serif font-semibold text-primary mb-4">Need a Custom Package?</h2>
+        <h2 className="text-3xl font-serif font-semibold text-primary mb-4">¿Necesitas un Paquete Personalizado?</h2>
         <p className="text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">
-          Your wedding is unique, and your photography package should be too. If our standard packages don't quite fit your vision, please reach out. We'd love to discuss your needs and create a tailored package just for you.
+          Tu boda es única, y tu paquete de fotografía también debería serlo. Si nuestros paquetes estándar no se ajustan del todo a tu visión, por favor, contáctanos. Nos encantaría discutir tus necesidades y crear un paquete a medida solo para ti.
         </p>
         <Button asChild size="lg" variant="outline">
-          <Link href="/contact">Contact Us for a Custom Quote</Link>
+          <Link href="/contact">Contáctanos para una Cotización Personalizada</Link>
         </Button>
       </section>
     </div>

@@ -6,9 +6,9 @@ export default function GalleryPage() {
   return (
     <div className="space-y-12">
       <section className="text-center">
-        <h1 className="text-5xl font-serif font-bold text-primary mb-4">Our Gallery</h1>
+        <h1 className="text-5xl font-serif font-bold text-primary mb-4">Nuestra Galería</h1>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-          Step into the world of Revelio Weddings. Each photograph is a testament to love, joy, and the unforgettable moments that make your day unique.
+          Adéntrate en el mundo de Revelio Weddings. Cada fotografía es un testimonio de amor, alegría y los momentos inolvidables que hacen que tu día sea único.
         </p>
       </section>
 

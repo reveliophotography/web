@@ -30,13 +30,13 @@ import { useEffect } from "react";
 
 
 const BookingInquirySchema = z.object({
-  clientName: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
+  clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, introduce una dirección de correo electrónico válida." }),
   phone: z.string().optional(),
-  weddingDate: z.date({ required_error: "Wedding date is required."}),
-  venue: z.string().min(2, { message: "Venue must be at least 2 characters." }),
+  weddingDate: z.date({ required_error: "La fecha de la boda es obligatoria."}),
+  venue: z.string().min(2, { message: "El lugar debe tener al menos 2 caracteres." }),
   packageOfInterest: z.string().optional(),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, { message: "Message cannot exceed 500 characters." }),
+  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }).max(500, { message: "El mensaje no puede exceder los 500 caracteres." }),
 });
 
 type BookingFormValues = z.infer<typeof BookingInquirySchema>;
@@ -75,14 +75,14 @@ export default function BookingForm() {
 
     if (result.success) {
       toast({
-        title: "Inquiry Sent!",
+        title: "¡Consulta Enviada!",
         description: result.message,
       });
       form.reset();
     } else {
       toast({
         title: "Error",
-        description: "There was a problem submitting your inquiry. Please try again.",
+        description: "Hubo un problema al enviar tu consulta. Por favor, inténtalo de nuevo.",
         variant: "destructive",
       });
       // Handle field errors if needed, e.g. result.errors
@@ -97,9 +97,9 @@ export default function BookingForm() {
           name="clientName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>Nombre Completo</FormLabel>
               <FormControl>
-                <Input placeholder="Your full name" {...field} />
+                <Input placeholder="Tu nombre completo" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -111,9 +111,9 @@ export default function BookingForm() {
             name="email"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel>Dirección de Correo Electrónico</FormLabel>
                 <FormControl>
-                    <Input type="email" placeholder="your@email.com" {...field} />
+                    <Input type="email" placeholder="tu@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -124,7 +124,7 @@ export default function BookingForm() {
             name="phone"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Phone Number (Optional)</FormLabel>
+                <FormLabel>Número de Teléfono (Opcional)</FormLabel>
                 <FormControl>
                     <Input type="tel" placeholder="(123) 456-7890" {...field} />
                 </FormControl>
@@ -139,7 +139,7 @@ export default function BookingForm() {
           name="weddingDate"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Prospective Wedding Date</FormLabel>
+              <FormLabel>Fecha Estimada de la Boda</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -153,7 +153,7 @@ export default function BookingForm() {
                       {field.value ? (
                         format(field.value, "PPP")
                       ) : (
-                        <span>Pick a date</span>
+                        <span>Elige una fecha</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
@@ -179,9 +179,9 @@ export default function BookingForm() {
           name="venue"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Wedding Venue (or City/Region)</FormLabel>
+              <FormLabel>Lugar de la Boda (o Ciudad/Región)</FormLabel>
               <FormControl>
-                <Input placeholder="E.g., The Grand Ballroom, Napa Valley" {...field} />
+                <Input placeholder="Ej: El Gran Salón, Valle de Napa" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -193,19 +193,19 @@ export default function BookingForm() {
           name="packageOfInterest"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Package of Interest (Optional)</FormLabel>
+              <FormLabel>Paquete de Interés (Opcional)</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a package" />
+                    <SelectValue placeholder="Selecciona un paquete" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
                   {photographyPackages.map(pkg => (
                     <SelectItem key={pkg.id} value={pkg.name}>{pkg.name} - {pkg.price}</SelectItem>
                   ))}
-                  <SelectItem value="Custom">Custom Package Inquiry</SelectItem>
-                  <SelectItem value="Unsure">Unsure / Just browsing</SelectItem>
+                  <SelectItem value="Custom">Consulta de Paquete Personalizado</SelectItem>
+                  <SelectItem value="Unsure">Indeciso / Solo estoy mirando</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -218,23 +218,23 @@ export default function BookingForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tell Us About Your Wedding</FormLabel>
+              <FormLabel>Cuéntanos Sobre Tu Boda</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Share some details about your vision, what you're looking for in a photographer, or any specific questions you have."
+                  placeholder="Comparte algunos detalles sobre tu visión, lo que buscas en un fotógrafo o cualquier pregunta específica que tengas."
                   className="min-h-[120px]"
                   {...field}
                 />
               </FormControl>
               <FormDescription>
-                The more details you provide, the better we can assist you.
+                Cuantos más detalles proporciones, mejor podremos ayudarte.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={form.formState.isSubmitting}>
-            {form.formState.isSubmitting ? "Sending..." : <>Send Inquiry <Send className="ml-2 h-5 w-5" /></>}
+            {form.formState.isSubmitting ? "Enviando..." : <>Enviar Consulta <Send className="ml-2 h-5 w-5" /></>}
         </Button>
       </form>
     </Form>

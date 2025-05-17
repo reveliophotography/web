@@ -6,13 +6,13 @@ import { generateThankYouNote as generateThankYouNoteFlow } from '@/ai/flows/gen
 import type { GenerateThankYouNoteInput, GenerateThankYouNoteOutput } from '@/ai/flows/generate-thank-you-note';
 
 const BookingInquirySchema = z.object({
-  clientName: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
+  clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, introduce una dirección de correo electrónico válida." }),
   phone: z.string().optional(),
-  weddingDate: z.string().min(1, { message: "Please select a wedding date." }),
-  venue: z.string().min(2, { message: "Venue must be at least 2 characters." }),
+  weddingDate: z.string().min(1, { message: "Por favor, selecciona una fecha para la boda." }),
+  venue: z.string().min(2, { message: "El lugar debe tener al menos 2 caracteres." }),
   packageOfInterest: z.string().optional(),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, { message: "Message cannot exceed 500 characters." }),
+  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }).max(500, { message: "El mensaje no puede exceder los 500 caracteres." }),
 });
 
 export type BookingInquiryData = z.infer<typeof BookingInquirySchema>;
@@ -35,7 +35,7 @@ export async function handleBookingInquiry(data: BookingInquiryData) {
 
   return {
     success: true,
-    message: "Thank you for your inquiry! We'll be in touch soon.",
+    message: "¡Gracias por tu consulta! Nos pondremos en contacto pronto.",
   };
 }
 
@@ -48,7 +48,7 @@ export async function generateThankYouNoteAction(input: GenerateThankYouNoteInpu
     return result;
   } catch (error) {
     console.error("Error generating thank you note:", error);
-    return { error: "Failed to generate thank you note. Please try again." };
+    return { error: "Error al generar la nota de agradecimiento. Por favor, inténtalo de nuevo." };
   }
 }
 

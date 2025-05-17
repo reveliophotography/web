@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="flex items-center justify-center gap-2">
           <Copyright size={16} />
           <p className="text-sm">
-            {currentYear} Revelio Weddings. All rights reserved.
+            {currentYear} Revelio Weddings. Todos los derechos reservados.
           </p>
         </div>
-        <p className="text-xs mt-2">Elegance in Every Frame</p>
+        <p className="text-xs mt-2">Elegancia en Cada Fotograma</p>
       </div>
     </footer>
   );

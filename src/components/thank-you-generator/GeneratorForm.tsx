@@ -24,10 +24,10 @@ import type { GenerateThankYouNoteInput } from '@/ai/flows/generate-thank-you-no
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ThankYouGeneratorSchema = z.object({
-  clientName: z.string().min(1, "Client name is required."),
-  weddingDate: z.string().min(1, "Wedding date is required (can be approximate, e.g., 'Spring 2025')."),
-  venue: z.string().min(1, "Venue is required (can be approximate, e.g., 'Napa Valley')."),
-  packageOfInterest: z.string().min(1, "Package of interest is required."),
+  clientName: z.string().min(1, "El nombre del cliente es obligatorio."),
+  weddingDate: z.string().min(1, "La fecha de la boda es obligatoria (puede ser aproximada, ej: 'Primavera 2025')."),
+  venue: z.string().min(1, "El lugar es obligatorio (puede ser aproximado, ej: 'Valle de Napa')."),
+  packageOfInterest: z.string().min(1, "El paquete de interés es obligatorio."),
   specificRequests: z.string().optional().default(""),
 });
 
@@ -58,7 +58,7 @@ export default function GeneratorForm() {
         weddingDate: values.weddingDate,
         venue: values.venue,
         packageOfInterest: values.packageOfInterest,
-        specificRequests: values.specificRequests || "None specified.",
+        specificRequests: values.specificRequests || "Ninguna especificada.",
     };
 
     const result = await generateThankYouNoteAction(input);
@@ -68,14 +68,14 @@ export default function GeneratorForm() {
     if ('thankYouNote' in result && result.thankYouNote) {
       setGeneratedNote(result.thankYouNote);
       toast({
-        title: "Note Generated!",
-        description: "Your personalized thank you note is ready.",
+        title: "¡Nota Generada!",
+        description: "Tu nota de agradecimiento personalizada está lista.",
       });
     } else {
-      const errorMsg = 'error' in result ? result.error : "An unknown error occurred.";
+      const errorMsg = 'error' in result ? result.error : "Ocurrió un error desconocido.";
       toast({
         title: "Error",
-        description: errorMsg || "Failed to generate thank you note.",
+        description: errorMsg || "Error al generar la nota de agradecimiento.",
         variant: "destructive",
       });
     }
@@ -85,7 +85,7 @@ export default function GeneratorForm() {
     if (generatedNote) {
       navigator.clipboard.writeText(generatedNote);
       toast({
-        title: "Copied to clipboard!",
+        title: "¡Copiado al portapapeles!",
       });
     }
   };
@@ -99,9 +99,9 @@ export default function GeneratorForm() {
             name="clientName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Client&apos;s Name</FormLabel>
+                <FormLabel>Nombre del Cliente</FormLabel>
                 <FormControl>
-                  <Input placeholder="E.g., Jane Doe" {...field} />
+                  <Input placeholder="Ej: Ana Pérez" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -112,9 +112,9 @@ export default function GeneratorForm() {
             name="weddingDate"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Wedding Date</FormLabel>
+                <FormLabel>Fecha de la Boda</FormLabel>
                 <FormControl>
-                  <Input placeholder="E.g., October 26, 2024 or Spring 2025" {...field} />
+                  <Input placeholder="Ej: 26 de octubre de 2024 o Primavera 2025" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -125,9 +125,9 @@ export default function GeneratorForm() {
             name="venue"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Venue</FormLabel>
+                <FormLabel>Lugar</FormLabel>
                 <FormControl>
-                  <Input placeholder="E.g., The Grand Ballroom or Napa Valley" {...field} />
+                  <Input placeholder="Ej: El Gran Salón o Valle de Napa" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -138,9 +138,9 @@ export default function GeneratorForm() {
             name="packageOfInterest"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Package of Interest</FormLabel>
+                <FormLabel>Paquete de Interés</FormLabel>
                 <FormControl>
-                  <Input placeholder="E.g., The Classic Package" {...field} />
+                  <Input placeholder="Ej: El Paquete Clásico" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -151,23 +151,23 @@ export default function GeneratorForm() {
             name="specificRequests"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Specific Requests/Details from Inquiry</FormLabel>
+                <FormLabel>Solicitudes Específicas/Detalles de la Consulta</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="E.g., 'Interested in drone photography', 'Loves candid shots'"
+                    placeholder="Ej: 'Interesado en fotografía con drones', 'Le encantan las fotos espontáneas'"
                     className="min-h-[100px]"
                     {...field}
                   />
                 </FormControl>
                 <FormDescription>
-                  Include any key details mentioned by the client.
+                  Incluye cualquier detalle clave mencionado por el cliente.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
           <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isLoading}>
-            {isLoading ? "Generating..." : <>Generate Thank You Note <Wand2 className="ml-2 h-5 w-5" /></>}
+            {isLoading ? "Generando..." : <>Generar Nota de Agradecimiento <Wand2 className="ml-2 h-5 w-5" /></>}
           </Button>
         </form>
       </Form>
@@ -175,9 +175,9 @@ export default function GeneratorForm() {
       {generatedNote && (
         <Card className="mt-8 max-w-2xl mx-auto shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="font-serif text-2xl text-primary">Generated Thank You Note</CardTitle>
+            <CardTitle className="font-serif text-2xl text-primary">Nota de Agradecimiento Generada</CardTitle>
             <Button variant="outline" size="sm" onClick={handleCopyNote}>
-              <Copy className="mr-2 h-4 w-4" /> Copy
+              <Copy className="mr-2 h-4 w-4" /> Copiar
             </Button>
           </CardHeader>
           <CardContent>

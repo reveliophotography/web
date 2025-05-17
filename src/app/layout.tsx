@@ -6,8 +6,8 @@ import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Revelio Weddings - Elegance in Every Frame',
-  description: 'Capturing your special day with passion and artistry. Revelio Weddings offers bespoke wedding photography services.',
+  title: 'Revelio Weddings - Elegancia en Cada Fotograma',
+  description: 'Capturando tu día especial con pasión y arte. Revelio Weddings ofrece servicios de fotografía de bodas a medida.',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} font-sans antialiased flex flex-col min-h-screen`}>
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
