@@ -1,3 +1,4 @@
+
 import type { PhotographyPackage } from '@/types';
 
 export const photographyPackages: PhotographyPackage[] = [

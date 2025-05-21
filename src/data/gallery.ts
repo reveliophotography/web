@@ -1,3 +1,4 @@
+
 import type { Photo } from '@/types';
 
 export const galleryPhotos: Photo[] = [
