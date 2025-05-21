@@ -1,8 +1,9 @@
+
 import Image from 'next/image';
 import { photographyPackages } from '@/data/packages';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle, DollarSign } from 'lucide-react';
+import { CheckCircle2, XCircle, DollarSign, PawPrint } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PackagesPage() {
@@ -10,8 +11,12 @@ export default function PackagesPage() {
     <div className="space-y-12">
       <section className="text-center">
         <h1 className="text-5xl font-serif font-bold text-primary mb-4">Nuestros Paquetes de Fotografía</h1>
-        <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+        <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-2">
           Elige el paquete perfecto para capturar los recuerdos del día de tu boda. Cada paquete está cuidadosamente diseñado para proporcionar una cobertura excepcional y fotografías hermosas de alta calidad. También estamos encantados de crear paquetes personalizados que se adapten a tus necesidades únicas.
+        </p>
+        <p className="text-md text-foreground/70 max-w-3xl mx-auto flex items-center justify-center">
+            <PawPrint className="h-5 w-5 mr-2 text-primary" />
+            ¡No olvides que tus mascotas también son bienvenidas a ser parte de la sesión!
         </p>
       </section>
 

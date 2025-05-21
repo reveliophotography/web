@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Camera, Sparkles } from 'lucide-react';
+import { ArrowRight, Camera, Sparkles, PawPrint } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import SplashScreen from '@/components/splash/SplashScreen';
 
 const heroSlides = [
@@ -35,10 +35,22 @@ export default function HomePage() {
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(true); // Default to true, useEffect will correct this
+
+  useEffect(() => {
+    const splashScreenShown = localStorage.getItem('splashScreenShown');
+    if (splashScreenShown === 'true') {
+      setShowSplash(false);
+    }
+  }, []);
+
+  const handleSplashFinished = () => {
+    localStorage.setItem('splashScreenShown', 'true');
+    setShowSplash(false);
+  };
 
   if (showSplash) {
-    return <SplashScreen onFinished={() => setShowSplash(false)} />;
+    return <SplashScreen onFinished={handleSplashFinished} />;
   }
 
   return (
@@ -94,9 +106,13 @@ export default function HomePage() {
         <h2 className="text-4xl font-serif font-semibold text-primary mb-6">
           Bienvenidos a Revelio Weddings
         </h2>
-        <p className="text-lg text-foreground/80 leading-relaxed">
+        <p className="text-lg text-foreground/80 leading-relaxed mb-4">
           En Revelio, creemos que cada boda es una obra maestra única, una sinfonía de emociones, risas y momentos preciados. Nuestra pasión es documentar artísticamente tu día especial, creando una narrativa visual que atesorarás toda la vida. Con una mezcla de narración espontánea y retratos artísticos, nos esforzamos por capturar la auténtica belleza y alegría de tu celebración.
         </p>
+        <div className="flex items-center justify-center text-lg text-foreground/80 leading-relaxed">
+            <PawPrint className="h-6 w-6 mr-2 text-primary" />
+            <span>¡Y sí, amamos a las mascotas! Estaremos encantados de incluir a tus amigos de cuatro patas en tus recuerdos.</span>
+        </div>
       </section>
 
       {/* Mini Gallery Section */}

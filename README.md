@@ -1,3 +1,4 @@
+
 # Firebase Studio
 
 Este es un proyecto de inicio de NextJS en Firebase Studio.
@@ -52,6 +53,11 @@ Todas las imágenes de marcador de posición tienen un atributo `data-ai-hint`.
 
 #### b. Tamaños de Imagen Recomendados
 
+-   **Pantalla de Bienvenida (Splash Screen - `src/components/splash/SplashScreen.tsx`)**:
+    -   Imagen de fondo a pantalla completa.
+    -   Ejemplo de marcador de posición: `https://placehold.co/1920x1080.png`
+    -   `data-ai-hint` ejemplos: `"wedding elegance welcome"`, `"romantic landscape"`
+    -   **Nota**: Esta pantalla solo se muestra la primera vez que un usuario visita el sitio, gracias al uso de `localStorage`.
 -   **Página de Inicio (Hero Carousel - `src/app/page.tsx`)**:
     -   Las imágenes de fondo del carrusel principal.
     -   Ejemplo de marcador de posición: `https://placehold.co/1600x900.png`

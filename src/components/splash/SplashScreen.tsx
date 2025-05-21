@@ -15,6 +15,7 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
 
   const handleEnterClick = () => {
     setIsFadingOut(true);
+    // localStorage.setItem('splashScreenShown', 'true'); // Moved to onFinished in parent
     setTimeout(() => {
       onFinished();
     }, 500); // Duración de la animación de desvanecimiento (0.5s)
@@ -55,4 +56,3 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
     </div>
   );
 }
-
