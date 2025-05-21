@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram, Facebook, MessageCircle, Phone, Mail } from 'lucide-react';
+import { Instagram, MessageCircle, Phone, Mail } from 'lucide-react';
 
 export default function TopBanner() {
   // Reemplaza con tu información de contacto real
@@ -12,7 +12,6 @@ export default function TopBanner() {
   const whatsappNumber = "1234567890"; // Número para WhatsApp, sin código de país para el enlace wa.me si ya está en formato internacional
   const whatsappMessage = "Hola, estoy interesado en sus servicios de fotografía.";
   const instagramUser = "revelioweddings"; 
-  const facebookPage = "revelioweddings";
 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -35,12 +34,9 @@ export default function TopBanner() {
             <Instagram size={16} />
             <span className="sr-only">Instagram</span>
           </Link>
-          <Link href={`https://facebook.com/${facebookPage}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-            <Facebook size={16} />
-            <span className="sr-only">Facebook</span>
-          </Link>
         </div>
       </div>
     </div>
   );
 }
+
