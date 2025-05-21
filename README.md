@@ -71,17 +71,6 @@ Todas las imágenes de marcador de posición tienen un atributo `data-ai-hint`.
 
 **Formato de Marcador de Posición**: Siempre usa `https://placehold.co/<ANCHO>x<ALTO>.png`. No añadas parámetros de texto a la URL del marcador de posición.
 
-### 3. Generador de Notas de Agradecimiento (IA)
-
-La aplicación incluye una función para generar notas de agradecimiento usando IA.
-
--   **Flujo de IA**: `src/ai/flows/generate-thank-you-note.ts`
-    -   Este archivo contiene la lógica y el prompt que utiliza Genkit para generar las notas. Puedes modificar el `prompt` si deseas cambiar el tono, estilo o contenido de las notas generadas.
--   **Componente del Formulario**: `src/components/thank-you-generator/GeneratorForm.tsx`
-    -   Este es el formulario que los usuarios llenan. Los campos del formulario corresponden a las entradas del flujo de IA.
--   **Acción del Servidor**: `src/app/actions.ts` (función `generateThankYouNoteAction`)
-    -   Maneja la comunicación entre el formulario del cliente y el flujo de IA del servidor.
-
 ## Desarrollo
 
 ### Ejecutar el servidor de desarrollo:
@@ -98,6 +87,7 @@ Abre [http://localhost:9002](http://localhost:9002) en tu navegador para ver el 
 
 ### Ejecutar Genkit (para funciones de IA):
 
+Si en el futuro añades funcionalidades de IA con Genkit:
 En una terminal separada, ejecuta:
 
 ```bash

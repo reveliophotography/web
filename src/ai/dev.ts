@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-thank-you-note.ts';
+// The generate-thank-you-note.ts flow was removed, so its import is also removed.

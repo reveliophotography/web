@@ -2,8 +2,6 @@
 'use server';
 
 import { z } from 'zod';
-import { generateThankYouNote as generateThankYouNoteFlow } from '@/ai/flows/generate-thank-you-note';
-import type { GenerateThankYouNoteInput, GenerateThankYouNoteOutput } from '@/ai/flows/generate-thank-you-note';
 
 const BookingInquirySchema = z.object({
   clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -38,17 +36,3 @@ export async function handleBookingInquiry(data: BookingInquiryData) {
     message: "¡Gracias por tu consulta! Nos pondremos en contacto pronto.",
   };
 }
-
-
-export async function generateThankYouNoteAction(input: GenerateThankYouNoteInput): Promise<GenerateThankYouNoteOutput | { error: string }> {
-  try {
-    // The AI flow input schema is already defined in `generate-thank-you-note.ts`
-    // We can add Zod validation here as well if needed, but it's also handled by the flow itself.
-    const result = await generateThankYouNoteFlow(input);
-    return result;
-  } catch (error) {
-    console.error("Error generating thank you note:", error);
-    return { error: "Error al generar la nota de agradecimiento. Por favor, inténtalo de nuevo." };
-  }
-}
-
