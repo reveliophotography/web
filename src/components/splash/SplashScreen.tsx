@@ -2,65 +2,57 @@
 'use client';
 
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 interface SplashScreenProps {
   onFinished: () => void;
-  duration?: number; // Duración en milisegundos
 }
 
-export default function SplashScreen({ onFinished, duration = 3000 }: SplashScreenProps) {
-  const [isVisible, setIsVisible] = useState(true);
+export default function SplashScreen({ onFinished }: SplashScreenProps) {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
-  useEffect(() => {
-    // Iniciar el desvanecimiento un poco antes de que termine la duración total
-    const fadeOutTimer = setTimeout(() => {
-      setIsFadingOut(true);
-    }, Math.max(0, duration - 500)); // Asegurarse que el delay no sea negativo
-
-    // Ocultar completamente y llamar a onFinished cuando la duración se cumpla
-    const finishTimer = setTimeout(() => {
-      setIsVisible(false); // Esto podría no ser estrictamente necesario si onFinished desmonta el componente
+  const handleEnterClick = () => {
+    setIsFadingOut(true);
+    setTimeout(() => {
       onFinished();
-    }, duration);
-
-    return () => {
-      clearTimeout(fadeOutTimer);
-      clearTimeout(finishTimer);
-    };
-  }, [onFinished, duration]);
-
-  // Si el componente padre ya lo ha desmontado debido a onFinished, no renderizar nada.
-  // Este chequeo es más bien una salvaguarda.
-  if (!isVisible && !isFadingOut) {
-    return null;
-  }
+    }, 500); // Duración de la animación de desvanecimiento (0.5s)
+  };
 
   return (
     <div
-      className={`fixed inset-0 z-[1000] flex items-center justify-center bg-background transition-opacity duration-500 ease-in-out ${
+      className={`fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ease-in-out ${
         isFadingOut ? 'opacity-0' : 'opacity-100'
       }`}
-      // El div permanece en el DOM durante la transición de opacidad
-      // y será desmontado por el componente padre cuando onFinished() actualice el estado.
     >
       <Image
-        src="https://placehold.co/1920x1080.png" // Imagen de alta resolución para pantalla completa
+        src="https://placehold.co/1920x1080.png"
         alt="Bienvenido a Revelio Weddings"
         layout="fill"
         objectFit="cover"
-        priority // Es importante para LCP
-        data-ai-hint="wedding elegance welcome" // Hint para la imagen
+        priority
+        data-ai-hint="wedding elegance welcome"
       />
-      {/* Aquí podrías añadir tu logo o un texto breve si lo deseas */}
-      {/* Ejemplo:
-      <div className="absolute z-10 flex flex-col items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-        <h1 className="text-5xl font-serif text-white mt-2">Revelio</h1>
+      <div className="absolute inset-0 bg-black/30 z-10" /> {/* Overlay oscuro */}
+      
+      <div className="relative z-20 flex flex-col items-center text-center p-6">
+        {/* Opcional: Logo o nombre de la marca */}
+        {/* <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-camera mb-4"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <h1 className="text-6xl font-serif text-white mb-8 drop-shadow-md">Revelio</h1> */}
+        
+        <Button
+          onClick={handleEnterClick}
+          size="lg"
+          variant="outline" // Un outline para que resalte sobre la imagen con overlay
+          className="bg-white/10 backdrop-blur-sm border-white/50 text-white hover:bg-white/20 hover:text-white text-lg px-8 py-6 shadow-lg"
+          aria-label="Entrar al sitio y crear recuerdos inolvidables"
+        >
+          Crea Recuerdos Inolvidables
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
       </div>
-      */}
     </div>
   );
 }
+

@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import { useState, useEffect } from 'react'; // useEffect importado
-import SplashScreen from '@/components/splash/SplashScreen'; // Importar SplashScreen
+import { useState } from 'react'; 
+import SplashScreen from '@/components/splash/SplashScreen';
 
 const heroSlides = [
   { src: 'https://placehold.co/1600x900.png', alt: 'Hermosa escena de boda 1', dataAiHint: 'bride groom landscape' },
@@ -37,18 +37,8 @@ export default function HomePage() {
 
   const [showSplash, setShowSplash] = useState(true);
 
-  // Lógica opcional para mostrar el splash solo la primera vez por sesión, por ejemplo.
-  // useEffect(() => {
-  //   const splashShown = sessionStorage.getItem('splashShown');
-  //   if (splashShown) {
-  //     setShowSplash(false);
-  //   } else {
-  //     sessionStorage.setItem('splashShown', 'true');
-  //   }
-  // }, []);
-
   if (showSplash) {
-    return <SplashScreen onFinished={() => setShowSplash(false)} duration={3000} />; // Muestra SplashScreen por 3 segundos
+    return <SplashScreen onFinished={() => setShowSplash(false)} />;
   }
 
   return (
