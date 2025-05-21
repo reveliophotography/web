@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
+import { useState, useEffect } from 'react'; // useEffect importado
+import SplashScreen from '@/components/splash/SplashScreen'; // Importar SplashScreen
 
 const heroSlides = [
   { src: 'https://placehold.co/1600x900.png', alt: 'Hermosa escena de boda 1', dataAiHint: 'bride groom landscape' },
@@ -32,6 +34,22 @@ export default function HomePage() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
+
+  const [showSplash, setShowSplash] = useState(true);
+
+  // Lógica opcional para mostrar el splash solo la primera vez por sesión, por ejemplo.
+  // useEffect(() => {
+  //   const splashShown = sessionStorage.getItem('splashShown');
+  //   if (splashShown) {
+  //     setShowSplash(false);
+  //   } else {
+  //     sessionStorage.setItem('splashShown', 'true');
+  //   }
+  // }, []);
+
+  if (showSplash) {
+    return <SplashScreen onFinished={() => setShowSplash(false)} duration={3000} />; // Muestra SplashScreen por 3 segundos
+  }
 
   return (
     <div className="space-y-16 md:space-y-24">
@@ -67,10 +85,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text readability */}
         
         <div className="relative z-20 p-6 space-y-6 text-white"> {/* Ensure text color contrasts with typical hero images */}
-          <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight text-primary-foreground">
             Revelio Weddings
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto">
             Capturando la esencia de tu historia de amor con elegancia y arte atemporales.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
