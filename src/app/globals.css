@@ -12,13 +12,13 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer base {
   :root {
-    --background: 60 56% 91.2%; /* Light Beige #F5F5DC */
-    --foreground: 35 20% 20%; /* Dark Warm Gray #3D352A */
+    --background: 48 40% 93%; /* Pale Beige, less yellow */
+    --foreground: 35 20% 20%; /* Dark Warm Gray */
 
-    --card: 60 56% 91.2%; /* Light Beige */
+    --card: 48 40% 93%; /* Pale Beige */
     --card-foreground: 35 20% 20%; /* Dark Warm Gray */
 
-    --popover: 60 50% 95%; /* Lighter Beige for popovers for slight contrast */
+    --popover: 48 35% 96%; /* Lighter Pale Beige for popovers */
     --popover-foreground: 35 20% 20%; /* Dark Warm Gray */
 
     --primary: 345 100% 25.1%; /* Wine #800020 */
@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
     --secondary: 300 20% 85%; /* Muted Dusty Rose #E6D1E6 */
     --secondary-foreground: 345 80% 20%; /* Darker Wine for text on Muted Dusty Rose */
 
-    --muted: 60 50% 85%; /* Muted Beige */
+    --muted: 48 35% 88%; /* Muted Pale Beige */
     --muted-foreground: 35 15% 45%; /* Lighter Dark Warm Gray */
 
     --accent: 300 26.1% 79.8%; /* Dusty Rose #D8BFD8 */
@@ -36,20 +36,20 @@ h1, h2, h3, h4, h5, h6 {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 60 30% 80%; /* Darker Beige for borders */
-    --input: 60 30% 86%; /* Slightly lighter than border for input backgrounds */
+    --border: 48 25% 83%; /* Darker Pale Beige for borders */
+    --input: 48 25% 89%; /* Slightly lighter than border for input backgrounds */
     --ring: 345 100% 25.1%; /* Wine for focus rings */
 
     --radius: 0.5rem;
 
     /* Sidebar theme aligned with main theme */
-    --sidebar-background: 60 56% 91.2%;
+    --sidebar-background: 48 40% 93%;
     --sidebar-foreground: 35 20% 20%;
     --sidebar-primary: 345 100% 25.1%;
     --sidebar-primary-foreground: 40 60% 96%;
     --sidebar-accent: 300 26.1% 79.8%;
     --sidebar-accent-foreground: 345 100% 25.1%;
-    --sidebar-border: 60 30% 80%;
+    --sidebar-border: 48 25% 83%;
     --sidebar-ring: 345 100% 25.1%;
     
     --chart-1: 12 76% 61%;
@@ -62,13 +62,13 @@ h1, h2, h3, h4, h5, h6 {
   .dark {
     /* Define dark theme colors if needed, for now, keeping it consistent with light or adjusting based on user needs */
     --background: 35 20% 10%; /* Darker version of foreground for dark mode background */
-    --foreground: 60 50% 95%; /* Light Beige for dark mode text */
+    --foreground: 48 40% 95%; /* Light Pale Beige for dark mode text */
 
     --card: 35 20% 12%; 
-    --card-foreground: 60 50% 95%;
+    --card-foreground: 48 40% 95%; /* Light Pale Beige for dark mode text */
 
     --popover: 35 20% 15%;
-    --popover-foreground: 60 50% 95%;
+    --popover-foreground: 48 40% 95%; /* Light Pale Beige for dark mode text */
 
     --primary: 345 80% 55%; /* Brighter Wine for dark mode */
     --primary-foreground: 35 20% 10%; 
@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Sidebar dark theme aligned */
     --sidebar-background: 35 20% 10%;
-    --sidebar-foreground: 60 50% 95%;
+    --sidebar-foreground: 48 40% 95%; /* Light Pale Beige for dark mode text */
     --sidebar-primary: 345 80% 55%;
     --sidebar-primary-foreground: 35 20% 10%;
     --sidebar-accent: 300 30% 50%;
