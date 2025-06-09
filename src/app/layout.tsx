@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import TopBanner from '@/components/layout/TopBanner';
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Revelio Weddings - Elegancia en Cada Fotograma',
@@ -22,15 +23,22 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
-        <TopBanner />
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <CookieConsentBanner />
-        <Footer />
-        <FloatingWhatsAppButton />
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TopBanner />
+          <Header />
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+          <CookieConsentBanner />
+          <Footer />
+          <FloatingWhatsAppButton />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

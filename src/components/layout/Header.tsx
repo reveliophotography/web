@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { Camera, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { ThemeToggleButton } from '@/components/theme-toggle-button';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -18,7 +19,7 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null; // Avoid hydration mismatch for Sheet component
+  // if (!mounted) return null; // Avoid hydration mismatch for Sheet/ThemeToggleButton, ThemeToggleButton handles its own mounting check
 
   return (
     <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
@@ -29,7 +30,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -39,10 +40,12 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          {mounted && <ThemeToggleButton />} 
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          {mounted && <ThemeToggleButton />}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

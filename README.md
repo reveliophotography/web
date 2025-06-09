@@ -90,6 +90,7 @@ Puedes editar estos textos si necesitas ajustar el mensaje.
 -   **Página de Política de Cookies**: Disponible en `/cookie-policy`. El contenido se edita en `src/app/cookie-policy/page.tsx`.
 -   **Página de Declaración de Accesibilidad**: Disponible en `/accessibility-statement`. El contenido se edita en `src/app/accessibility-statement/page.tsx`.
 -   Los enlaces a estas páginas se encuentran en el pie de página (`src/components/layout/Footer.tsx`).
+-   **Cambio de Tema (Claro/Oscuro)**: Se ha añadido un botón en el encabezado para permitir a los usuarios cambiar entre temas claro, oscuro o usar la configuración del sistema. Esto se gestiona con la biblioteca `next-themes` y se almacena la preferencia del usuario.
 
 ## Desarrollo
 
@@ -118,5 +119,3 @@ yarn genkit:dev
 pnpm genkit:dev
 ```
 Esto iniciará el inspector de Genkit, generalmente en [http://localhost:4000](http://localhost:4000).
-
-```
