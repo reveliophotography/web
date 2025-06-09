@@ -1,4 +1,6 @@
+
 import { Copyright } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +14,16 @@ export default function Footer() {
             {currentYear} Revelio Weddings. Todos los derechos reservados.
           </p>
         </div>
-        <p className="text-xs mt-2">Elegancia en Cada Fotograma</p>
+        <nav className="text-xs mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
+          <Link href="/cookie-policy" className="hover:text-primary transition-colors">
+            Política de Cookies
+          </Link>
+          <span aria-hidden="true">|</span>
+          <Link href="/accessibility-statement" className="hover:text-primary transition-colors">
+            Declaración de Accesibilidad
+          </Link>
+        </nav>
+        <p className="text-xs mt-3">Elegancia en Cada Fotograma</p>
       </div>
     </footer>
   );

@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
 import TopBanner from '@/components/layout/TopBanner';
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
+import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 
 export const metadata: Metadata = {
   title: 'Revelio Weddings - Elegancia en Cada Fotograma',
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main className="flex-grow container mx-auto px-4 py-8">
           {children}
         </main>
+        <CookieConsentBanner />
         <Footer />
         <FloatingWhatsAppButton />
         <Toaster />

@@ -57,7 +57,7 @@ Todas las imágenes de marcador de posición tienen un atributo `data-ai-hint`.
     -   Imagen de fondo a pantalla completa.
     -   Ejemplo de marcador de posición: `https://placehold.co/1920x1080.png`
     -   `data-ai-hint` ejemplos: `"wedding elegance welcome"`, `"romantic landscape"`
-    -   **Nota**: Esta pantalla solo se muestra la primera vez que un usuario visita el sitio, gracias al uso de `localStorage`.
+    -   **Nota**: Esta pantalla solo se muestra la primera vez que un usuario visita el sitio, gracias al uso de `localStorage` (variable `splashScreenShown`).
 -   **Página de Inicio (Hero Carousel - `src/app/page.tsx`)**:
     -   Las imágenes de fondo del carrusel principal.
     -   Ejemplo de marcador de posición: `https://placehold.co/1600x900.png`
@@ -76,6 +76,20 @@ Todas las imágenes de marcador de posición tienen un atributo `data-ai-hint`.
     -   `data-ai-hint` ejemplos: `"couple mountains"`, `"wedding photography"`
 
 **Formato de Marcador de Posición**: Siempre usa `https://placehold.co/<ANCHO>x<ALTO>.png`. No añadas parámetros de texto a la URL del marcador de posición.
+
+### 3. Inclusión de Mascotas
+
+Se ha añadido la mención de que las mascotas son bienvenidas en las sesiones de fotos en:
+- `src/app/page.tsx` (sección de bienvenida)
+- `src/app/packages/page.tsx` (descripción general de paquetes)
+Puedes editar estos textos si necesitas ajustar el mensaje.
+
+### 4. Política de Cookies y Accesibilidad
+
+-   **Banner de Cookies**: Se muestra un banner de consentimiento de cookies en la parte inferior de la página. La preferencia del usuario se guarda en `localStorage` (variable `cookie_consent`). El contenido del banner está en `src/components/layout/CookieConsentBanner.tsx`.
+-   **Página de Política de Cookies**: Disponible en `/cookie-policy`. El contenido se edita en `src/app/cookie-policy/page.tsx`.
+-   **Página de Declaración de Accesibilidad**: Disponible en `/accessibility-statement`. El contenido se edita en `src/app/accessibility-statement/page.tsx`.
+-   Los enlaces a estas páginas se encuentran en el pie de página (`src/components/layout/Footer.tsx`).
 
 ## Desarrollo
 
@@ -104,3 +118,5 @@ yarn genkit:dev
 pnpm genkit:dev
 ```
 Esto iniciará el inspector de Genkit, generalmente en [http://localhost:4000](http://localhost:4000).
+
+```
