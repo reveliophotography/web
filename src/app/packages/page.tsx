@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { photographyPackages } from '@/data/packages';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle, DollarSign, PawPrint } from 'lucide-react';
+import { CheckCircle2, XCircle, PawPrint } from 'lucide-react'; // Removed DollarSign
 import Link from 'next/link';
 
 export default function PackagesPage() {
@@ -39,11 +39,8 @@ export default function PackagesPage() {
               <CardDescription className="text-sm text-muted-foreground pt-1">{pkg.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-grow space-y-4">
-              <div className="flex items-center text-2xl font-semibold text-accent-foreground">
-                <DollarSign className="mr-2 h-6 w-6 text-accent" />
-                {pkg.price}
-              </div>
-              <ul className="space-y-2">
+              {/* Price display removed from here */}
+              <ul className="space-y-2 mt-4"> {/* Added mt-4 for spacing since price is removed */}
                 {pkg.features.map((feature) => (
                   <li key={feature.id} className="flex items-start text-sm">
                     {feature.available ? (

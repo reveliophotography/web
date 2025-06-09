@@ -202,7 +202,7 @@ export default function BookingForm() {
                 </FormControl>
                 <SelectContent>
                   {photographyPackages.map(pkg => (
-                    <SelectItem key={pkg.id} value={pkg.name}>{pkg.name} - {pkg.price}</SelectItem>
+                    <SelectItem key={pkg.id} value={pkg.name}>{pkg.name}</SelectItem>
                   ))}
                   <SelectItem value="Custom">Consulta de Paquete Personalizado</SelectItem>
                   <SelectItem value="Unsure">Indeciso / Solo estoy mirando</SelectItem>
