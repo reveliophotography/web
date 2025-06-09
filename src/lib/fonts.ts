@@ -1,13 +1,15 @@
-import { Playfair_Display, Montserrat } from 'next/font/google';
+import { Lora, Lato } from 'next/font/google';
 
-export const playfairDisplay = Playfair_Display({
+export const lora = Lora({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-playfair-display',
+  variable: '--font-lora',
+  weight: ['400', '500', '600', '700'] 
 });
 
-export const montserrat = Montserrat({
+export const lato = Lato({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-lato',
+  weight: ['300', '400', '700']
 });

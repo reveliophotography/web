@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { playfairDisplay, montserrat } from '@/lib/fonts';
+import { lora, lato } from '@/lib/fonts'; // Updated font imports
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${playfairDisplay.variable} ${montserrat.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${lora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}> {/* Updated font variables and ensured font-sans uses Lato */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

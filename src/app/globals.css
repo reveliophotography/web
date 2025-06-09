@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-lato), system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), serif;
+  font-family: var(--font-lora), serif;
 }
 
 @layer base {
@@ -60,34 +60,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .dark {
-    /* Define dark theme colors if needed, for now, keeping it consistent with light or adjusting based on user needs */
-    --background: 35 20% 10%; /* Darker version of foreground for dark mode background */
-    --foreground: 45 40% 95%; /* Light Pearl/Off-white for dark mode text */
+    --background: 220 15% 15%; /* Darker Neutral Blue/Gray */
+    --foreground: 210 20% 95%; /* Very Light Cool Gray/Off-White */
 
-    --card: 35 20% 12%; 
-    --card-foreground: 45 40% 95%;
+    --card: 220 15% 18%; /* Slightly lighter than background */
+    --card-foreground: 210 20% 95%;
 
-    --popover: 35 20% 15%;
-    --popover-foreground: 45 40% 95%;
+    --popover: 220 15% 20%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 345 80% 55%; /* Brighter Wine for dark mode */
-    --primary-foreground: 35 20% 10%; 
+    --primary: 345 80% 60%; /* Slightly brighter Wine for dark mode */
+    --primary-foreground: 30 100% 97%; /* Very Light Cream for text on Wine */
 
-    --secondary: 300 20% 30%; /* Darker Muted Dusty Rose */
-    --secondary-foreground: 300 30% 80%; /* Lighter Dusty Rose text */
+    --secondary: 300 25% 35%; /* Slightly more saturated Dark Dusty Rose */
+    --secondary-foreground: 300 40% 90%; /* Brighter text for on Secondary */
 
-    --muted: 35 20% 15%;
-    --muted-foreground: 60 30% 65%;
+    --muted: 220 10% 22%; 
+    --muted-foreground: 220 15% 75%; /* Lighter muted text */
 
-    --accent: 300 30% 50%; /* Brighter Dusty Rose for dark mode */
-    --accent-foreground: 35 20% 10%;
+    --accent: 300 40% 60%; /* Brighter Dusty Rose for dark mode accent */
+    --accent-foreground: 30 100% 97%; /* Very Light Cream for text on Accent */
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 35 20% 20%;
-    --input: 35 20% 22%;
-    --ring: 345 80% 55%;
+    --border: 220 15% 28%;
+    --input: 220 15% 25%;
+    --ring: 345 80% 60%; /* Brighter Wine for focus rings */
     
     /* Sidebar dark theme aligned by inheriting vars */
     --sidebar-background: var(--background);
