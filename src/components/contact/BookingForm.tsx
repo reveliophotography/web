@@ -23,11 +23,9 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { handleBookingInquiry, BookingInquiryData } from "@/app/actions";
-import { photographyPackages } from "@/data/packages";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useSearchParams } from 'next/navigation';
-import { useEffect } from "react";
-
+// PhotographyPackages import removed as it's no longer needed
+// Select components import removed as they are no longer needed
+// useSearchParams and useEffect for preselectedPackage removed
 
 const BookingInquirySchema = z.object({
   clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -35,7 +33,7 @@ const BookingInquirySchema = z.object({
   phone: z.string().optional(),
   weddingDate: z.date({ required_error: "La fecha de la boda es obligatoria."}),
   venue: z.string().min(2, { message: "El lugar debe tener al menos 2 caracteres." }),
-  packageOfInterest: z.string().optional(),
+  // packageOfInterest field removed
   message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }).max(500, { message: "El mensaje no puede exceder los 500 caracteres." }),
 });
 
@@ -43,8 +41,7 @@ type BookingFormValues = z.infer<typeof BookingInquirySchema>;
 
 export default function BookingForm() {
   const { toast } = useToast();
-  const searchParams = useSearchParams();
-  const preselectedPackage = searchParams.get('package');
+  // searchParams and preselectedPackage logic removed
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(BookingInquirySchema),
@@ -53,17 +50,12 @@ export default function BookingForm() {
       email: "",
       phone: "",
       venue: "",
-      packageOfInterest: preselectedPackage || "",
+      // packageOfInterest removed from defaultValues
       message: "",
     },
   });
 
-  useEffect(() => {
-    if (preselectedPackage) {
-      form.setValue('packageOfInterest', preselectedPackage);
-    }
-  }, [preselectedPackage, form]);
-
+  // useEffect for preselectedPackage removed
 
   async function onSubmit(values: BookingFormValues) {
     const dataToSubmit: BookingInquiryData = {
@@ -85,7 +77,6 @@ export default function BookingForm() {
         description: "Hubo un problema al enviar tu consulta. Por favor, inténtalo de nuevo.",
         variant: "destructive",
       });
-      // Handle field errors if needed, e.g. result.errors
     }
   }
 
@@ -151,7 +142,7 @@ export default function BookingForm() {
                       )}
                     >
                       {field.value ? (
-                        format(field.value, "PPP")
+                        format(field.value, "PPP", { timeZone: 'UTC' }) // Added timeZone to avoid potential date shift issues
                       ) : (
                         <span>Elige una fecha</span>
                       )}
@@ -164,7 +155,7 @@ export default function BookingForm() {
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
-                    disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
+                    disabled={(date) => date < new Date(new Date().setHours(0,0,0,0)) || date < new Date("1900-01-01")} // Disable past dates more reliably
                     initialFocus
                   />
                 </PopoverContent>
@@ -188,30 +179,7 @@ export default function BookingForm() {
           )}
         />
         
-        <FormField
-          control={form.control}
-          name="packageOfInterest"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Paquete de Interés (Opcional)</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Selecciona un paquete" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {photographyPackages.map(pkg => (
-                    <SelectItem key={pkg.id} value={pkg.name}>{pkg.name}</SelectItem>
-                  ))}
-                  <SelectItem value="Custom">Consulta de Paquete Personalizado</SelectItem>
-                  <SelectItem value="Unsure">Indeciso / Solo estoy mirando</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        {/* Package of Interest FormField removed */}
 
         <FormField
           control={form.control}

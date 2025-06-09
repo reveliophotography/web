@@ -1,10 +1,10 @@
 
-'use client'; // Required for Autoplay plugin and other client-side hooks
+'use client'; 
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Camera, Sparkles, PawPrint } from 'lucide-react';
+import { ArrowRight, Camera, Sparkles, PawPrint, MessageCircle, Mail, Phone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -30,12 +30,23 @@ const featuredImages = [
   { src: 'https://placehold.co/600x400.png', alt: 'Ceremonia de boda pintoresca', dataAiHint: 'wedding ceremony' },
 ];
 
+// Información de contacto para CTAs (similar a TopBanner para consistencia)
+const contactInfo = {
+  displayPhone: "(123) 456-7890",
+  fullPhone: "+1234567890",
+  email: "hello@revelioweddings.com",
+  whatsappNumber: "1234567890",
+  whatsappMessage: "Hola, estoy interesado/a en sus servicios de fotografía de bodas y me gustaría saber más sobre sus paquetes y disponibilidad.",
+};
+const whatsappLink = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappMessage)}`;
+
+
 export default function HomePage() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
-  const [showSplash, setShowSplash] = useState(true); // Default to true, useEffect will correct this
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     const splashScreenShown = localStorage.getItem('splashScreenShown');
@@ -74,19 +85,18 @@ export default function HomePage() {
                   objectFit="cover"
                   className="w-full h-full"
                   data-ai-hint={slide.dataAiHint}
-                  priority={index === 0} // Prioritize loading the first image
+                  priority={index === 0} 
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* Navigation buttons can be subtle or hidden if desired */}
            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 md:h-12 md:w-12" />
            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 md:h-12 md:w-12" />
         </Carousel>
         
-        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
         
-        <div className="relative z-20 p-6 space-y-6 text-white"> {/* Ensure text color contrasts with typical hero images */}
+        <div className="relative z-20 p-6 space-y-6 text-white">
           <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight text-primary-foreground">
             Revelio Weddings
           </h1>
@@ -145,20 +155,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Packages CTA Section */}
+      {/* Custom Services CTA Section */}
       <section className="bg-card p-8 md:p-12 rounded-lg shadow-lg">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-serif font-semibold text-primary mb-4">
-            Nuestros Paquetes de Fotografía
+        <div className="text-center max-w-3xl mx-auto">
+          <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h2 className="text-4xl font-serif font-semibold text-primary mb-4">
+            Servicios Fotográficos a Tu Medida
           </h2>
-          <p className="text-lg text-foreground/80 mb-8">
-            Descubre nuestra gama de paquetes de fotografía diseñados para adaptarse perfectamente a las necesidades de tu día de boda, desde bodas íntimas hasta grandes celebraciones. Cada paquete está elaborado con esmero para garantizar una cobertura completa y recuerdos hermosos y duraderos.
+          <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+            Entendemos que cada boda es única. Nos especializamos en crear experiencias fotográficas personalizadas que reflejen tu estilo y capturen la esencia de tu día. Contáctanos para conversar sobre tus ideas, y juntos diseñaremos la cobertura perfecta para tu celebración.
           </p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="/packages">
-              Ver Paquetes <Sparkles className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link href="/contact">
+                Solicitar Información <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+              <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" /> Chatea por WhatsApp
+              </Link>
+            </Button>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-sm text-foreground/70">
+              O si lo prefieres, llámanos al <Link href={`tel:${contactInfo.fullPhone}`} className="font-medium hover:text-primary underline">{contactInfo.displayPhone}</Link> o envíanos un email a <Link href={`mailto:${contactInfo.email}`} className="font-medium hover:text-primary underline">{contactInfo.email}</Link>.
+            </p>
+          </div>
         </div>
       </section>
     </div>
