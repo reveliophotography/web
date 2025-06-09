@@ -10,8 +10,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext and CarouselPrevious removed as they are no longer needed
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
@@ -19,9 +18,9 @@ import { useState, useEffect } from 'react';
 import SplashScreen from '@/components/splash/SplashScreen';
 
 const heroSlides = [
-  { src: 'https://placehold.co/1600x900.png', alt: 'Hermosa escena de boda 1', dataAiHint: 'bride groom landscape' },
-  { src: 'https://placehold.co/1600x900.png', alt: 'Momentos de celebración únicos', dataAiHint: 'wedding party joy' },
-  { src: 'https://placehold.co/1600x900.png', alt: 'Detalles de boda artísticos', dataAiHint: 'wedding artistic details' },
+  { src: 'https://placehold.co/1920x1080.png', alt: 'Hermosa escena de boda a pantalla completa 1', dataAiHint: 'bride groom landscape' },
+  { src: 'https://placehold.co/1920x1080.png', alt: 'Momentos de celebración únicos a pantalla completa', dataAiHint: 'wedding party joy' },
+  { src: 'https://placehold.co/1920x1080.png', alt: 'Detalles de boda artísticos a pantalla completa', dataAiHint: 'wedding artistic details' },
 ];
 
 const featuredImages = [
@@ -66,8 +65,8 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16 md:space-y-24">
-      {/* Hero Section with Autoplaying Carousel Background */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center rounded-lg overflow-hidden shadow-xl">
+      {/* Hero Section with Autoplaying Carousel Background - Full Width */}
+      <section className="relative h-[70vh] md:h-[85vh] flex items-center justify-center text-center overflow-hidden w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
         <Carousel
           plugins={[plugin.current]}
           opts={{ loop: true }}
@@ -81,17 +80,15 @@ export default function HomePage() {
                 <Image
                   src={slide.src}
                   alt={slide.alt}
-                  layout="fill"
-                  objectFit="cover"
-                  className="w-full h-full"
+                  fill
+                  className="w-full h-full object-cover"
                   data-ai-hint={slide.dataAiHint}
                   priority={index === 0} 
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-           <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 md:h-12 md:w-12" />
-           <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 md:h-12 md:w-12" />
+           {/* CarouselPrevious and CarouselNext removed */}
         </Carousel>
         
         <div className="absolute inset-0 bg-black/40 z-10" />
