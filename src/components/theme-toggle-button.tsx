@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 export function ThemeToggleButton() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme } = useTheme(); // Removed 'theme' as it's not used here
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -22,8 +22,8 @@ export function ThemeToggleButton() {
   }, []);
 
   if (!mounted) {
-    // Render a placeholder or null until mounted to avoid hydration mismatch
-    return <div className="h-9 w-9" />; // Placeholder with same size as button
+    // Render a placeholder with the same size as the button to avoid layout shifts
+    return <div className="h-10 w-10" />; // Matched size 'icon' which is h-10 w-10
   }
 
   return (

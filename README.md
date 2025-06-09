@@ -86,11 +86,17 @@ Puedes editar estos textos si necesitas ajustar el mensaje.
 
 ### 4. Política de Cookies y Accesibilidad
 
--   **Banner de Cookies**: Se muestra un banner de consentimiento de cookies en la parte inferior de la página. La preferencia del usuario se guarda en `localStorage` (variable `cookie_consent`). El contenido del banner está en `src/components/layout/CookieConsentBanner.tsx`.
+-   **Banner de Cookies**: Se muestra un banner de consentimiento de cookies en la parte inferior de la página (`src/components/layout/CookieConsentBanner.tsx`). La preferencia del usuario se guarda en `localStorage` (variable `cookie_consent`).
 -   **Página de Política de Cookies**: Disponible en `/cookie-policy`. El contenido se edita en `src/app/cookie-policy/page.tsx`.
 -   **Página de Declaración de Accesibilidad**: Disponible en `/accessibility-statement`. El contenido se edita en `src/app/accessibility-statement/page.tsx`.
 -   Los enlaces a estas páginas se encuentran en el pie de página (`src/components/layout/Footer.tsx`).
--   **Cambio de Tema (Claro/Oscuro)**: Se ha añadido un botón en el encabezado para permitir a los usuarios cambiar entre temas claro, oscuro o usar la configuración del sistema. Esto se gestiona con la biblioteca `next-themes` y se almacena la preferencia del usuario.
+-   **Cambio de Tema (Claro/Oscuro/Sistema)**:
+    -   Se ha añadido un botón en el encabezado (`src/components/layout/Header.tsx` y `src/components/theme-toggle-button.tsx`) para permitir a los usuarios cambiar entre temas claro, oscuro o usar la configuración del sistema.
+    -   Esta funcionalidad utiliza la biblioteca `next-themes` y almacena la preferencia del usuario.
+    -   Los colores para los temas se definen en `src/app/globals.css`.
+-   **Buenas Prácticas de Accesibilidad**:
+    -   La aplicación utiliza componentes de ShadCN UI, que generalmente están construidos siguiendo las directrices de accesibilidad (WAI-ARIA), incluyendo la navegación por teclado y el uso de atributos ARIA.
+    -   Se anima a mantener estas prácticas al añadir nuevo contenido o componentes.
 
 ## Desarrollo
 
