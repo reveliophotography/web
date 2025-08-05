@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Masonry } from 'masonic';
 import { useWindowSize } from '@/hooks/use-window-size';
 import type { Photo } from '@/types';
-import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const allCategories = ['Todas', ...Array.from(new Set(galleryPhotos.flatMap(p => p.category ?? [])))];
@@ -35,6 +34,11 @@ export default function GalleryPage() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'Todas';
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     // Si la URL cambia (ej. por navegación), actualizamos la categoría
@@ -84,12 +88,14 @@ export default function GalleryPage() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
         >
-          <Masonry
-            items={filteredPhotos}
-            columnGutter={16}
-            columnCount={columnCount}
-            render={PhotoCard}
-          />
+          {isClient && (
+            <Masonry
+              items={filteredPhotos}
+              columnGutter={16}
+              columnCount={columnCount}
+              render={PhotoCard}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
     </div>
