@@ -40,8 +40,8 @@ export default function GalleryPage() {
     setIsClient(true);
   }, []);
 
+  // Sincroniza el estado con la URL solo cuando la URL cambia
   useEffect(() => {
-    // Si la URL cambia (ej. por navegación), actualizamos la categoría
     const categoryFromURL = searchParams.get('category') || 'Todas';
     if (categoryFromURL !== selectedCategory) {
       setSelectedCategory(categoryFromURL);
@@ -88,13 +88,15 @@ export default function GalleryPage() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
         >
-          {isClient && (
+          {isClient ? (
             <Masonry
               items={filteredPhotos}
               columnGutter={16}
               columnCount={columnCount}
               render={PhotoCard}
             />
+          ) : (
+            <div className="w-full h-96 flex items-center justify-center text-muted-foreground">Cargando galería...</div>
           )}
         </motion.div>
       </AnimatePresence>
