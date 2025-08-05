@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const allCategories = ['Todas', ...Array.from(new Set(galleryPhotos.flatMap(p => p.category ?? [])))];
 
 // Componente para una tarjeta de foto individual
-const PhotoCard = ({ item: photo }: { item: Photo }) => (
+const PhotoCard = ({ data: photo }: { data: Photo }) => (
   <div className="relative overflow-hidden rounded-lg shadow-lg group">
     <Image
       src={photo.src}
