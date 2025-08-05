@@ -5,7 +5,8 @@ import { galleryPhotos } from '@/data/gallery';
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Masonry, useWindowSize } from 'masonic';
+import { Masonry } from 'masonic';
+import { useWindowSize } from '@/hooks/use-window-size';
 import type { Photo } from '@/types';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -36,8 +37,12 @@ export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   useEffect(() => {
-    setSelectedCategory(initialCategory);
-  }, [initialCategory]);
+    // Si la URL cambia (ej. por navegación), actualizamos la categoría
+    const categoryFromURL = searchParams.get('category') || 'Todas';
+    if (categoryFromURL !== selectedCategory) {
+      setSelectedCategory(categoryFromURL);
+    }
+  }, [searchParams, selectedCategory]);
 
   const filteredPhotos = useMemo(() => {
     if (selectedCategory === 'Todas') {
