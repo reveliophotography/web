@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Camera, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { ThemeToggleButton } from '@/components/theme-toggle-button';
@@ -17,26 +17,54 @@ const navItems = [
   { href: '/contact', label: 'Contacto' },
 ];
 
+// Reemplaza este SVG con tu propio logo. Puedes pegarlo directamente aquí
+// o importarlo si lo tienes en un archivo .svg separado.
+const Logo = ({ size = 32 }: { size?: number }) => (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
+      <circle cx="12" cy="13" r="3"></circle>
+    </svg>
+);
+
+
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const isHomePage = pathname === '/';
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // Solo activa el fondo si el usuario ha hecho scroll más de 20px
+      // O si no está en la home page (para que el header siempre tenga fondo en otras páginas)
+      setIsScrolled(window.scrollY > 20 || !isHomePage);
     };
+    
+    // Ejecuta handleScroll una vez al cargar para establecer el estado inicial
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname, isHomePage]); // Vuelve a evaluar cuando cambie la ruta
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
+      "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
+      // Aplica fondo solo si isScrolled es true
+      isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-          <Camera size={32} />
+          <Logo size={32} />
           <span className="text-3xl font-serif font-bold">Revelio</span>
         </Link>
 
@@ -48,9 +76,10 @@ export default function Header() {
               href={item.href}
               className={cn(
                 "font-medium text-sm transition-colors",
-                pathname === item.href ? "text-primary" : "text-foreground hover:text-primary",
-                !isScrolled && pathname !== "/" && "text-foreground",
-                !isScrolled && pathname === "/" && "text-white hover:text-primary-foreground/80"
+                pathname === item.href ? "text-primary" : "hover:text-primary",
+                // Si el header no tiene fondo (isScrolled = false) y estamos en la home, el texto es blanco.
+                // En cualquier otro caso, es el color de texto por defecto (foreground).
+                !isScrolled && isHomePage ? "text-white" : "text-foreground"
               )}
             >
               {item.label}
@@ -65,7 +94,7 @@ export default function Header() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu className={cn("h-6 w-6", isScrolled || pathname !== '/' ? 'text-primary' : 'text-white')} />
+                <Menu className={cn("h-6 w-6", !isScrolled && isHomePage ? 'text-white' : 'text-primary')} />
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
@@ -73,7 +102,7 @@ export default function Header() {
               <div className="flex flex-col gap-6 mt-8">
               <SheetClose asChild>
                  <Link href="/" className="flex items-center gap-2 text-primary mb-6">
-                    <Camera size={28} />
+                    <Logo size={28} />
                     <span className="text-2xl font-serif font-bold">Revelio</span>
                   </Link>
                 </SheetClose>
