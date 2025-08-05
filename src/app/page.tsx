@@ -30,14 +30,14 @@ const weddingStories = [
     dataAiHint: "wedding ceremony",
     title: "Ana & Javier | Finca La Concepción",
     description: "Una boda mágica bajo las estrellas de Marbella. Capturamos la energía y la alegría de una noche inolvidable, donde cada detalle contaba una parte de su historia de amor.",
-    link: "/gallery" // Idealmente, esto iría a una página de blog o galería específica
+    link: "/gallery?category=Boda+de+Ana+y+Javier"
   },
   {
     imageSrc: "https://placehold.co/800x600.png",
     dataAiHint: "wedding couple portrait",
     title: "Lucía & Marcos | Carmen de los Mártires",
     description: "La luz de Granada fue el escenario perfecto. Una celebración íntima y emotiva, donde las miradas y los gestos hablaron más alto que las palabras. Fue un honor ser testigos.",
-    link: "/gallery"
+    link: "/gallery?category=Boda+de+Luc%C3%ADa+y+Marcos"
   }
 ];
 

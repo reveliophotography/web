@@ -2,62 +2,91 @@
 'use client';
 import Image from 'next/image';
 import { galleryPhotos } from '@/data/gallery';
-import { Card, CardContent } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import * as React from "react";
+import { useSearchParams } from 'next/navigation';
+import { useState, useMemo, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Masonry, useWindowSize } from 'masonic';
+import type { Photo } from '@/types';
+import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const allCategories = ['Todas', ...Array.from(new Set(galleryPhotos.flatMap(p => p.category ?? [])))];
+
+// Componente para una tarjeta de foto individual
+const PhotoCard = ({ item: photo }: { item: Photo }) => (
+  <div className="relative overflow-hidden rounded-lg shadow-lg group">
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      width={500}
+      height={photo.height || 750} // Asignamos una altura por defecto o la que venga en los datos
+      className="w-full h-auto"
+      data-ai-hint={photo.dataAiHint}
+    />
+    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <p className="absolute bottom-4 left-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {photo.alt}
+    </p>
+  </div>
+);
 
 export default function GalleryPage() {
-   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
-  );
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') || 'Todas';
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
+
+  const filteredPhotos = useMemo(() => {
+    if (selectedCategory === 'Todas') {
+      return galleryPhotos;
+    }
+    return galleryPhotos.filter(photo => photo.category === selectedCategory);
+  }, [selectedCategory]);
+
+  const { width } = useWindowSize();
+  const columnCount = width ? (width < 640 ? 2 : width < 1024 ? 3 : 4) : 3;
 
   return (
-    <div className="space-y-12 container mx-auto px-4 py-8">
-      <section className="text-center">
+    <div className="container mx-auto px-4 py-16 sm:py-24">
+      <section className="text-center mb-12">
         <h1 className="text-5xl font-serif font-semibold text-primary mb-4">Galería de Historias</h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          Un viaje visual a través de las emociones, los detalles y la magia de las bodas que he tenido el honor de capturar. Cada imagen es un capítulo de una historia de amor única.
+          Un viaje visual a través de las emociones y la magia de las bodas. Filtra por categoría para explorar cada momento.
         </p>
       </section>
 
-      <section className="flex justify-center">
-        <Carousel
-          plugins={[plugin.current]}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-4xl"
+      <nav className="flex justify-center flex-wrap gap-2 mb-12">
+        {allCategories.map(category => (
+          <Button
+            key={category}
+            variant={selectedCategory === category ? 'default' : 'outline'}
+            onClick={() => setSelectedCategory(category)}
+            className="rounded-full"
+          >
+            {category}
+          </Button>
+        ))}
+      </nav>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedCategory}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
         >
-          <CarouselContent>
-            {galleryPhotos.map((photo) => (
-              <CarouselItem key={photo.id}>
-                <Card className="overflow-hidden border-0 shadow-none rounded-none">
-                  <CardContent className="p-0 aspect-w-16 aspect-h-9">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      width={1200}
-                      height={800}
-                      className="w-full h-full object-contain"
-                      data-ai-hint={photo.dataAiHint}
-                    />
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
-        </Carousel>
-      </section>
+          <Masonry
+            items={filteredPhotos}
+            columnGutter={16}
+            columnCount={columnCount}
+            render={PhotoCard}
+          />
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
