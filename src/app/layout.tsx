@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { lora, lato } from '@/lib/fonts'; // Updated font imports
+import { lora, lato } from '@/lib/fonts';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -11,8 +11,8 @@ import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Revelio Weddings - Elegancia en Cada Fotograma',
-  description: 'Capturando tu día especial con pasión y arte. Revelio Weddings ofrece servicios de fotografía de bodas a medida.',
+  title: 'Revelio Weddings - Fotografía de Bodas Artística',
+  description: 'Capturando la esencia de vuestra historia de amor con un enfoque artístico y atemporal. Fotografía de bodas para parejas que buscan algo más que simples fotos.',
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${lora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}> {/* Updated font variables and ensured font-sans uses Lato */}
+      <body className={`${lora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -31,7 +31,7 @@ export default function RootLayout({
         >
           <TopBanner />
           <Header />
-          <main className="flex-grow container mx-auto px-4 py-8">
+          <main className="flex-grow">
             {children}
           </main>
           <CookieConsentBanner />

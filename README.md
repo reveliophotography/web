@@ -1,102 +1,46 @@
 
-# Firebase Studio
+# Firebase Studio - Revelio Weddings
 
-Este es un proyecto de inicio de NextJS en Firebase Studio.
+Este es un proyecto de NextJS para un fotógrafo de bodas, con un enfoque artístico y minimalista.
 
 ## Primeros Pasos
 
-Para comenzar, echa un vistazo a `src/app/page.tsx`.
+Para comenzar, echa un vistazo a `src/app/page.tsx` para ver la página principal.
 
-## Personalización
+## Estructura y Personalización
 
-Aquí encontrarás instrucciones sobre cómo personalizar algunas características clave de la aplicación:
+### 1. Información de Contacto y Personal
 
-### 1. Configurar Enlaces de Contacto
+Es crucial que reemplaces la información de ejemplo con tus datos reales en los siguientes archivos:
 
-#### a. Botón Flotante de WhatsApp
+-   `src/app/legal-notice/page.tsx`: **(MUY IMPORTANTE)** Rellena `companyName`, `nif`, `address`, `email` y `domainName` con tus datos fiscales y de contacto.
+-   `src/app/privacy-policy/page.tsx`: **(MUY IMPORTANTE)** Rellena `companyName`, `nif`, `address`, `email` y `domainName` con tus datos fiscales y de contacto.
+-   `src/components/layout/TopBanner.tsx`: Actualiza tu teléfono, email, usuario de Instagram y número de WhatsApp.
+-   `src/components/layout/FloatingWhatsAppButton.tsx`: Configura tu número de teléfono de WhatsApp y el mensaje predeterminado.
+-   `src/app/contact/page.tsx`: Revisa la información de contacto que se muestra como alternativa al formulario.
 
-Este botón permite a los usuarios contactarte directamente a través de WhatsApp.
+### 2. Contenido de las Páginas
 
--   **Archivo a modificar**: `src/components/layout/FloatingWhatsAppButton.tsx`
--   **Qué cambiar**:
-    -   Busca la variable `phoneNumber`. Debes reemplazar el valor de ejemplo (`"521XXXXXXXXXX"`) con tu número de WhatsApp real.
-        -   **Formato**: Incluye el código de país seguido de tu número, sin el símbolo `+` ni ceros iniciales. Por ejemplo, para un número de México, si tu código de país es +52 y tu número es 1234567890, el valor sería `"521234567890"`. Para un número de España (+34) 123456789 sería `"34123456789"`.
-    -   Busca la variable `message`. Puedes personalizar el mensaje predeterminado que se enviará cuando un usuario haga clic en el botón.
+-   **Página de Inicio (`src/app/page.tsx`)**: Muestra un carrusel a pantalla completa y una breve introducción sobre ti.
+-   **Página "Sobre Mí" (`src/app/about/page.tsx`)**: Un espacio dedicado para hablar de ti, tu filosofía y tu forma de trabajar. Es fundamental para conectar con los clientes.
+-   **Página de Galería (`src/app/gallery/page.tsx` y `src/data/gallery.ts`)**: Muestra tus mejores trabajos. Edita `src/data/gallery.ts` para añadir tus propias fotos.
+-   **Páginas Legales**:
+    -   `src/app/legal-notice/page.tsx`: Aviso Legal.
+    -   `src/app/privacy-policy/page.tsx`: Política de Privacidad.
+    -   `src/app/cookie-policy/page.tsx`: Política de Cookies.
+    -   `src/app/accessibility-statement/page.tsx`: Declaración de Accesibilidad.
 
-#### b. Banner Superior
+### 3. Gestión de Imágenes (`data-ai-hint`)
 
-El banner superior muestra información de contacto y enlaces a redes sociales.
+Todas las imágenes de marcador de posición (`https://placehold.co/...`) incluyen un atributo `data-ai-hint` con palabras clave (ej: `"wedding couple"`). Este atributo es útil para identificar el tipo de imagen que debería ir en cada lugar.
 
--   **Archivo a modificar**: `src/components/layout/TopBanner.tsx`
--   **Qué cambiar**:
-    -   **Teléfono**:
-        -   `displayPhone`: El texto que se muestra para el número de teléfono. (Ej: `"(123) 456-7890"`)
-        -   `fullPhone`: El número de teléfono completo para el enlace `tel:`. (Ej: `"+1234567890"`)
-    -   **Email**:
-        -   `email`: Tu dirección de correo electrónico. (Ej: `"hello@revelioweddings.com"`)
-    -   **WhatsApp**:
-        -   `whatsappNumber`: Tu número de WhatsApp (solo el número, sin código de país si ya está en formato internacional para `wa.me`). (Ej: `"1234567890"` si el enlace es `https://wa.me/1234567890`) O tu número completo con código de país si así lo requiere el enlace.
-        -   `whatsappMessage`: El mensaje predeterminado para el enlace de WhatsApp.
-    -   **Instagram**:
-        -   `instagramUser`: Tu nombre de usuario de Instagram. (Ej: `"revelioweddings"`)
+### 4. Funcionalidades Clave
 
-### 2. Gestión de Imágenes
-
-La aplicación utiliza imágenes de marcador de posición de `https://placehold.co/`. Cuando reemplaces estas imágenes, ten en cuenta lo siguiente:
-
-#### a. Atributo `data-ai-hint`
-
-Todas las imágenes de marcador de posición tienen un atributo `data-ai-hint`.
--   **Propósito**: Este atributo ayuda a identificar el tipo de imagen que debería ir en ese lugar. Contiene una o dos palabras clave (separadas por espacios) que pueden usarse para buscar imágenes adecuadas en servicios como Unsplash.
--   **Ejemplo**: `data-ai-hint="wedding couple"` o `data-ai-hint="bride ceremony"`.
--   **Recomendación**: Cuando añadas tus propias imágenes, considera mantener o actualizar este atributo si planeas usar herramientas de IA para la selección de imágenes en el futuro.
-
-#### b. Tamaños de Imagen Recomendados
-
--   **Pantalla de Bienvenida (Splash Screen - `src/components/splash/SplashScreen.tsx`)**:
-    -   Imagen de fondo a pantalla completa.
-    -   Ejemplo de marcador de posición: `https://placehold.co/1920x1080.png`
-    -   `data-ai-hint` ejemplos: `"wedding elegance welcome"`, `"romantic landscape"`
-    -   **Nota**: Esta pantalla solo se muestra la primera vez que un usuario visita el sitio, gracias al uso de `localStorage` (variable `splashScreenShown`).
--   **Página de Inicio (Hero Carousel - `src/app/page.tsx`)**:
-    -   Las imágenes de fondo del carrusel principal.
-    -   Ejemplo de marcador de posición: `https://placehold.co/1600x900.png`
-    -   `data-ai-hint` ejemplos: `"bride groom landscape"`, `"wedding party joy"`
--   **Página de Inicio (Mini Galería - `src/app/page.tsx`)**:
-    -   Pequeñas imágenes destacadas.
-    -   Ejemplo de marcador de posición: `https://placehold.co/600x400.png`
-    -   `data-ai-hint` ejemplos: `"wedding couple"`, `"wedding details"`
--   **Página de Galería (`src/app/gallery/page.tsx` y `src/data/gallery.ts`)**:
-    -   Imágenes para el carrusel de la galería.
-    -   Ejemplo de marcador de posición: `https://placehold.co/800x600.png`
-    -   `data-ai-hint` ejemplos: `"wedding couple sunset"`, `"bride aisle"`
--   **Página de Paquetes (`src/app/packages/page.tsx` y `src/data/packages.ts`)**:
-    -   Imágenes para las tarjetas de los paquetes de fotografía.
-    -   Ejemplo de marcador de posición: `https://placehold.co/600x400.png`
-    -   `data-ai-hint` ejemplos: `"couple mountains"`, `"wedding photography"`
-
-**Formato de Marcador de Posición**: Siempre usa `https://placehold.co/<ANCHO>x<ALTO>.png`. No añadas parámetros de texto a la URL del marcador de posición.
-
-### 3. Inclusión de Mascotas
-
-Se ha añadido la mención de que las mascotas son bienvenidas en las sesiones de fotos en:
-- `src/app/page.tsx` (sección de bienvenida)
-- `src/app/packages/page.tsx` (descripción general de paquetes)
-Puedes editar estos textos si necesitas ajustar el mensaje.
-
-### 4. Política de Cookies y Accesibilidad
-
--   **Banner de Cookies**: Se muestra un banner de consentimiento de cookies en la parte inferior de la página (`src/components/layout/CookieConsentBanner.tsx`). La preferencia del usuario se guarda en `localStorage` (variable `cookie_consent`).
--   **Página de Política de Cookies**: Disponible en `/cookie-policy`. El contenido se edita en `src/app/cookie-policy/page.tsx`.
--   **Página de Declaración de Accesibilidad**: Disponible en `/accessibility-statement`. El contenido se edita en `src/app/accessibility-statement/page.tsx`.
--   Los enlaces a estas páginas se encuentran en el pie de página (`src/components/layout/Footer.tsx`).
--   **Cambio de Tema (Claro/Oscuro/Sistema)**:
-    -   Se ha añadido un botón en el encabezado (`src/components/layout/Header.tsx` y `src/components/theme-toggle-button.tsx`) para permitir a los usuarios cambiar entre temas claro, oscuro o usar la configuración del sistema.
-    -   Esta funcionalidad utiliza la biblioteca `next-themes` y almacena la preferencia del usuario.
-    -   Los colores para los temas se definen en `src/app/globals.css`.
--   **Buenas Prácticas de Accesibilidad**:
-    -   La aplicación utiliza componentes de ShadCN UI, que generalmente están construidos siguiendo las directrices de accesibilidad (WAI-ARIA), incluyendo la navegación por teclado y el uso de atributos ARIA.
-    -   Se anima a mantener estas prácticas al añadir nuevo contenido o componentes.
+-   **Diseño Responsivo**: La web está adaptada para móviles, tablets y ordenadores.
+-   **Tema Claro/Oscuro**: Se ha añadido un botón en el encabezado para permitir a los usuarios cambiar entre temas, mejorando la accesibilidad. La preferencia se guarda.
+-   **Header Inteligente**: El header es transparente sobre el carrusel de la página de inicio y se vuelve opaco con un fondo desenfocado al hacer scroll, mejorando la visibilidad y la estética.
+-   **Consentimiento de Cookies**: Un banner informa a los usuarios sobre el uso de cookies y enlaza a la política correspondiente.
+-   **Formulario de Contacto con Validación**: El formulario en la página de contacto incluye validación de campos y requiere la aceptación de la política de privacidad.
 
 ## Desarrollo
 
@@ -111,17 +55,3 @@ pnpm dev
 ```
 
 Abre [http://localhost:9002](http://localhost:9002) en tu navegador para ver el resultado.
-
-### Ejecutar Genkit (para funciones de IA):
-
-Si en el futuro añades funcionalidades de IA con Genkit:
-En una terminal separada, ejecuta:
-
-```bash
-npm run genkit:dev
-# o
-yarn genkit:dev
-# o
-pnpm genkit:dev
-```
-Esto iniciará el inspector de Genkit, generalmente en [http://localhost:4000](http://localhost:4000).

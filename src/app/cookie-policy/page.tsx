@@ -2,69 +2,72 @@
 import Link from 'next/link';
 
 export default function CookiePolicyPage() {
+  const siteName = "Revelio Weddings";
+  const companyName = "Revelio Weddings"; // Reemplazar con el nombre de tu empresa/autónomo
+  const contactEmail = "hello@revelioweddings.com"; // Reemplazar con tu email
+
   return (
-    <div className="space-y-8 max-w-3xl mx-auto">
-      <section className="text-center">
-        <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Política de Cookies</h1>
-      </section>
+    <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
+      <div className="space-y-8">
+        <section className="text-center">
+          <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Política de Cookies</h1>
+        </section>
 
-      <section className="space-y-4 text-foreground/80">
-        <p>Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <section className="space-y-4 text-foreground/80 text-base leading-relaxed">
+          <p>Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">1. ¿Qué son las cookies?</h2>
-        <p>
-          Una cookie es un pequeño archivo de texto que un sitio web almacena en tu ordenador o dispositivo móvil cuando visitas el sitio.
-          Permite que el sitio web recuerde tus acciones y preferencias (como inicio de sesión, idioma, tamaño de fuente y otras preferencias de visualización)
-          durante un período de tiempo, para que no tengas que volver a introducirlas cada vez que regreses al sitio o navegues de una página a otra.
-        </p>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">1. ¿Qué son las cookies?</h2>
+          <p>
+            Una cookie es un pequeño fichero de texto que un sitio web almacena en el ordenador o dispositivo móvil del usuario cuando visita el sitio. Las cookies permiten que el sitio web recuerde las acciones y preferencias del usuario (como inicio de sesión, idioma, tamaño de fuente y otras preferencias de visualización) durante un período de tiempo, para que no tenga que volver a configurarlas cada vez que regrese al sitio o navegue de una página a otra.
+          </p>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">2. ¿Cómo utilizamos las cookies?</h2>
-        <p>En nuestro sitio web, Revelio Weddings, utilizamos cookies para los siguientes propósitos:</p>
-        <ul className="list-disc list-inside space-y-2 pl-4">
-          <li>
-            <strong>Cookies Esenciales/Funcionales:</strong> Algunas cookies son esenciales para que puedas navegar por el sitio web y utilizar sus funciones.
-            Por ejemplo, utilizamos `localStorage` (que funciona de manera similar a las cookies para el almacenamiento en el navegador) para:
-            <ul className="list-disc list-inside space-y-1 pl-6 mt-1">
-                <li>Recordar si ya has visto nuestra pantalla de bienvenida (`splashScreenShown`), para no mostrártela en cada visita a la página de inicio.</li>
-                <li>Recordar tu consentimiento sobre el uso de cookies (`cookie_consent`), para no mostrarte el banner de consentimiento repetidamente.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Cookies de Preferencias:</strong> Estas cookies permiten que nuestro sitio web recuerde información que cambia la forma en que se comporta o se ve el sitio, como tu idioma preferido o la región en la que te encuentras. Actualmente no utilizamos cookies de preferencias específicas más allá de las funcionales mencionadas.
-          </li>
-          <li>
-            <strong>Cookies Analíticas/De Rendimiento:</strong> Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web recopilando y reportando información de forma anónima. Esto nos ayuda a mejorar el funcionamiento de nuestro sitio. (Nota: Actualmente no tenemos implementadas cookies analíticas de terceros como Google Analytics, pero podríamos hacerlo en el futuro).
-          </li>
-          <li>
-            <strong>Cookies de Marketing/Publicidad:</strong> Estas cookies se utilizan para rastrear a los visitantes en los sitios web. La intención es mostrar anuncios que sean relevantes y atractivos para el usuario individual. (Nota: Actualmente no utilizamos cookies de marketing de terceros).
-          </li>
-        </ul>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">2. ¿Qué tipos de cookies utilizamos?</h2>
+          <p>En {siteName}, utilizamos los siguientes tipos de cookies:</p>
+          <ul className="list-disc list-inside space-y-3 pl-4">
+            <li>
+              <strong>Cookies técnicas o funcionales:</strong> Son aquellas que son esenciales para el funcionamiento del sitio web. Sin ellas, el sitio no podría funcionar correctamente. Utilizamos cookies funcionales (a través de `localStorage` del navegador, que funciona de manera similar) para:
+              <ul className="list-disc list-inside space-y-1 pl-6 mt-2">
+                  <li>Recordar tu consentimiento sobre el uso de cookies (`cookie_consent`), para no mostrarte el banner de consentimiento repetidamente una vez aceptado.</li>
+                  <li>Recordar si ya has visto nuestra pantalla de bienvenida (`splashScreenShown`), para mejorar tu experiencia de navegación en visitas posteriores.</li>
+                  <li>Recordar tu preferencia de tema (claro/oscuro/sistema) para adaptar la apariencia del sitio.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Cookies analíticas o de rendimiento:</strong> Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web, recopilando y proporcionando información de forma anónima. Nos permiten contar las visitas y fuentes de tráfico para poder medir y mejorar el rendimiento de nuestro sitio. <br />
+              <em>(Actualmente, no tenemos implementadas cookies analíticas de terceros como Google Analytics, pero nos reservamos el derecho a hacerlo en el futuro, actualizando esta política en consecuencia).</em>
+            </li>
+            <li>
+              <strong>Cookies de publicidad comportamental:</strong> Estas cookies almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.<br />
+              <em>(Actualmente, no utilizamos cookies de este tipo).</em>
+            </li>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">3. Cookies de Terceros</h2>
-        <p>
-          Actualmente, nuestro sitio web no utiliza cookies de terceros para publicidad o análisis avanzados. Sin embargo, algunos de nuestros servicios integrados (como los enlaces a redes sociales o WhatsApp) pueden establecer sus propias cookies si interactúas con ellos. No tenemos control sobre estas cookies. Te recomendamos que consultes las políticas de cookies de estos servicios de terceros para obtener más información.
-        </p>
+          </ul>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">4. ¿Cómo controlar las cookies?</h2>
-        <p>
-          Puedes controlar y/o eliminar las cookies como desees. Para más detalles, consulta <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">aboutcookies.org</a>.
-          Puedes eliminar todas las cookies que ya están en tu ordenador y puedes configurar la mayoría de los navegadores para evitar que se coloquen. Sin embargo, si haces esto, es posible que tengas que ajustar manualmente algunas preferencias cada vez que visites un sitio y que algunos servicios y funcionalidades no funcionen.
-        </p>
-        <p>
-          Para el almacenamiento local (`localStorage`) utilizado por nuestro sitio, puedes borrarlo a través de las herramientas de desarrollador de tu navegador (generalmente en la pestaña "Aplicación" o "Almacenamiento").
-        </p>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">3. ¿Cómo controlar y eliminar las cookies?</h2>
+          <p>
+            Puedes controlar, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en tu ordenador. A continuación, te proporcionamos enlaces a las instrucciones de los navegadores más populares:
+          </p>
+          <ul className="list-disc list-inside space-y-2 pl-4">
+            <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Google Chrome</a></li>
+            <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Mozilla Firefox</a></li>
+            <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Apple Safari</a></li>
+            <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Microsoft Edge</a></li>
+          </ul>
+          <p>
+            Si bloqueas las cookies, es posible que algunos servicios o funcionalidades de la web no funcionen correctamente.
+          </p>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">5. Cambios en nuestra Política de Cookies</h2>
-        <p>
-          Podemos actualizar nuestra Política de Cookies de vez en cuando. Te notificaremos cualquier cambio publicando la nueva Política de Cookies en esta página.
-          Se te aconseja revisar esta Política de Cookies periódicamente para cualquier cambio. Los cambios a esta Política de Cookies son efectivos cuando se publican en esta página.
-        </p>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">4. Cambios en la Política de Cookies</h2>
+          <p>
+            {companyName} puede modificar esta Política de Cookies en función de exigencias legislativas, reglamentarias, o con la finalidad de adaptar dicha política a las instrucciones dictadas por la Agencia Española de Protección de Datos. Por ello se aconseja a los usuarios que la visiten periódicamente.
+          </p>
 
-        <h2 className="text-2xl font-serif font-semibold text-primary pt-4">6. Contáctanos</h2>
-        <p>
-          Si tienes alguna pregunta sobre esta Política de Cookies, puedes contactarnos a través de la información proporcionada en nuestra página de <Link href="/contact" className="underline hover:text-primary">Contacto</Link>.
-        </p>
-      </section>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">5. Contacto</h2>
+          <p>
+            Si tienes alguna pregunta sobre esta Política de Cookies, puedes contactarnos a través de nuestro <Link href="/contact" className="underline hover:text-primary">formulario de contacto</Link> o escribiéndonos a {contactEmail}.
+          </p>
+        </section>
+      </div>
     </div>
   );
 }

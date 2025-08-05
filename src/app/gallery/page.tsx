@@ -1,4 +1,5 @@
 
+'use client';
 import Image from 'next/image';
 import { galleryPhotos } from '@/data/gallery';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,53 +10,52 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import * as React from "react";
 
 export default function GalleryPage() {
+   const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
+
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 container mx-auto px-4 py-8">
       <section className="text-center">
-        <h1 className="text-5xl font-serif font-semibold text-primary mb-4">Nuestra Galería</h1>
-        <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-          Adéntrate en el mundo de Revelio Weddings. Cada fotografía es un testimonio de amor, alegría y los momentos inolvidables que hacen que tu día sea único.
+        <h1 className="text-5xl font-serif font-semibold text-primary mb-4">Galería de Historias</h1>
+        <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+          Un viaje visual a través de las emociones, los detalles y la magia de las bodas que he tenido el honor de capturar. Cada imagen es un capítulo de una historia de amor única.
         </p>
       </section>
 
       <section className="flex justify-center">
         <Carousel
+          plugins={[plugin.current]}
           opts={{
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-xl md:max-w-2xl lg:max-w-3xl" // Ajustado max-w para una sola imagen grande
+          className="w-full max-w-4xl"
         >
           <CarouselContent>
             {galleryPhotos.map((photo) => (
-              <CarouselItem key={photo.id} className="basis-full"> {/* Carrusel muestra una imagen a la vez */}
-                <div className="p-1">
-                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-                    <CardContent className="p-0 aspect-w-4 aspect-h-3">
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={photo.dataAiHint}
-                      />
-                    </CardContent>
-                    {photo.category && (
-                       <div className="p-4 bg-card">
-                          <p className="text-sm font-normal text-primary">{photo.category}</p> {/* Cambiado font-medium a font-normal */}
-                          <p className="text-xs text-muted-foreground truncate">{photo.alt}</p>
-                       </div>
-                    )}
-                  </Card>
-                </div>
+              <CarouselItem key={photo.id}>
+                <Card className="overflow-hidden border-0 shadow-none rounded-none">
+                  <CardContent className="p-0 aspect-w-16 aspect-h-9">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={1200}
+                      height={800}
+                      className="w-full h-full object-contain"
+                      data-ai-hint={photo.dataAiHint}
+                    />
+                  </CardContent>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-2" />
+          <CarouselNext className="right-2" />
         </Carousel>
       </section>
     </div>
