@@ -2,8 +2,8 @@
 'use client';
 import Image from 'next/image';
 import { galleryPhotos } from '@/data/gallery';
-import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Masonry } from 'masonic';
 import { useWindowSize } from '@/hooks/use-window-size';
@@ -19,7 +19,7 @@ const PhotoCard = ({ data: photo }: { data: Photo }) => (
       src={photo.src}
       alt={photo.alt}
       width={500}
-      height={photo.height || 750} // Asignamos una altura por defecto o la que venga en los datos
+      height={photo.height || 750} 
       className="w-full h-auto"
       data-ai-hint={photo.dataAiHint}
     />
@@ -31,8 +31,11 @@ const PhotoCard = ({ data: photo }: { data: Photo }) => (
 );
 
 export default function GalleryPage() {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'Todas';
+
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [isClient, setIsClient] = useState(false);
 
@@ -40,13 +43,24 @@ export default function GalleryPage() {
     setIsClient(true);
   }, []);
 
-  // Sincroniza el estado con la URL solo cuando la URL cambia
+  // Sincroniza el estado con la URL solo si la URL cambia
   useEffect(() => {
     const categoryFromURL = searchParams.get('category') || 'Todas';
     if (categoryFromURL !== selectedCategory) {
       setSelectedCategory(categoryFromURL);
     }
   }, [searchParams, selectedCategory]);
+
+  const handleFilterClick = useCallback((category: string) => {
+    setSelectedCategory(category);
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    if (category === 'Todas') {
+      newSearchParams.delete('category');
+    } else {
+      newSearchParams.set('category', category);
+    }
+    router.push(`${pathname}?${newSearchParams.toString()}`, { scroll: false });
+  }, [pathname, router, searchParams]);
 
   const filteredPhotos = useMemo(() => {
     if (selectedCategory === 'Todas') {
@@ -72,7 +86,7 @@ export default function GalleryPage() {
           <Button
             key={category}
             variant={selectedCategory === category ? 'default' : 'outline'}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => handleFilterClick(category)}
             className="rounded-full"
           >
             {category}
