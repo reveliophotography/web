@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
 import { ThemeToggleButton } from '@/components/theme-toggle-button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -17,8 +17,6 @@ const navItems = [
   { href: '/contact', label: 'Contacto' },
 ];
 
-// Reemplaza este SVG con tu propio logo. Puedes pegarlo directamente aquí
-// o importarlo si lo tienes en un archivo .svg separado.
 const Logo = ({ size = 32 }: { size?: number }) => (
     <svg 
       width={size} 
@@ -44,22 +42,18 @@ export default function Header() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      // Solo activa el fondo si el usuario ha hecho scroll más de 20px
-      // O si no está en la home page (para que el header siempre tenga fondo en otras páginas)
       setIsScrolled(window.scrollY > 20 || !isHomePage);
     };
     
-    // Ejecuta handleScroll una vez al cargar para establecer el estado inicial
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname, isHomePage]); // Vuelve a evaluar cuando cambie la ruta
+  }, [pathname, isHomePage]);
 
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-      // Aplica fondo solo si isScrolled es true
       isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
@@ -77,8 +71,6 @@ export default function Header() {
               className={cn(
                 "font-medium text-sm transition-colors",
                 pathname === item.href ? "text-primary" : "hover:text-primary",
-                // Si el header no tiene fondo (isScrolled = false) y estamos en la home, el texto es blanco.
-                // En cualquier otro caso, es el color de texto por defecto (foreground).
                 !isScrolled && isHomePage ? "text-white" : "text-foreground"
               )}
             >
@@ -99,6 +91,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background p-6">
+              <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
               <div className="flex flex-col gap-6 mt-8">
               <SheetClose asChild>
                  <Link href="/" className="flex items-center gap-2 text-primary mb-6">
