@@ -1,3 +1,4 @@
+
 import { Explora, Lato } from 'next/font/google';
 
 export const explora = Explora({

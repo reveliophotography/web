@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${explora.variable} ${lato.variable} antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${explora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
