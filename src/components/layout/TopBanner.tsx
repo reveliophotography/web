@@ -18,7 +18,7 @@ export default function TopBanner() {
   return (
     <div className="bg-muted text-muted-foreground py-2 px-4 md:px-6 border-b border-border">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center text-xs">
-        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap justify-center sm:justify-start mb-2 sm:mb-0">
+        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap justify-center sm:justify-start mb-1 sm:mb-0">
           <Link href={`tel:${fullPhone}`} className="hover:text-primary transition-colors flex items-center gap-1">
             <Phone size={14} /> {displayPhone}
           </Link>

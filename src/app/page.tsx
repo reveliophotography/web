@@ -97,7 +97,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40 z-10" />
         
         <div className="relative z-20 p-6 space-y-6 text-white max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight text-primary-foreground">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight text-primary-foreground">
             Fotografía de Bodas con Alma
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90">

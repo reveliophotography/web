@@ -64,8 +64,8 @@ export default function Header() {
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-          <Logo size={32} />
-          <span className="text-3xl font-serif font-bold">Revelio</span>
+          <Logo size={28} />
+          <span className="text-2xl md:text-3xl font-serif font-bold">Revelio</span>
         </Link>
 
         {/* Desktop Navigation */}
