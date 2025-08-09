@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-lato), system-ui, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-explora), serif;
-}
-
 @layer base {
   :root {
     --background: 45 50% 97%; /* Pearl White - Very Light, slightly warm beige */
@@ -105,12 +97,15 @@ h1, h2, h3, h4, h5, h6 {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
   main {
     flex-grow: 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
   }
 }
