@@ -1,10 +1,10 @@
-import { Lora, Lato } from 'next/font/google';
+import { Explora, Lato } from 'next/font/google';
 
-export const lora = Lora({
+export const explora = Explora({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-lora',
-  weight: ['400', '500', '600', '700'] 
+  variable: '--font-explora',
+  weight: '400',
 });
 
 export const lato = Lato({

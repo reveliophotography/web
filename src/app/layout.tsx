@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { lora, lato } from '@/lib/fonts';
+import { explora, lato } from '@/lib/fonts';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${lora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${explora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

@@ -18,8 +18,8 @@ export default {
     },
   	extend: {
       fontFamily: {
-        sans: ['var(--font-lato)', ...fontFamily.sans], // Updated to Lato
-        serif: ['var(--font-lora)', ...fontFamily.serif], // Updated to Lora
+        sans: ['var(--font-lato)', ...fontFamily.sans],
+        serif: ['var(--font-explora)', ...fontFamily.serif],
       },
   		colors: {
   			background: 'hsl(var(--background))',
