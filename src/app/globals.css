@@ -5,13 +5,13 @@
 
 @layer base {
   :root {
-    --background: 45 50% 97%; /* Pearl White - Very Light, slightly warm beige */
+    --background: 0 0% 100%; /* White */
     --foreground: 35 25% 15%; /* Darker Warm Gray for contrast */
 
-    --card: 45 50% 97%; /* Pearl White */
+    --card: 0 0% 100%; /* White */
     --card-foreground: 35 25% 15%; /* Darker Warm Gray */
 
-    --popover: 45 45% 98%; /* Lighter Pearl White for popovers */
+    --popover: 0 0% 100%; /* White */
     --popover-foreground: 35 25% 15%; /* Darker Warm Gray */
 
     --primary: 345 100% 25.1%; /* Wine #800020 */
@@ -20,7 +20,7 @@
     --secondary: 300 20% 85%; /* Muted Dusty Rose #E6D1E6 */
     --secondary-foreground: 345 80% 20%; /* Darker Wine for text on Muted Dusty Rose */
 
-    --muted: 45 40% 93%; /* Muted Pearl - slightly darker/more color */
+    --muted: 0 0% 96%; /* Light Gray, replacement for the cream color */
     --muted-foreground: 35 20% 40%; /* Medium Warm Gray for muted text */
 
     --accent: 300 26.1% 79.8%; /* Dusty Rose #D8BFD8 */
