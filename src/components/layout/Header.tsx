@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
-import { ThemeToggleButton } from '@/components/theme-toggle-button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
@@ -77,12 +76,10 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <ThemeToggleButton />
         </nav>
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-2">
-          <ThemeToggleButton />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

@@ -8,7 +8,6 @@ import { Toaster } from "@/components/ui/toaster";
 import TopBanner from '@/components/layout/TopBanner';
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
-import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Revelio Weddings - Fotografía de Bodas Artística',
@@ -21,14 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
       <body className={`${explora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
           <TopBanner />
           <Header />
           <main className="flex-grow">
@@ -38,7 +31,6 @@ export default function RootLayout({
           <Footer />
           <FloatingWhatsAppButton />
           <Toaster />
-        </ThemeProvider>
       </body>
     </html>
   );

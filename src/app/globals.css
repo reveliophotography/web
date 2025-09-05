@@ -51,46 +51,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
   }
-
-  .dark {
-    --background: 220 15% 15%; /* Darker Neutral Blue/Gray */
-    --foreground: 210 20% 95%; /* Very Light Cool Gray/Off-White */
-
-    --card: 220 15% 18%; /* Slightly lighter than background */
-    --card-foreground: 210 20% 95%;
-
-    --popover: 220 15% 20%;
-    --popover-foreground: 210 20% 95%;
-
-    --primary: 345 80% 60%; /* Slightly brighter Wine for dark mode */
-    --primary-foreground: 30 100% 97%; /* Very Light Cream for text on Wine */
-
-    --secondary: 300 25% 35%; /* Slightly more saturated Dark Dusty Rose */
-    --secondary-foreground: 300 40% 90%; /* Brighter text for on Secondary */
-
-    --muted: 220 10% 22%; 
-    --muted-foreground: 220 15% 75%; /* Lighter muted text */
-
-    --accent: 300 40% 60%; /* Brighter Dusty Rose for dark mode accent */
-    --accent-foreground: 30 100% 97%; /* Very Light Cream for text on Accent */
-
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 220 15% 28%;
-    --input: 220 15% 25%;
-    --ring: 345 80% 60%; /* Brighter Wine for focus rings */
-    
-    /* Sidebar dark theme aligned by inheriting vars */
-    --sidebar-background: var(--background);
-    --sidebar-foreground: var(--foreground);
-    --sidebar-primary: var(--primary);
-    --sidebar-primary-foreground: var(--primary-foreground);
-    --sidebar-accent: var(--accent);
-    --sidebar-accent-foreground: var(--accent-foreground);
-    --sidebar-border: var(--border);
-    --sidebar-ring: var(--ring);
-  }
 }
 
 @layer base {
@@ -98,7 +58,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
