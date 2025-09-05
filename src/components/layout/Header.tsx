@@ -11,7 +11,7 @@ import * as React from 'react';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
-  { href: '/about', label: 'Sobre Mí' },
+  { href: '/about', label: 'Sobre Nosotros' },
   { href: '/gallery', label: 'Galería' },
   { href: '/contact', label: 'Contacto' },
 ];
