@@ -31,7 +31,6 @@ export default function Footer() {
             Declaración de Accesibilidad
           </Link>
         </nav>
-        <p className="text-xs mt-4">Fotografía de Bodas con Alma</p>
       </div>
     </footer>
   );
