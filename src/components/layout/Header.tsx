@@ -97,13 +97,16 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
           <Logo size={28} />
           <span className={cn(
-            "text-2xl md:text-3xl font-serif font-bold transition-colors",
-            headerIsTransparent ? "text-white" : "text-primary"
+            "text-2xl md:text-3xl font-serif font-bold transition-all duration-300",
+            headerIsTransparent ? "text-white opacity-0" : "text-primary opacity-100"
           )}>Revelio</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className={cn(
+            "hidden md:flex items-center gap-6 transition-opacity duration-300",
+            headerIsTransparent ? "opacity-0 pointer-events-none" : "opacity-100"
+        )}>
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -120,7 +123,10 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className={cn(
+            "md:hidden flex items-center gap-2 transition-opacity duration-300",
+            headerIsTransparent ? "opacity-0 pointer-events-none" : "opacity-100"
+        )}>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -158,3 +164,5 @@ export default function Header() {
     </header>
   );
 }
+
+    
