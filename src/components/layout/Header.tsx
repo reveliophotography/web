@@ -16,6 +16,10 @@ const navItems = [
   { href: '/contact', label: 'Contacto' },
 ];
 
+// ---------------------------------------------------------------------------
+// --- PASO 1: LOCALIZA ESTE COMPONENTE 'Logo' ------------------------------
+// --- PASO 2: REEMPLAZA EL CONTENIDO DE ESTE SVG CON EL CÓDIGO DE TU PROPIO SVG ---
+// ---------------------------------------------------------------------------
 const Logo = ({ size = 32 }: { size?: number }) => (
     <svg 
       width={size} 
