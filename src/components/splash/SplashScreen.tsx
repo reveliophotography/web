@@ -2,9 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface SplashScreenProps {
   onFinished: () => void;
@@ -13,16 +11,28 @@ interface SplashScreenProps {
 export default function SplashScreen({ onFinished }: SplashScreenProps) {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
-  const handleEnterClick = () => {
-    setIsFadingOut(true);
-    setTimeout(() => {
+  useEffect(() => {
+    // Inicia la transición de desvanecimiento después de 2 segundos
+    const fadeTimer = setTimeout(() => {
+      setIsFadingOut(true);
+    }, 2000); // Tiempo que la imagen es visible antes de empezar a desaparecer
+
+    // Llama a onFinished después de que la animación de desvanecimiento complete
+    // Duración total = 2000ms (visible) + 1500ms (fade-out) = 3500ms
+    const finishTimer = setTimeout(() => {
       onFinished();
-    }, 500); // Duración de la animación de desvanecimiento (0.5s)
-  };
+    }, 3500);
+
+    // Limpia los temporizadores si el componente se desmonta
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(finishTimer);
+    };
+  }, [onFinished]);
 
   return (
     <div
-      className={`fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ease-in-out ${
+      className={`fixed inset-0 z-[1000] bg-background transition-opacity duration-[1500ms] ease-in-out ${
         isFadingOut ? 'opacity-0' : 'opacity-100'
       }`}
     >
@@ -36,17 +46,6 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
         priority
         data-ai-hint="wedding elegance welcome"
       />
-      <div className="relative z-10 flex flex-col items-center text-center p-8 bg-black/30 rounded-lg backdrop-blur-sm">
-        <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
-          Revelio
-        </h1>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
-          Fotografía de Bodas con Alma
-        </p>
-        <Button onClick={handleEnterClick} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-          Entrar <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </div>
     </div>
   );
 }

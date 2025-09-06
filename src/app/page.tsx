@@ -60,13 +60,11 @@ export default function HomePage() {
     }
   }, []);
 
-  const handleSplashFinished = () => {
-    localStorage.setItem('splashScreenShown', 'true');
-    setShowSplash(false);
-  };
-
   if (showSplash) {
-    return <SplashScreen onFinished={handleSplashFinished} />;
+    return <SplashScreen onFinished={() => {
+      localStorage.setItem('splashScreenShown', 'true');
+      setShowSplash(false);
+    }} />;
   }
 
   return (
