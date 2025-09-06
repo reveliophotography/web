@@ -18,10 +18,10 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
     }, 2000); // Tiempo que la imagen es visible antes de empezar a desaparecer
 
     // Llama a onFinished después de que la animación de desvanecimiento complete
-    // Duración total = 2000ms (visible) + 1500ms (fade-out) = 3500ms
+    // Duración total = 2000ms (visible) + 3000ms (fade-out) = 5000ms
     const finishTimer = setTimeout(() => {
       onFinished();
-    }, 3500);
+    }, 5000);
 
     // Limpia los temporizadores si el componente se desmonta
     return () => {
@@ -32,7 +32,7 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[1000] bg-background transition-opacity duration-[1500ms] ease-in-out ${
+      className={`fixed inset-0 z-[1000] bg-background transition-opacity duration-[3000ms] ease-in-out ${
         isFadingOut ? 'opacity-0' : 'opacity-100'
       }`}
     >
