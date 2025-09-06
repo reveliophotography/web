@@ -2,6 +2,8 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
 
 // WhatsApp SVG Icon
 const WhatsAppIcon = () => (
@@ -11,6 +13,24 @@ const WhatsAppIcon = () => (
 );
 
 export default function FloatingWhatsAppButton() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      // Aparece después de hacer scroll 500px hacia abajo
+      if (window.scrollY > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility(); // Comprueba el estado inicial
+
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
   // Reemplaza con tu número de teléfono real, incluyendo el código de país sin '+' o ceros iniciales.
   const phoneNumber = "521XXXXXXXXXX"; // Ejemplo: 521 para México + número
   const message = "Hola, estoy interesado en sus servicios de fotografía de bodas.";
@@ -21,7 +41,10 @@ export default function FloatingWhatsAppButton() {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center transition-transform hover:scale-110"
+      className={cn(
+        "fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
+      )}
       aria-label="Contactar por WhatsApp"
     >
       <WhatsAppIcon />

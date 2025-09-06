@@ -23,16 +23,25 @@ export default function Header() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20 || !isHomePage);
+       // El header cambia cuando el scroll supera el 90% de la altura de la ventana
+      const shouldBeScrolled = window.scrollY > window.innerHeight * 0.9;
+      if (shouldBeScrolled !== isScrolled) {
+        setIsScrolled(shouldBeScrolled);
+      }
     };
     
-    handleScroll();
+    // Si no es la home, el header siempre es opaco
+    if (!isHomePage) {
+      setIsScrolled(true);
+      return;
+    }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Llamada inicial
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname, isHomePage]);
+  }, [pathname, isHomePage, isScrolled]);
 
-  // --- Logo actualizado con el SVG proporcionado ---
   const Logo = ({ size = 32 }: { size?: number }) => (
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
       width="1202.000000pt" height="1202.000000pt" viewBox="0 0 1202.000000 1202.000000"
@@ -77,15 +86,20 @@ export default function Header() {
     </svg>
   );
 
+  const headerIsTransparent = !isScrolled && isHomePage;
+
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-      isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
+      headerIsTransparent ? "bg-transparent" : "bg-background/80 backdrop-blur-sm shadow-md"
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
           <Logo size={28} />
-          <span className="text-2xl md:text-3xl font-serif font-bold">Revelio</span>
+          <span className={cn(
+            "text-2xl md:text-3xl font-serif font-bold transition-colors",
+            headerIsTransparent ? "text-white" : "text-primary"
+          )}>Revelio</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -96,8 +110,8 @@ export default function Header() {
               href={item.href}
               className={cn(
                 "font-medium text-sm transition-colors",
-                pathname === item.href ? "text-primary" : "hover:text-primary",
-                !isScrolled && isHomePage ? "text-white" : "text-foreground"
+                pathname === item.href ? (headerIsTransparent ? "text-white" : "text-primary") : "hover:text-primary",
+                 headerIsTransparent ? "text-white/90 hover:text-white" : "text-foreground"
               )}
             >
               {item.label}
@@ -110,7 +124,7 @@ export default function Header() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu className={cn("h-6 w-6", !isScrolled && isHomePage ? 'text-white' : 'text-primary')} />
+                <Menu className={cn("h-6 w-6", headerIsTransparent ? 'text-white' : 'text-primary')} />
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
