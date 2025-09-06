@@ -23,21 +23,19 @@ export default function Header() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-       // El header cambia cuando el scroll supera el 90% de la altura de la ventana
       const shouldBeScrolled = window.scrollY > window.innerHeight * 0.9;
       if (shouldBeScrolled !== isScrolled) {
         setIsScrolled(shouldBeScrolled);
       }
     };
     
-    // Si no es la home, el header siempre es opaco
     if (!isHomePage) {
       setIsScrolled(true);
       return;
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Llamada inicial
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname, isHomePage, isScrolled]);
@@ -97,24 +95,26 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
           <Logo size={28} />
           <span className={cn(
-            "text-2xl md:text-3xl font-serif font-bold transition-all duration-300",
-            headerIsTransparent ? "text-white opacity-70" : "text-primary opacity-100"
+            "text-2xl md:text-3xl font-serif font-bold transition-opacity duration-300",
+            headerIsTransparent ? "text-white opacity-50" : "text-primary opacity-100"
           )}>Revelio</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className={cn(
-            "hidden md:flex items-center gap-6 transition-opacity duration-300",
-            headerIsTransparent ? "opacity-70" : "opacity-100"
+            "hidden md:flex items-center gap-2 transition-opacity duration-300",
+            headerIsTransparent ? "opacity-50" : "opacity-100"
         )}>
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "font-medium text-sm transition-colors",
-                pathname === item.href ? (headerIsTransparent ? "text-white" : "text-primary") : "hover:text-primary",
-                 headerIsTransparent ? "text-white/90 hover:text-white" : "text-foreground"
+                "font-medium text-sm transition-all duration-300 rounded-md px-4 py-2",
+                pathname === item.href 
+                  ? (headerIsTransparent ? "text-white" : "text-primary") 
+                  : (headerIsTransparent ? "text-white/90 hover:text-white" : "text-primary hover:text-primary/80"),
+                !headerIsTransparent && "hover:scale-105"
               )}
             >
               {item.label}
@@ -125,7 +125,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={cn(
             "md:hidden flex items-center gap-2 transition-opacity duration-300",
-            headerIsTransparent ? "opacity-70" : "opacity-100"
+            headerIsTransparent ? "opacity-50" : "opacity-100"
         )}>
           <Sheet>
             <SheetTrigger asChild>
