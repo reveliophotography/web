@@ -95,13 +95,15 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40 z-10" />
         
         <div className="relative z-20 p-6 space-y-6 text-white max-w-4xl">
+          {/*
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight text-primary-foreground">
             Fotografía de Bodas con Alma
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90">
             Contamos vuestra historia a través de imágenes que perduran. Nuestro objetivo es capturar la belleza de lo real, lo espontáneo y lo emotivo.
           </p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          */}
+          <Button asChild size="lg" variant="ghost" className="text-primary-foreground hover:bg-white/10 hover:text-white text-xl">
             <Link href="/contact">
               Hablemos de vuestra boda <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
