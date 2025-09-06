@@ -92,11 +92,14 @@ export default function Header() {
       headerIsTransparent ? "bg-transparent" : "bg-background/80 backdrop-blur-sm shadow-md"
     )}>
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+        <Link href="/" className={cn(
+          "flex items-center gap-2 transition-colors",
+          headerIsTransparent ? "text-white" : "text-primary hover:text-primary/80"
+        )}>
           <Logo size={28} />
           <span className={cn(
             "text-2xl md:text-3xl font-serif font-bold transition-opacity duration-300",
-            headerIsTransparent ? "text-white opacity-50" : "text-primary opacity-100"
+            headerIsTransparent ? "opacity-0" : "opacity-100"
           )}>Revelio</span>
         </Link>
 
@@ -125,7 +128,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={cn(
             "md:hidden flex items-center gap-2 transition-opacity duration-300",
-            headerIsTransparent ? "opacity-50" : "opacity-100"
+            headerIsTransparent ? "opacity-0" : "opacity-100"
         )}>
           <Sheet>
             <SheetTrigger asChild>
