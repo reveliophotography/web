@@ -98,14 +98,14 @@ export default function Header() {
           <Logo size={28} />
           <span className={cn(
             "text-2xl md:text-3xl font-serif font-bold transition-all duration-300",
-            headerIsTransparent ? "text-white opacity-0" : "text-primary opacity-100"
+            headerIsTransparent ? "text-white opacity-70" : "text-primary opacity-100"
           )}>Revelio</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className={cn(
             "hidden md:flex items-center gap-6 transition-opacity duration-300",
-            headerIsTransparent ? "opacity-0 pointer-events-none" : "opacity-100"
+            headerIsTransparent ? "opacity-70" : "opacity-100"
         )}>
           {navItems.map((item) => (
             <Link
@@ -125,7 +125,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={cn(
             "md:hidden flex items-center gap-2 transition-opacity duration-300",
-            headerIsTransparent ? "opacity-0 pointer-events-none" : "opacity-100"
+            headerIsTransparent ? "opacity-70" : "opacity-100"
         )}>
           <Sheet>
             <SheetTrigger asChild>
@@ -164,5 +164,3 @@ export default function Header() {
     </header>
   );
 }
-
-    

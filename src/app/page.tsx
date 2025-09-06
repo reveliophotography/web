@@ -70,7 +70,7 @@ export default function HomePage() {
   return (
     <div className="space-y-0">
       {/* Hero Section with Autoplaying Carousel Background - Full Width */}
-      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden -mt-20"> {/* Ajuste de margen superior para compensar header */}
+      <section className="relative h-screen flex flex-col justify-between text-center overflow-hidden -mt-20"> {/* Ajuste de margen superior para compensar header */}
         <Carousel
           plugins={[plugin.current]}
           opts={{ loop: true }}
@@ -94,7 +94,10 @@ export default function HomePage() {
         
         <div className="absolute inset-0 bg-black/40 z-10" />
         
-        <div className="relative z-20 p-6 space-y-6 text-white max-w-4xl">
+        {/* Empty div to push the button to the bottom */}
+        <div />
+
+        <div className="relative z-20 p-6 pb-16 space-y-6 text-white max-w-4xl mx-auto w-full">
           {/*
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight text-primary-foreground">
             Fotografía de Bodas con Alma
