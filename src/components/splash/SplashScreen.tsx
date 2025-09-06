@@ -36,18 +36,15 @@ export default function SplashScreen({ onFinished }: SplashScreenProps) {
         priority
         data-ai-hint="wedding elegance welcome"
       />
-      <div className="absolute inset-0 bg-black/30 z-10" /> {/* Overlay oscuro */}
-      
-      <div className="relative z-20 flex flex-col items-center text-center p-6">
-        <Button
-          onClick={handleEnterClick}
-          size="lg"
-          variant="outline"
-          className="bg-white/10 backdrop-blur-sm border-white/50 text-white hover:bg-white/20 hover:text-white text-lg px-8 py-6 shadow-lg"
-          aria-label="Entrar al sitio y crear recuerdos inolvidables"
-        >
-          Crea Recuerdos Inolvidables
-          <ArrowRight className="ml-2 h-5 w-5" />
+      <div className="relative z-10 flex flex-col items-center text-center p-8 bg-black/30 rounded-lg backdrop-blur-sm">
+        <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
+          Revelio
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
+          Fotografía de Bodas con Alma
+        </p>
+        <Button onClick={handleEnterClick} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          Entrar <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>
     </div>
