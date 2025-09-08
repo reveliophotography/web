@@ -16,31 +16,7 @@ const navItems = [
   { href: '/contact', label: 'Contacto' },
 ];
 
-export default function Header() {
-  const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const isHomePage = pathname === '/';
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const shouldBeScrolled = window.scrollY > window.innerHeight * 0.9;
-      if (shouldBeScrolled !== isScrolled) {
-        setIsScrolled(shouldBeScrolled);
-      }
-    };
-    
-    if (!isHomePage) {
-      setIsScrolled(true);
-      return;
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname, isHomePage, isScrolled]);
-
-  const Logo = ({ size = 32 }: { size?: number }) => (
+const Logo = ({ size = 32 }: { size?: number }) => (
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
       width="1202.000000pt" height="1202.000000pt" viewBox="0 0 1202.000000 1202.000000"
       preserveAspectRatio="xMidYMid meet"
@@ -82,7 +58,31 @@ export default function Header() {
       -123z"/>
       </g>
     </svg>
-  );
+);
+
+export default function Header() {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const isHomePage = pathname === '/';
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const shouldBeScrolled = window.scrollY > window.innerHeight * 0.9;
+      if (shouldBeScrolled !== isScrolled) {
+        setIsScrolled(shouldBeScrolled);
+      }
+    };
+    
+    if (!isHomePage) {
+      setIsScrolled(true);
+      return;
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname, isHomePage, isScrolled]);
 
   const headerIsTransparent = !isScrolled && isHomePage;
 
@@ -127,7 +127,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <div className={cn(
-            "md:hidden flex items-center gap-2 transition-opacity duration-300",
+            "md:hidden flex items-center transition-opacity duration-300",
             headerIsTransparent ? "opacity-0" : "opacity-100"
         )}>
           <Sheet>
