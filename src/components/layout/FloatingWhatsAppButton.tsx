@@ -31,9 +31,9 @@ export default function FloatingWhatsAppButton() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Reemplaza con tu número de teléfono real, incluyendo el código de país sin '+' o ceros iniciales.
-  const phoneNumber = "521XXXXXXXXXX"; // Ejemplo: 521 para México + número
-  const message = "Hola, estoy interesado en sus servicios de fotografía de bodas.";
+  // Número real de WhatsApp para Revelio (España, sin +)
+  const phoneNumber = "34698480039"; // 34 = España, 698480039
+  const message = "¡Hola! Me gustaría saber más sobre vuestros reportajes de boda en Sevilla.";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

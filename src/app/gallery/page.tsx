@@ -18,15 +18,17 @@ const PhotoCard = ({ data: photo }: { data: Photo }) => (
     <Image
       src={photo.src}
       alt={photo.alt}
-      width={500}
-      height={photo.height || 750} 
+      width={350}
+      height={photo.height ? Math.round(photo.height * (350/500)) : 525}
       className="w-full h-auto"
       data-ai-hint={photo.dataAiHint}
+      loading="lazy"
+      placeholder="blur"
+      blurDataURL="/favicon.svg"
+      quality={90}
     />
     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    <p className="absolute bottom-4 left-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      {photo.alt}
-    </p>
+  {/* Removed filename overlay on hover */}
   </div>
 );
 
@@ -105,7 +107,7 @@ export default function GalleryPage() {
           {isClient ? (
             <Masonry
               items={filteredPhotos}
-              columnGutter={16}
+              columnGutter={8}
               columnCount={columnCount}
               render={PhotoCard}
             />

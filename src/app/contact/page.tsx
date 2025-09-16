@@ -4,21 +4,32 @@ import { Mail, Phone, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 
 const contactInfo = {
-  displayPhone: "(123) 456-7890",
-  fullPhone: "+1234567890",
+  displayPhone: "(346) 984-80039",
+  fullPhone: "+34698480039",
   email: "hello@revelioweddings.com",
-  whatsappNumber: "1234567890",
+  whatsappNumber: "34698480039",
   whatsappMessage: "Hola, estoy interesado/a en tus servicios de fotografía de bodas y me gustaría saber más.",
 };
 const whatsappLink = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappMessage)}`;
+
+import Image from 'next/image';
 
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 space-y-16">
       <section className="text-center">
-        <h1 className="text-5xl font-serif font-bold text-primary mb-4">Hablemos</h1>
+        <div className="flex justify-center mb-8">
+          <Image
+            src="/miguel.jpg"
+            alt="Contacto Revelio"
+            width={600}
+            height={400}
+            className="rounded-lg shadow-xl w-full max-w-md h-auto object-cover"
+          />
+        </div>
+        <h1 className="text-5xl font-serif font-bold text-primary mb-4">¿Listos para liarla en vuestra boda?</h1>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-          Me encantaría escuchar sobre vuestros planes. Contadme todo sobre vuestra boda, vuestras ideas, vuestros sueños. Cuantos más detalles, mejor podré entender vuestra historia. Rellenad el formulario y empecemos a crear algo increíble juntos.
+          Cuéntanos todo sobre vuestra boda en Sevilla o Andalucía: cómo imagináis la fiesta, quiénes son vuestros peludos, qué locuras queréis recordar para siempre. Rellenad el formulario y empecemos a crear recuerdos auténticos, divertidos y llenos de emoción.
         </p>
       </section>
 
@@ -27,7 +38,7 @@ export default function ContactPage() {
       <section className="text-center">
         <h2 className="text-3xl font-serif font-semibold text-primary mb-6">Otras formas de conectar</h2>
         <p className="text-lg text-foreground/80 mb-6 max-w-xl mx-auto">
-          Si lo prefieres, también puedes contactarme directamente.
+          Si lo preferís, también podéis contactarnos directamente.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-4">
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 text-foreground hover:text-primary transition-colors text-lg">

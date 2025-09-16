@@ -9,8 +9,50 @@ import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 
 export const metadata: Metadata = {
-  title: 'Revelio Weddings - Fotografía de Bodas Artística',
-  description: 'Capturando la esencia de vuestra historia de amor con un enfoque artístico y atemporal. Fotografía de bodas para parejas que buscan algo más que simples fotos.',
+  title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+  description: 'Fotografía de bodas en Sevilla y Andalucía, natural, sin poses forzadas, para parejas auténticas (¡y sus mascotas!). Capturamos la emoción real, la fiesta y los mejores momentos de vuestro gran día. Vivid vuestra boda, nosotros la contamos en imágenes.',
+  keywords: [
+    'fotógrafo de bodas Sevilla',
+    'fotografía de bodas Sevilla',
+    'fotógrafo bodas natural',
+    'fotógrafo bodas mascotas',
+    'fotografía documental bodas',
+    'fotógrafo bodas Andalucía',
+    'fotografía boda espontánea',
+    'fotógrafo bodas sin poses',
+    'fotografía boda divertida',
+    'fotógrafo bodas originales',
+    'fotografía boda Sevilla',
+    'fotógrafo bodas con perros',
+    'fotógrafo bodas con gatos',
+    'fotografía boda fiesta',
+    'fotógrafo bodas naturales Sevilla',
+  ],
+  openGraph: {
+    title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+    description: 'Fotografía de bodas natural y divertida en Sevilla y Andalucía. Sin poses, sin artificios, solo verdad. Capturamos la emoción, la fiesta y a todos (¡mascotas incluidas!).',
+    url: 'https://revelioweddings.com',
+    type: 'website',
+    images: [
+      {
+        url: '/logoRevelio completo sin fondo.png',
+        width: 800,
+        height: 600,
+        alt: 'Revelio Weddings - Fotógrafo de bodas en Sevilla',
+      },
+    ],
+    locale: 'es_ES',
+    siteName: 'Revelio Weddings',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+    description: 'Fotografía de bodas natural y divertida en Sevilla y Andalucía. Sin poses, sin artificios, solo verdad. Capturamos la emoción, la fiesta y a todos (¡mascotas incluidas!).',
+    images: ['/logoRevelio completo sin fondo.png'],
+  },
+  alternates: {
+    canonical: 'https://revelioweddings.com',
+  },
 };
 
 export default function RootLayout({
@@ -20,15 +62,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </head>
       <body className={`${explora.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
-          <Header />
-          <main className="flex-grow pt-20">
-            {children}
-          </main>
-          <CookieConsentBanner />
-          <Footer />
-          <FloatingWhatsAppButton />
-          <Toaster />
+        <Header />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <CookieConsentBanner />
+        <Footer />
+        <FloatingWhatsAppButton />
+        <Toaster />
       </body>
     </html>
   );

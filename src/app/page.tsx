@@ -1,4 +1,3 @@
-
 'use client'; 
 
 import Image from 'next/image';
@@ -16,12 +15,13 @@ import { useState, useEffect } from 'react';
 import SplashScreen from '@/components/splash/SplashScreen';
 
 // --- CONFIGURACIÓN DEL CARRUSEL PRINCIPAL ---
-// Para cambiar las imágenes, simplemente reemplaza las URLs en 'src'.
-// El carrusel se moverá automáticamente cada 5 segundos (delay: 5000).
+// Ahora usa las primeras 5 fotos de la galería (todas de la carpeta public)
 const heroSlides = [
-  { src: 'https://placehold.co/1920x1080.png', alt: 'Una pareja de novios en un paisaje espectacular', dataAiHint: 'bride groom landscape' },
-  { src: 'https://placehold.co/1920x1080.png', alt: 'Un momento íntimo y emotivo durante una boda', dataAiHint: 'wedding intimate moment' },
-  { src: 'https://placehold.co/1920x1080.png', alt: 'Una celebración de boda llena de alegría y risas', dataAiHint: 'wedding party joy' },
+  { src: '/carrusel1.jpg', alt: '_DMA7836', dataAiHint: 'foto boda' },
+  { src: '/carrusel2.jpg', alt: '_DMA6855', dataAiHint: 'foto boda' },
+  { src: '/carrusel3.jpg', alt: '_DMA1102', dataAiHint: 'foto boda' },
+  { src: '/carrusel4.jpg', alt: 'IMG_2113', dataAiHint: 'foto boda' },
+  { src: '/carrusel5.jpg', alt: 'IMG_8737-2', dataAiHint: 'foto boda' },
 ];
 
 const weddingStories = [
@@ -68,45 +68,47 @@ export default function HomePage() {
   }
 
   return (
-    <div className="space-y-0">
+    <div className="space-y-0 pt-0">
       {/* Hero Section with Autoplaying Carousel Background - Full Width */}
-      <section className="relative h-screen flex flex-col justify-between text-center overflow-hidden -mt-20"> {/* Ajuste de margen superior para compensar header */}
-        <Carousel
-          plugins={[plugin.current]}
-          opts={{ loop: true }}
-          className="absolute inset-0 w-full h-full z-0"
-        >
-          <CarouselContent>
-            {heroSlides.map((slide, index) => (
-              <CarouselItem key={index}>
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  className="w-full h-full object-cover"
-                  data-ai-hint={slide.dataAiHint}
-                  priority={index === 0} 
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        
-        {/* Empty div to push the button to the bottom */}
-        <div />
+      <section className="relative h-screen flex flex-col justify-end text-center overflow-hidden">
+        <div className="absolute inset-0 w-full h-full z-0">
+          <Carousel
+            plugins={[plugin.current]}
+            opts={{ loop: true }}
+            className="w-full h-full"
+          >
+            <CarouselContent>
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative w-full h-screen">
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes="100vw"
+                      quality={95}
+                      className="object-cover"
+                      data-ai-hint={slide.dataAiHint}
+                      priority={index === 0}
+                      style={{objectPosition: 'center'}}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-        <div className="relative z-20 p-6 pb-16 space-y-6 text-white max-w-4xl mx-auto w-full">
-          {/*
-          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight text-primary-foreground">
+        <div className="relative z-10 p-6 pb-24 md:pb-32 space-y-6 text-white max-w-4xl mx-auto w-full">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight text-white">
             Fotografía de Bodas con Alma
           </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90">
-            Contamos vuestra historia a través de imágenes que perduran. Nuestro objetivo es capturar la belleza de lo real, lo espontáneo y lo emotivo.
+          <p className="text-lg md:text-xl text-white/90">
+            Contamos vuestra historia a través de imágenes que perduran.
           </p>
-          */}
-          <Button asChild size="lg" variant="ghost" className="text-primary-foreground hover:bg-white/10 hover:text-white text-xl">
+          <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black">
             <Link href="/contact">
               Hablemos de vuestra boda <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -133,16 +135,17 @@ export default function HomePage() {
                     </Link>
                 </Button>
             </div>
-            <div className="order-1 md:order-2">
+      <div className="order-1 md:order-2">
                 <Image
-                src="https://placehold.co/600x800.png"
+                src="/_DMA0858.jpg"
                 alt="Retrato del equipo de fotógrafos de bodas"
-                width={600}
-                height={800}
-                className="rounded-lg shadow-xl w-full h-auto object-cover aspect-[3/4]"
+                width={1200}
+                height={1600}
+                className="rounded-lg shadow-xl w-full h-auto"
                 data-ai-hint="photographer portrait team"
+                quality={95}
                 />
-            </div>
+      </div>
         </div>
       </section>
 
@@ -156,24 +159,26 @@ export default function HomePage() {
               Cada boda es un mundo, una historia única que tenemos el privilegio de contar. Estos son algunos de los momentos que hemos compartido.
             </p>
             <div className="grid md:grid-cols-2 gap-12">
-              {weddingStories.map((story, index) => (
+              {/* Imágenes reales para las historias de boda */}
+              {["_DMA1469.jpg", "_DMA1481.jpg"].map((img, index) => (
                 <div key={index} className="flex flex-col items-center text-center group">
-                  <Link href={story.link} className="block w-full overflow-hidden rounded-lg shadow-xl mb-6">
+                  <div className="block w-full overflow-hidden rounded-lg shadow-xl mb-6">
                     <Image
-                      src={story.imageSrc}
-                      alt={`Fotografía de la boda de ${story.title}`}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto object-cover aspect-video transform transition-transform duration-500 group-hover:scale-105"
-                      data-ai-hint={story.dataAiHint}
+                      src={`/${img}`}
+                      alt={`Historia de boda ${index+1}`}
+                      width={1600}
+                      height={900}
+                      className="w-full h-auto rounded-lg shadow-xl"
+                      data-ai-hint="wedding story"
+                      quality={95}
                     />
-                  </Link>
+                  </div>
                   <h3 className="text-2xl font-serif font-medium text-primary mb-2">
-                    {story.title}
+                    Historia de boda {index+1}
                   </h3>
-                  <p className="text-foreground/70 mb-4 max-w-md mx-auto">{story.description}</p>
+                  <p className="text-foreground/70 mb-4 max-w-md mx-auto">Descripción de la historia de boda {index+1}.</p>
                   <Button asChild variant="link" className="text-primary">
-                    <Link href={story.link}>
+                    <Link href="/gallery">
                       Ver la historia completa <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

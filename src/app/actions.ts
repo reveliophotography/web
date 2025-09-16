@@ -1,7 +1,9 @@
 
 'use server';
 
+
 import { z } from 'zod';
+import nodemailer from 'nodemailer';
 
 const BookingInquirySchema = z.object({
   clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -27,14 +29,46 @@ export async function handleBookingInquiry(data: BookingInquiryData) {
     };
   }
 
-  // In a real application, you would save this data to a database, send an email, etc.
-  console.log("Nueva consulta de boda recibida:", validationResult.data);
+  // Configuración del transporte SMTP
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.buzondecorreo.com',
+    port: 465,
+    secure: true, // SSL/TLS
+    auth: {
+      user: 'info@reveliophotography.es',
+      pass: process.env.REVELIO_EMAIL_PASS || '', // Usa variable de entorno para la contraseña
+    },
+  });
 
-  // Simulate a delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  return {
-    success: true,
-    message: "¡Gracias por vuestro mensaje! Me pondré en contacto con vosotros muy pronto.",
+  // Construir el mensaje
+  const { clientName, email, phone, weddingDate, venue, message } = validationResult.data;
+  const mailOptions = {
+    from: 'info@reveliophotography.es',
+    to: 'info@reveliophotography.es',
+    subject: `Nueva consulta de boda de ${clientName}`,
+    replyTo: email,
+    text: `
+Nombre: ${clientName}
+Email: ${email}
+Teléfono: ${phone || '-'}
+Fecha de la boda: ${weddingDate}
+Lugar: ${venue}
+Mensaje:
+${message}
+    `,
   };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    return {
+      success: true,
+      message: "¡Gracias por vuestro mensaje! Me pondré en contacto con vosotros muy pronto.",
+    };
+  } catch (error) {
+    console.error('Error enviando email de consulta:', error);
+    return {
+      success: false,
+      message: "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+    };
+  }
 }

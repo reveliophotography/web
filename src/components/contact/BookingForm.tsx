@@ -29,7 +29,7 @@ import { handleBookingInquiry, BookingInquiryData } from "@/app/actions";
 const BookingInquirySchema = z.object({
   clientName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
   email: z.string().email({ message: "Por favor, introduce una dirección de correo electrónico válida." }),
-  phone: z.string().optional(),
+  phone: z.string().min(7, { message: "Introduce un número de teléfono válido." }),
   weddingDate: z.date({ required_error: "La fecha de la boda es obligatoria."}),
   venue: z.string().min(2, { message: "El lugar debe tener al menos 2 caracteres." }),
   message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }).max(1000, { message: "El mensaje no puede exceder los 1000 caracteres." }),
@@ -80,8 +80,8 @@ export default function BookingForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-2xl mx-auto p-6 md:p-8 bg-card rounded-lg shadow-xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-2xl mx-auto p-6 md:p-8 bg-white/90 border border-primary/20 rounded-2xl shadow-2xl backdrop-blur">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <FormField
             control={form.control}
             name="clientName"
@@ -100,12 +100,25 @@ export default function BookingForm() {
             name="email"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Vuestro Correo Electrónico</FormLabel>
+                <FormLabel>Correo Electrónico</FormLabel>
                 <FormControl>
                     <Input type="email" placeholder="vuestro@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Teléfono</FormLabel>
+                <FormControl>
+                  <Input type="tel" placeholder="Ej: 600123456" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
           />
         </div>
@@ -170,7 +183,7 @@ export default function BookingForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Contadme más sobre vosotros y vuestra boda</FormLabel>
+              <FormLabel>Contadnos más sobre vosotros y vuestra boda</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="¿Cómo os conocisteis? ¿Qué tipo de celebración tenéis en mente? ¿Qué es lo más importante para vosotros en la fotografía de vuestra boda?"
