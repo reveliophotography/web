@@ -11,25 +11,58 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const allCategories = ['Todas', ...Array.from(new Set(galleryPhotos.flatMap(p => p.category ?? [])))];
 
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
 // Componente para una tarjeta de foto individual
-const PhotoCard = ({ data: photo }: { data: Photo }) => (
-  <div className="relative overflow-hidden rounded-lg shadow-lg group">
-    <Image
-      src={photo.src}
-      alt={photo.alt}
-      width={350}
-      height={photo.height ? Math.round(photo.height * (350/500)) : 525}
-      className="w-full h-auto"
-      data-ai-hint={photo.dataAiHint}
-      loading="lazy"
-      placeholder="blur"
-      blurDataURL="/favicon.svg"
-      quality={90}
-    />
-    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-  {/* Removed filename overlay on hover */}
-  </div>
-);
+const PhotoCard = ({ data: photo }: { data: Photo }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div 
+        className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer" 
+        onClick={() => setIsOpen(true)}
+      >
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          width={350}
+          height={photo.height ? Math.round(photo.height * (350/500)) : 525}
+          className="w-full h-auto"
+          data-ai-hint={photo.dataAiHint}
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL="/favicon.svg"
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 bg-transparent border-0">
+          <DialogTitle className="sr-only">
+            Vista ampliada de {photo.alt}
+          </DialogTitle>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              className="object-contain max-h-[90vh] rounded-lg"
+              width={1200}
+              height={800}
+              quality={100}
+              priority
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
 
 export default function GalleryClientPage() {
   const router = useRouter();
