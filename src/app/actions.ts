@@ -33,15 +33,34 @@ export async function handleBookingInquiry(data: BookingInquiryData) {
   const transporter = nodemailer.createTransport({
     host: 'smtp.buzondecorreo.com',
     port: 465,
-    secure: true, // SSL/TLS
+    secure: true,
     auth: {
       user: 'info@reveliophotography.es',
-      pass: process.env.REVELIO_EMAIL_PASS || '', // Usa variable de entorno para la contraseña
-    },
+      pass: process.env.REVELIO_EMAIL_PASS || '',
+    }
   });
 
   // Construir el mensaje
-  const { clientName, email, phone, weddingDate, venue, message } = validationResult.data;
+  const { clientName, email, phone, weddingDate, venue, message: userMessage } = validationResult.data;
+  const messageText = `
+Nueva consulta de boda:
+
+DATOS DEL CLIENTE:
+----------------
+Nombre: ${clientName}
+Email: ${email}
+Teléfono: ${phone || 'No proporcionado'}
+Fecha de la boda: ${weddingDate}
+Lugar: ${venue}
+
+MENSAJE DEL CLIENTE:
+-----------------
+${userMessage}
+
+-------------------
+Enviado desde el formulario de contacto de reveliophotography.es
+`;
+
   const mailOptions = {
     from: 'info@reveliophotography.es',
     to: 'info@reveliophotography.es',
@@ -54,21 +73,38 @@ Teléfono: ${phone || '-'}
 Fecha de la boda: ${weddingDate}
 Lugar: ${venue}
 Mensaje:
-${message}
+${userMessage}
     `,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    // Verificar la conexión primero
+    await transporter.verify();
+    console.log('Conexión SMTP verificada correctamente');
+    
+    // Intentar enviar el email
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email enviado:', info);
+    
     return {
       success: true,
       message: "¡Gracias por vuestro mensaje! Me pondré en contacto con vosotros muy pronto.",
     };
-  } catch (error) {
-    console.error('Error enviando email de consulta:', error);
+  } catch (error: any) {
+    const errorDetails = {
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+      code: error?.code,
+      command: error?.command,
+      response: error?.response,
+    };
+    
+    console.error('Error detallado:', errorDetails);
+    
     return {
       success: false,
-      message: "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+      message: `Error al enviar el mensaje: ${errorDetails.message || 'Error desconocido'}. Por favor, inténtalo de nuevo más tarde.`,
     };
   }
 }
