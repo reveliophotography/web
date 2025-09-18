@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -58,14 +57,12 @@ export default function Header() {
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
     {
       "bg-transparent": isHomePage && !isScrolled && !isMenuOpen,
-      "bg-white shadow-md": !isHomePage || isScrolled || isMenuOpen,
+      "bg-primary/20 backdrop-blur-lg shadow-md": !isHomePage || isScrolled,
+      "bg-primary/90 backdrop-blur-lg shadow-md": isMenuOpen,
     }
   );
 
-  const linkColorClasses = cn({
-    "text-white": isHomePage && !isScrolled && !isMenuOpen,
-    "text-gray-800": !isHomePage || isScrolled || isMenuOpen,
-  });
+  const linkColorClasses = "text-white";
 
   return (
     <header className={headerClasses}>
@@ -113,7 +110,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
+        <div className="md:hidden bg-primary/20 backdrop-blur-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
@@ -121,8 +118,8 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50",
-                  pathname === item.href ? 'bg-gray-100' : ''
+                  "block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10",
+                  pathname === item.href ? 'bg-white/20' : ''
                 )}
               >
                 {item.label}

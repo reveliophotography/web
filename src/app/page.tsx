@@ -15,31 +15,15 @@ import { useState, useEffect } from 'react';
 import SplashScreen from '@/components/splash/SplashScreen';
 
 // --- CONFIGURACIÓN DEL CARRUSEL PRINCIPAL ---
-// Ahora usa las primeras 5 fotos de la galería (todas de la carpeta public)
 const heroSlides = [
-  { src: '/carrusel1.jpg', alt: '_DMA7836', dataAiHint: 'foto boda' },
-  { src: '/carrusel2.jpg', alt: '_DMA6855', dataAiHint: 'foto boda' },
-  { src: '/carrusel3.jpg', alt: '_DMA1102', dataAiHint: 'foto boda' },
-  { src: '/carrusel4.jpg', alt: 'IMG_2113', dataAiHint: 'foto boda' },
-  { src: '/carrusel5.jpg', alt: 'IMG_8737-2', dataAiHint: 'foto boda' },
+  { src: '/carrusel16.jpg', alt: '_DMA7836', dataAiHint: 'foto boda' },
+  { src: '/carrusel9.jpg', alt: '_DMA6855', dataAiHint: 'foto boda' },
+  { src: '/carrusel11.jpg', alt: '_DMA1102', dataAiHint: 'foto boda' },
+  { src: '/carrusel5.jpg', alt: 'IMG_2113', dataAiHint: 'foto boda' },
+  { src: '/carrusel14.jpg', alt: 'IMG_8737-2', dataAiHint: 'foto boda' },
 ];
 
-const weddingStories = [
-  {
-    imageSrc: "https://placehold.co/800x600.png",
-    dataAiHint: "wedding ceremony",
-    title: "Ana & Javier | Finca La Concepción",
-    description: "Una boda mágica bajo las estrellas de Marbella. Capturamos la energía y la alegría de una noche inolvidable, donde cada detalle contaba una parte de su historia de amor.",
-    link: "/gallery?category=Boda+de+Ana+y+Javier"
-  },
-  {
-    imageSrc: "https://placehold.co/800x600.png",
-    dataAiHint: "wedding couple portrait",
-    title: "Lucía & Marcos | Carmen de los Mártires",
-    description: "La luz de Granada fue el escenario perfecto. Una celebración íntima y emotiva, donde las miradas y los gestos hablaron más alto que las palabras. Fue un honor ser testigos.",
-    link: "/gallery?category=Boda+de+Luc%C3%ADa+y+Marcos"
-  }
-];
+
 
 export default function HomePage() {
   const plugin = React.useRef(
@@ -80,14 +64,25 @@ export default function HomePage() {
             <CarouselContent>
               {heroSlides.map((slide, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative w-full h-screen">
+                  <div className="relative w-full h-screen bg-black">
+                    {/* Fondo desenfocado */}
+                    <Image
+                      src={slide.src}
+                      alt=""
+                      fill
+                      sizes="100vw"
+                      quality={10}
+                      className="object-cover blur-2xl brightness-50"
+                      aria-hidden="true"
+                    />
+                    {/* Imagen principal */}
                     <Image
                       src={slide.src}
                       alt={slide.alt}
                       fill
                       sizes="100vw"
                       quality={95}
-                      className="object-cover"
+                      className="object-contain"
                       data-ai-hint={slide.dataAiHint}
                       priority={index === 0}
                       style={{objectPosition: 'center'}}
@@ -137,7 +132,7 @@ export default function HomePage() {
             </div>
       <div className="order-1 md:order-2">
                 <Image
-                src="/_DMA0858.jpg"
+                src="/miguel.jpg"
                 alt="Retrato del equipo de fotógrafos de bodas"
                 width={1200}
                 height={1600}
