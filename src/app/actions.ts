@@ -77,8 +77,11 @@ Enviado desde el formulario de contacto de reveliophotography.es
 `;
 
   const mailOptions = {
-    from: 'info@reveliophotography.es',
-    to: 'info@reveliophotography.es',
+    from: {
+      name: 'Formulario Revelio Photography',
+      address: 'info@reveliophotography.es'
+    },
+    to: ['info@reveliophotography.es', 'alex.montalvo.carrasco@gmail.com'],
     subject: `Nueva consulta de boda de ${clientName}`,
     replyTo: email,
     headers: {
