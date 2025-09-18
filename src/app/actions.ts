@@ -81,6 +81,12 @@ Enviado desde el formulario de contacto de reveliophotography.es
     to: 'info@reveliophotography.es',
     subject: `Nueva consulta de boda de ${clientName}`,
     replyTo: email,
+    headers: {
+      'X-Mailer': 'Revelio Photography Website',
+      'X-Priority': '1',
+      'Importance': 'high',
+      'X-Source': 'Contact Form'
+    },
     text: `
 Nombre: ${clientName}
 Email: ${email}
