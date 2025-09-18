@@ -1,6 +1,4 @@
-
 'use server';
-
 
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
@@ -32,22 +30,22 @@ export async function handleBookingInquiry(data: BookingInquiryData) {
   console.log('Iniciando envío de email...');
   
   // Verificar que tenemos la contraseña
-  if (!process.env.REVELIO_EMAIL_PASS) {
-    console.error('No se encontró la variable de entorno REVELIO_EMAIL_PASS');
+  if (!process.env.GMAIL_APP_PASSWORD) {
+    console.error('No se encontró la variable de entorno GMAIL_APP_PASSWORD');
     return {
       success: false,
       message: "Error de configuración del servidor",
     };
   }
   
-  // Configuración del transporte SMTP
+  // Configuración del transporte SMTP usando Gmail
   const transporter = nodemailer.createTransport({
-    host: 'smtp.buzondecorreo.com',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-      user: 'info@reveliophotography.es',
-      pass: process.env.REVELIO_EMAIL_PASS,
+      user: 'alex.montalvo.carrasco@gmail.com',
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
     debug: true,
     logger: true
@@ -79,9 +77,9 @@ Enviado desde el formulario de contacto de reveliophotography.es
   const mailOptions = {
     from: {
       name: 'Formulario Revelio Photography',
-      address: 'info@reveliophotography.es'
+      address: 'alex.montalvo.carrasco@gmail.com'
     },
-    to: ['info@reveliophotography.es', 'alex.montalvo.carrasco@gmail.com'],
+    to: ['info@reveliophotography.es', 'alex.montalvo.carrasco@gmail.com', 'elia499@hotmail.com'],
     subject: `Nueva consulta de boda de ${clientName}`,
     replyTo: email,
     headers: {
@@ -90,15 +88,7 @@ Enviado desde el formulario de contacto de reveliophotography.es
       'Importance': 'high',
       'X-Source': 'Contact Form'
     },
-    text: `
-Nombre: ${clientName}
-Email: ${email}
-Teléfono: ${phone || '-'}
-Fecha de la boda: ${weddingDate}
-Lugar: ${venue}
-Mensaje:
-${userMessage}
-    `,
+    text: messageText
   };
 
   try {

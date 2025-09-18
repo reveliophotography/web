@@ -9,7 +9,7 @@ import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 
 export const metadata: Metadata = {
-  title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+  title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
   description: 'Fotografía de bodas en Sevilla y Andalucía, natural, sin poses forzadas, para parejas auténticas (¡y sus mascotas!). Capturamos la emoción real, la fiesta y los mejores momentos de vuestro gran día. Vivid vuestra boda, nosotros la contamos en imágenes.',
   keywords: [
     'fotógrafo de bodas Sevilla',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'fotógrafo bodas naturales Sevilla',
   ],
   openGraph: {
-    title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+    title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
     description: 'Fotografía de bodas natural y divertida en Sevilla y Andalucía. Sin poses, sin artificios, solo verdad. Capturamos la emoción, la fiesta y a todos (¡mascotas incluidas!).',
     url: 'https://revelioweddings.com',
     type: 'website',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: '/logoRevelio completo sin fondo.png',
         width: 800,
         height: 600,
-        alt: 'Revelio Weddings - Fotógrafo de bodas en Sevilla',
+        alt: 'Revelio Weddings - Fotógrafos de bodas en Sevilla',
       },
     ],
     locale: 'es_ES',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fotógrafo de Bodas en Sevilla | Revelio Weddings',
+    title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
     description: 'Fotografía de bodas natural y divertida en Sevilla y Andalucía. Sin poses, sin artificios, solo verdad. Capturamos la emoción, la fiesta y a todos (¡mascotas incluidas!).',
     images: ['/logoRevelio completo sin fondo.png'],
   },
