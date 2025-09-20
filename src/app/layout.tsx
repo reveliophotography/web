@@ -7,6 +7,8 @@ import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
@@ -74,6 +76,8 @@ export default function RootLayout({
         <Footer />
         <FloatingWhatsAppButton />
         <Toaster />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
