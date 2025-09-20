@@ -2,12 +2,12 @@
 import Link from 'next/link';
 
 export default function LegalNoticePage() {
-  const siteName = "Revelio Weddings";
-  const companyName = "Nombre Completo del Fotógrafo o Empresa S.L."; // Reemplazar
-  const nif = "12345678X"; // Reemplazar con NIF/CIF
-  const address = "Calle Falsa 123, 28080, Madrid, España"; // Reemplazar
-  const email = "hello@revelioweddings.com"; // Reemplazar
-  const domainName = "revelioweddings.com"; // Reemplazar si es otro
+  const siteName = "Revelio Photography";
+  const companyName = "Revelio Photography";
+  const nif = "29532679N";
+  const address = "Antonio Guzmán, 1, 41007, Sevilla, España";
+  const email = "info@reveliophotography.es";
+  const domainName = "reveliophotography.es"
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">

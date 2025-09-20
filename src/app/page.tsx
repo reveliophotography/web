@@ -11,16 +11,13 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import { useState, useEffect } from 'react'; 
-import SplashScreen from '@/components/splash/SplashScreen';
+import { useState } from 'react'; 
 
 // --- CONFIGURACIÓN DEL CARRUSEL PRINCIPAL ---
 const heroSlides = [
-  { src: '/carrusel16.jpg', alt: '_DMA7836', dataAiHint: 'foto boda' },
-  { src: '/carrusel9.jpg', alt: '_DMA6855', dataAiHint: 'foto boda' },
-  { src: '/carrusel11.jpg', alt: '_DMA1102', dataAiHint: 'foto boda' },
-  { src: '/carrusel5.jpg', alt: 'IMG_2113', dataAiHint: 'foto boda' },
-  { src: '/carrusel14.jpg', alt: 'IMG_8737-2', dataAiHint: 'foto boda' },
+  { src: '/carrusel2.jpg', alt: 'Foto de boda 1', dataAiHint: 'foto boda' },
+  { src: '/_DMA1946.jpg', alt: 'Foto de boda 2', dataAiHint: 'foto boda' },
+  { src: '/carrusel12.jpg', alt: 'Foto de boda 3', dataAiHint: 'foto boda' },
 ];
 
 
@@ -30,26 +27,7 @@ export default function HomePage() {
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
-  const [showSplash, setShowSplash] = useState(true);
 
-  useEffect(() => {
-    // Evita mostrar el splash en entornos de desarrollo para facilitar la edición.
-    if (process.env.NODE_ENV === 'development') {
-      setShowSplash(false);
-      return;
-    }
-    const splashScreenShown = localStorage.getItem('splashScreenShown');
-    if (splashScreenShown === 'true') {
-      setShowSplash(false);
-    }
-  }, []);
-
-  if (showSplash) {
-    return <SplashScreen onFinished={() => {
-      localStorage.setItem('splashScreenShown', 'true');
-      setShowSplash(false);
-    }} />;
-  }
 
   return (
     <div className="space-y-0 pt-0">
@@ -66,14 +44,16 @@ export default function HomePage() {
                 <CarouselItem key={index}>
                   <div className="relative w-full h-screen bg-black">
                     {/* Fondo desenfocado */}
+                    {/* Fondo desenfocado */}
                     <Image
                       src={slide.src}
                       alt=""
                       fill
                       sizes="100vw"
-                      quality={10}
+                      quality={60}
                       className="object-cover blur-2xl brightness-50"
                       aria-hidden="true"
+                      priority={true}
                     />
                     {/* Imagen principal */}
                     <Image
@@ -81,10 +61,10 @@ export default function HomePage() {
                       alt={slide.alt}
                       fill
                       sizes="100vw"
-                      quality={95}
+                      quality={100}
                       className="object-contain"
                       data-ai-hint={slide.dataAiHint}
-                      priority={index === 0}
+                      priority={true}
                       style={{objectPosition: 'center'}}
                     />
                   </div>
@@ -153,25 +133,44 @@ export default function HomePage() {
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-16">
               Cada boda es un mundo, una historia única que tenemos el privilegio de contar. Estos son algunos de los momentos que hemos compartido.
             </p>
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12">
               {/* Imágenes reales para las historias de boda */}
-              {["_DMA1469.jpg", "_DMA1481.jpg"].map((img, index) => (
+              {[
+                {
+                  img: "carrusel1.jpg",
+                  couple: "Helen & Dani",
+                  description: "En pleno verano sevillano, Helen y Dani nos hicieron disfrutar con su complicidad y esa manera tan suya de mirarse. Su boda fue íntima, con un aire mediterráneo y llena de momentos que se vivieron a lo grande."
+                },
+                {
+                  img: "_DMA6873.jpg",
+                  couple: "Lola & Marcos",
+                  description: "Lola y Marcos se dieron el ‘sí’ rodeados de olivos y de toda la energía de su gente. Fue una boda que mezcló lo tradicional con un toque actual, llena de risas desde los preparativos hasta el último baile bajo las estrellas."
+                },
+                {
+                  img: "_DMA1102.jpg",
+                  couple: "Florentino & Amor",
+                  description: "Florentino y Amor celebraron 50 años juntos con la misma ilusión de siempre. Fue un día entrañable, lleno de ternura y de momentos que reflejaban todo lo que han construido. Entre risas, miradas cómplices y la compañía de hijos y nietos, festejaron medio siglo de amor de verdad."
+                }
+              ].map((story, index) => (
                 <div key={index} className="flex flex-col items-center text-center group">
-                  <div className="block w-full overflow-hidden rounded-lg shadow-xl mb-6">
+                  <div className="block w-full aspect-[4/3] overflow-hidden rounded-lg shadow-xl mb-6 relative">
                     <Image
-                      src={`/${img}`}
-                      alt={`Historia de boda ${index+1}`}
-                      width={1600}
-                      height={900}
-                      className="w-full h-auto rounded-lg shadow-xl"
+                      src={`/${story.img}`}
+                      alt={`Boda de ${story.couple}`}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover rounded-lg"
                       data-ai-hint="wedding story"
                       quality={95}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg=="
                     />
                   </div>
                   <h3 className="text-2xl font-serif font-medium text-primary mb-2">
-                    Historia de boda {index+1}
+                    {story.couple}
                   </h3>
-                  <p className="text-foreground/70 mb-4 max-w-md mx-auto">Descripción de la historia de boda {index+1}.</p>
+                  <p className="text-foreground/70 mb-4 max-w-md mx-auto">{story.description}</p>
                   <Button asChild variant="link" className="text-primary">
                     <Link href="/gallery">
                       Ver la historia completa <ArrowRight className="ml-2 h-4 w-4" />

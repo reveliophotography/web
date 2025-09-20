@@ -2,12 +2,12 @@
 import Link from 'next/link';
 
 export default function PrivacyPolicyPage() {
-  const siteName = "Revelio Weddings";
-  const companyName = "Nombre Completo del Fotógrafo o Empresa S.L."; // Reemplazar
-  const nif = "12345678X"; // Reemplazar con NIF/CIF
-  const address = "Calle Falsa 123, 28080, Madrid, España"; // Reemplazar
-  const email = "hello@revelioweddings.com"; // Reemplazar
-  const domainName = "revelioweddings.com"; // Reemplazar si es otro
+  const siteName = "Revelio Photography";
+  const companyName = "Revelio Photography";
+  const nif = "29532679N";
+  const address = "Antonio Guzmán, 1, 41007, Sevilla, España";
+  const email = "info@reveliophotography.es";
+  const domainName = "reveliophotography.es"
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
             <li>Cumplir con las obligaciones legales y fiscales que se deriven de la relación comercial.</li>
           </ul>
           <p>
-            Los datos personales proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales.
+            Los datos personales proporcionados a través del formulario de contacto se conservarán hasta el día de la boda, después de lo cual serán eliminados. Los datos necesarios para cumplir con obligaciones legales y fiscales se conservarán durante los años establecidos por la legislación aplicable.
           </p>
 
           <h2 className="text-2xl font-serif font-semibold text-primary pt-6">3. Legitimación para el Tratamiento</h2>

@@ -2,9 +2,9 @@
 import Link from 'next/link';
 
 export default function CookiePolicyPage() {
-  const siteName = "Revelio Weddings";
-  const companyName = "Revelio Weddings"; // Reemplazar con el nombre de tu empresa/autónomo
-  const contactEmail = "hello@revelioweddings.com"; // Reemplazar con tu email
+  const siteName = "Revelio Photography";
+  const companyName = "Revelio Photography";
+  const contactEmail = "info@reveliophotography.es";
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
@@ -28,13 +28,12 @@ export default function CookiePolicyPage() {
               <strong>Cookies técnicas o funcionales:</strong> Son aquellas que son esenciales para el funcionamiento del sitio web. Sin ellas, el sitio no podría funcionar correctamente. Utilizamos cookies funcionales (a través de `localStorage` del navegador, que funciona de manera similar) para:
               <ul className="list-disc list-inside space-y-1 pl-6 mt-2">
                   <li>Recordar tu consentimiento sobre el uso de cookies (`cookie_consent`), para no mostrarte el banner de consentimiento repetidamente una vez aceptado.</li>
-                  <li>Recordar si ya has visto nuestra pantalla de bienvenida (`splashScreenShown`), para mejorar tu experiencia de navegación en visitas posteriores.</li>
+
                   <li>Recordar tu preferencia de tema (claro/oscuro/sistema) para adaptar la apariencia del sitio.</li>
               </ul>
             </li>
             <li>
-              <strong>Cookies analíticas o de rendimiento:</strong> Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web, recopilando y proporcionando información de forma anónima. Nos permiten contar las visitas y fuentes de tráfico para poder medir y mejorar el rendimiento de nuestro sitio. <br />
-              <em>(Actualmente, no tenemos implementadas cookies analíticas de terceros como Google Analytics, pero nos reservamos el derecho a hacerlo en el futuro, actualizando esta política en consecuencia).</em>
+              <strong>Cookies analíticas o de rendimiento:</strong> Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web, recopilando y proporcionando información de forma anónima. Nos permiten contar las visitas y fuentes de tráfico para poder medir y mejorar el rendimiento de nuestro sitio. Utilizamos Google Analytics y las herramientas analíticas de Vercel para este propósito. Estas herramientas pueden almacenar cookies en tu dispositivo para realizar el seguimiento de tu actividad de forma anónima.
             </li>
             <li>
               <strong>Cookies de publicidad comportamental:</strong> Estas cookies almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.<br />

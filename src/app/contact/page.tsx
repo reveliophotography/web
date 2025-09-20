@@ -4,9 +4,9 @@ import { Mail, Phone, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 
 const contactInfo = {
-  displayPhone: "(346) 984-80039",
+  displayPhone: "698480039 // 652408441 // 601370069",
   fullPhone: "+34698480039",
-  email: "hello@revelioweddings.com",
+  email: "info@reveliophotography.es",
   whatsappNumber: "34698480039",
   whatsappMessage: "Hola, estoy interesado/a en tus servicios de fotografía de bodas y me gustaría saber más.",
 };

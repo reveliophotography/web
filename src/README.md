@@ -15,17 +15,6 @@ Aquí encontrarás instrucciones sobre cómo personalizar las características c
 
 Tu web se basa en mostrar tus fotografías. Para actualizar las imágenes de marcador de posición (`https://placehold.co/...`) con las tuyas, sigue estos pasos. Primero, sube tus imágenes a un servicio de alojamiento (como Firebase Storage) y obtén la URL de cada una. Luego, edita los siguientes archivos:
 
-#### a. Pantalla de Bienvenida (Splash Screen)
-Esta es la imagen a pantalla completa que se muestra solo la primera vez que un usuario visita el sitio.
-
--   **Archivo a modificar**: `src/components/splash/SplashScreen.tsx`
--   **Qué cambiar**: Dentro del archivo, busca el componente `<Image>` y reemplaza la URL del atributo `src`.
-    ```jsx
-    <Image
-      src="URL_DE_TU_IMAGEN_AQUI"
-      // ...
-    />
-    ```
 
 #### b. Carrusel Principal (Página de Inicio)
 Este es el carrusel grande y automático que se muestra en la parte superior de la página de inicio.
@@ -51,26 +40,24 @@ Esta sección muestra un avance de bodas específicas.
         imageSrc: "URL_BODA_1",
         title: "Ana & Javier | Finca La Concepción",
         description: "...",
-        link: "/gallery?category=Boda+de+Ana+y+Javier"
+        link: "/gallery"
       },
       // ...
     ];
     ```
-    **Importante**: El `link` debe coincidir con la `category` que uses en la galería para que el filtro funcione.
 
 #### d. Galería Principal
-Esta es la colección completa de tus trabajos, con filtros por categoría.
+Esta es la colección completa de tus trabajos.
 
 -   **Archivo a modificar**: `src/data/gallery.ts`
--   **Qué cambiar**: Este archivo contiene la lista de todas las fotos de tu galería. Edita cada objeto para añadir la URL de tu foto, una descripción, y una categoría.
+-   **Qué cambiar**: Este archivo contiene la lista de todas las fotos de tu galería. Edita cada objeto para añadir la URL de tu foto y una descripción.
     ```javascript
     export const galleryPhotos: Photo[] = [
-      { id: '1', src: 'URL_FOTO_1', alt: 'Descripción foto 1', category: 'Ceremonia', height: 1200, dataAiHint: '...' },
-      { id: '2', src: 'URL_FOTO_2', alt: 'Descripción foto 2', category: 'Hora Dorada', height: 600, dataAiHint: '...' },
+      { id: '1', src: 'URL_FOTO_1', alt: 'Descripción foto 1', height: 1200, dataAiHint: '...' },
+      { id: '2', src: 'URL_FOTO_2', alt: 'Descripción foto 2', height: 600, dataAiHint: '...' },
       // ...
     ];
     ```
-    **Importante**: La `category` que pongas aquí es la que se usará para los botones de filtro en la página de la galería.
 
 ### 2. Configurar Información de Contacto y Legal
 

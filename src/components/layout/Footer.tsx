@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex items-center justify-center gap-2">
           <Copyright size={16} />
           <p className="text-sm">
-            {currentYear} Revelio Weddings. Todos los derechos reservados.
+            {currentYear} Revelio Photography. Todos los derechos reservados.
           </p>
         </div>
         <nav className="text-xs mt-4 flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
