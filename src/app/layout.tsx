@@ -12,7 +12,7 @@ import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://revelioweddings.com'),
+  metadataBase: new URL('https://reveliophotography.es'),
   title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
   description: 'Fotografía de bodas en Sevilla y Andalucía, natural, sin poses forzadas, para parejas auténticas (¡y sus mascotas!). Capturamos la emoción real, la fiesta y los mejores momentos de vuestro gran día. Vivid vuestra boda, nosotros la contamos en imágenes.',
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
     description: 'Fotografía de bodas natural y divertida en Sevilla y Andalucía. Sin poses, sin artificios, solo verdad. Capturamos la emoción, la fiesta y a todos (¡mascotas incluidas!).',
-    url: 'https://revelioweddings.com',
+    url: 'https://reveliophotography.es',
     type: 'website',
     images: [
       {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     images: ['/logoRevelio completo sin fondo.png'],
   },
   alternates: {
-    canonical: 'https://revelioweddings.com',
+    canonical: 'https://reveliophotography.es',
   },
 };
 
@@ -92,8 +92,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "Revelio Weddings",
-              "image": "https://revelioweddings.com/logoRevelio%20completo%20sin%20fondo.png",
-              "url": "https://revelioweddings.com",
+              "image": "https://reveliophotography.es/logoRevelio%20completo%20sin%20fondo.png",
+              "url": "https://reveliophotography.es",
               "telephone": "+34698480039",
               "email": "info@reveliophotography.es",
               "priceRange": "$$",

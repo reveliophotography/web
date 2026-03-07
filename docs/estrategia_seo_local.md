@@ -63,7 +63,7 @@ Google ve los enlaces hacia tu web como "votos de confianza". Cuantos más votos
 
 1. **Intercambio con Proveedores (Win-Win):**
    - ¿Hiciste una boda en la _Hacienda X_ con el _Catering Y_ y vestido de _Diseñador Z_? Mándales a esos proveedores algunas fotos gratis para que las usen en sus propias webs o blogs.
-   - **Condición única:** _"Podéis usarlas gratis siempre quepongáis un enlace a mi web de crédito: Fotografía por [Revelio Weddings](https://revelioweddings.com)"_.
+   - **Condición única:** _"Podéis usarlas gratis siempre quepongáis un enlace a mi web de crédito: Fotografía por [Revelio Weddings](https://reveliophotography.es)"_.
 2. **Directorios de Bodas:**
    - Regístrate (aunque sea en la cuenta gratuita) en plataformas como _Bodas.net, Zankyou o Bodas de Cuento_ y asegúrate de añadir siempre la URL de tu web en tu perfil.
    - Además del tráfico que te envíen, ese enlace le da "autoridad" SEO a tu dominio a los ojos de Google.

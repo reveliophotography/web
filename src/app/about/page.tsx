@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Sobre Nosotros | Fotógrafos de Bodas Naturales en Sevilla',
   description: 'Conoce a Revelio, fotógrafos de bodas en Sevilla y Andalucía. Nos apasiona capturar la alegría, la emoción y la autenticidad sin poses ni artificios.',
   alternates: {
-    canonical: 'https://revelioweddings.com/about',
+    canonical: 'https://reveliophotography.es/about',
   },
 };
 

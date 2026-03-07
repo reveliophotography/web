@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://revelioweddings.com/sitemap.xml",
+    sitemap: "https://reveliophotography.es/sitemap.xml",
   };
 }

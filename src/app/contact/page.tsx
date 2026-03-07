@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Contacto | Reserva tu Fotógrafo de Bodas en Sevilla',
   description: '¿Listos para tener los mejores recuerdos de boda? Contacta con Revelio Weddings en Sevilla. Consulta disponibilidad y precios para tu reportaje de bodas natural y sin poses.',
   alternates: {
-    canonical: 'https://revelioweddings.com/contact',
+    canonical: 'https://reveliophotography.es/contact',
   },
 };
 

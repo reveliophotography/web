@@ -25,7 +25,7 @@ Este tutorial te guiará EXACTAMENTE en lo que debes hacer para crear tu ficha g
 
 5. **Datos de Contacto (¡Súper Importante para SEO!)**
    - Número de teléfono: **+34 698 48 00 39** _(Tiene que ser SECAMENTE el mismo que pusimos en el código de tu web)._
-   - Sitio web actual: **https://revelioweddings.com** _(De nuevo, tiene que coincidir exactamente con el dominio)._
+   - Sitio web actual: **https://reveliophotography.es** _(De nuevo, tiene que coincidir exactamente con el dominio)._
 
 6. **Verificación**
    - Google necesita saber que existes. Te pedirá una dirección postal (no es pública, es sólo interna de ellos) para mandarte una carta con un código de 5 números o te pedirá subir un vídeo corto desde tu móvil enseñando tu equipo (tus cámaras, ordenador, mesa de trabajo).
@@ -55,7 +55,7 @@ Aquí es donde unes las 3 patas (Ficha de Google + Web + Instagram) para formar 
 
 ### 1. Retroalimentación Google <-> Web (Ya implementado)
 
-El código JSON-LD que inyectamos antes en tu web ya le está diciendo a Google: _"Oye, la web revelioweddings.com ES LA MISMA ENTIDAD que la ficha que acabo de reclamar"_.
+El código JSON-LD que inyectamos antes en tu web ya le está diciendo a Google: _"Oye, la web reveliophotography.es ES LA MISMA ENTIDAD que la ficha que acabo de reclamar"_.
 
 **Paso extra:** Añade al footer (pie de página) de tu web el logo o un textito que diga "Míranos en Google". O cuando tengas 5 reseñas de 5 estrellas, pon un banner en la web que diga "5/5 en Google Reviews".
 
@@ -64,7 +64,7 @@ El código JSON-LD que inyectamos antes en tu web ya le está diciendo a Google:
 Google ahora rastrea Instagram y lo muestra dentro de tu ficha si cree que sois los mismos. Para forzar a Google a que lo entienda:
 
 - Asegúrate de que tu Bio de Instagram pone: **"Revelio Weddings | Fotógrafo de Bodas Sevilla"**.
-- El link de tu bio DEBE ser **revelioweddings.com**.
+- El link de tu bio DEBE ser **reveliophotography.es**.
 - (Esto ya lo hice en tu código web: El Schema Markup incluye la línea `"sameAs": ["https://instagram.com/revelioweddings"]`, que fuerza el vínculo directo).
 
 ### 3. Las Reseñas
