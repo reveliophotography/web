@@ -1,5 +1,12 @@
-
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   const siteName = "Revelio Photography";
@@ -74,7 +81,7 @@ export default function PrivacyPolicyPage() {
           <p>
             Asimismo, si considera que no ha obtenido satisfacción plena en el ejercicio de sus derechos, podrá presentar una reclamación ante la autoridad de control nacional, dirigiéndose a estos efectos a la Agencia Española de Protección de Datos, C/ Jorge Juan, 6 – 28001 Madrid.
           </p>
-           <h2 className="text-2xl font-serif font-semibold text-primary pt-6">6. Exactitud y Veracidad de los Datos</h2>
+          <h2 className="text-2xl font-serif font-semibold text-primary pt-6">6. Exactitud y Veracidad de los Datos</h2>
           <p>
             El usuario es el único responsable de la veracidad y corrección de los datos incluidos, exonerando a {companyName} de cualquier responsabilidad al respecto. Los usuarios garantizan y responden, en cualquier caso, de la exactitud, vigencia y autenticidad de los datos personales facilitados, y se comprometen a mantenerlos debidamente actualizados.
           </p>

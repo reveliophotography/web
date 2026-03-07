@@ -3,6 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Camera, Heart, PawPrint, Users } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sobre Nosotros | Fotógrafos de Bodas Naturales en Sevilla',
+  description: 'Conoce a Revelio, fotógrafos de bodas en Sevilla y Andalucía. Nos apasiona capturar la alegría, la emoción y la autenticidad sin poses ni artificios.',
+  alternates: {
+    canonical: 'https://revelioweddings.com/about',
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -45,8 +54,8 @@ export default function AboutPage() {
           Nuestro estilo es una mezcla de fotografía documental y artística. Documental, porque capturamos los hechos tal y como suceden, sin interferir. Artística, porque buscamos siempre la composición, la luz y el color que conviertan una foto en una pieza de arte. El resultado son imágenes atemporales, elegantes y cargadas de emoción, que os harán revivir vuestro día una y otra vez.
         </p>
         <div className="mt-8 flex items-center justify-center text-lg text-foreground/80 leading-relaxed bg-muted p-4 rounded-lg">
-            <PawPrint className="h-6 w-6 mr-3 text-primary shrink-0" />
-            <span>Por cierto, vuestros amigos peludos son más que bienvenidos. ¡Nos encanta incluir mascotas en las sesiones y que formen parte de vuestro gran día!</span>
+          <PawPrint className="h-6 w-6 mr-3 text-primary shrink-0" />
+          <span>Por cierto, vuestros amigos peludos son más que bienvenidos. ¡Nos encanta incluir mascotas en las sesiones y que formen parte de vuestro gran día!</span>
         </div>
       </section>
 

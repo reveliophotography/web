@@ -1,22 +1,22 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://www.reveliophotography.com';
+  const siteUrl = "https://revelioweddings.com";
 
   // Rutas estáticas
   return [
-    '/',
-    '/about',
-    '/contact',
-    '/gallery',
-    '/cookie-policy',
-    '/legal-notice',
-    '/privacy-policy',
-    '/accessibility-statement',
+    "/",
+    "/about",
+    "/contact",
+    "/gallery",
+    "/cookie-policy",
+    "/legal-notice",
+    "/privacy-policy",
+    "/accessibility-statement",
   ].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as 'weekly',
-    priority: route === '/' ? 1 : 0.8,
+    changeFrequency: "weekly" as "weekly",
+    priority: route === "/" ? 1 : 0.8,
   }));
 }

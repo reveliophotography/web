@@ -13,6 +13,15 @@ const contactInfo = {
 const whatsappLink = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappMessage)}`;
 
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contacto | Reserva tu Fotógrafo de Bodas en Sevilla',
+  description: '¿Listos para tener los mejores recuerdos de boda? Contacta con Revelio Weddings en Sevilla. Consulta disponibilidad y precios para tu reportaje de bodas natural y sin poses.',
+  alternates: {
+    canonical: 'https://revelioweddings.com/contact',
+  },
+};
 
 export default function ContactPage() {
   return (

@@ -12,6 +12,7 @@ import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://revelioweddings.com'),
   title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
   description: 'Fotografía de bodas en Sevilla y Andalucía, natural, sin poses forzadas, para parejas auténticas (¡y sus mascotas!). Capturamos la emoción real, la fiesta y los mejores momentos de vuestro gran día. Vivid vuestra boda, nosotros la contamos en imágenes.',
   keywords: [
@@ -82,6 +83,38 @@ export default function RootLayout({
         <Script id="metricool" strategy="afterInteractive">
           {`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"58cb40d41a2150d43a48feecaf8b1bd2"})});`}
         </Script>
+        {/* Local Business Schema Markup */}
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Revelio Weddings",
+              "image": "https://revelioweddings.com/logoRevelio%20completo%20sin%20fondo.png",
+              "url": "https://revelioweddings.com",
+              "telephone": "+34698480039",
+              "email": "info@reveliophotography.es",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Sevilla",
+                "addressRegion": "Andalucía",
+                "addressCountry": "ES"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 37.3890924,
+                "longitude": -5.9844589
+              },
+              "sameAs": [
+                "https://instagram.com/revelioweddings"
+              ],
+              "description": "Fotografía de bodas en Sevilla y Andalucía, natural, sin poses forzadas, para parejas auténticas. Capturamos la emoción real y la fiesta."
+            })
+          }}
+        />
       </body>
     </html>
   );

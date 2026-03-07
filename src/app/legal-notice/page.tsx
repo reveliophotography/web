@@ -1,5 +1,12 @@
-
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function LegalNoticePage() {
   const siteName = "Revelio Photography";
@@ -64,10 +71,10 @@ export default function LegalNoticePage() {
           <p>
             {companyName} se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que éstos aparezcan presentados o localizados en su portal.
           </p>
-          
+
           <h2 className="text-2xl font-serif font-semibold text-primary pt-6">7. Enlaces</h2>
           <p>
-             En el caso de que en {domainName} se dispusiesen enlaces o hipervínculos hacia otros sitios de Internet, {companyName} no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso {companyName} asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno.
+            En el caso de que en {domainName} se dispusiesen enlaces o hipervínculos hacia otros sitios de Internet, {companyName} no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso {companyName} asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno.
           </p>
 
           <h2 className="text-2xl font-serif font-semibold text-primary pt-6">8. Legislación Aplicable y Jurisdicción</h2>

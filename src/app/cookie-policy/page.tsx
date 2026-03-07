@@ -1,5 +1,12 @@
-
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function CookiePolicyPage() {
   const siteName = "Revelio Photography";
@@ -27,9 +34,9 @@ export default function CookiePolicyPage() {
             <li>
               <strong>Cookies técnicas o funcionales:</strong> Son aquellas que son esenciales para el funcionamiento del sitio web. Sin ellas, el sitio no podría funcionar correctamente. Utilizamos cookies funcionales (a través de `localStorage` del navegador, que funciona de manera similar) para:
               <ul className="list-disc list-inside space-y-1 pl-6 mt-2">
-                  <li>Recordar tu consentimiento sobre el uso de cookies (`cookie_consent`), para no mostrarte el banner de consentimiento repetidamente una vez aceptado.</li>
+                <li>Recordar tu consentimiento sobre el uso de cookies (`cookie_consent`), para no mostrarte el banner de consentimiento repetidamente una vez aceptado.</li>
 
-                  <li>Recordar tu preferencia de tema (claro/oscuro/sistema) para adaptar la apariencia del sitio.</li>
+                <li>Recordar tu preferencia de tema (claro/oscuro/sistema) para adaptar la apariencia del sitio.</li>
               </ul>
             </li>
             <li>
