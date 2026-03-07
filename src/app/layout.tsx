@@ -9,6 +9,7 @@ import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Fotógrafos de Bodas en Sevilla | Revelio Weddings',
@@ -78,6 +79,9 @@ export default function RootLayout({
         <Toaster />
         <Analytics />
         <SpeedInsights />
+        <Script id="metricool" strategy="afterInteractive">
+          {`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"58cb40d41a2150d43a48feecaf8b1bd2"})});`}
+        </Script>
       </body>
     </html>
   );
