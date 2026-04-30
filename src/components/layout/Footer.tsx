@@ -6,9 +6,9 @@ const Logo = ({ className }: { className?: string }) => (
   <Image
     src="/logoRevelio completo sin fondo.png"
     alt="Logo Revelio"
-    width={160}
+    width={163}
     height={53}
-    className={cn("h-14 w-auto", className)}
+    className={cn("h-6 md:h-8 w-auto", className)}
     priority
   />
 );
@@ -59,6 +59,7 @@ export default function Footer() {
         <div className="text-xs text-muted-foreground text-center md:text-right">
           <p>© {currentYear} Revelio Photography. Todos los derechos reservados.</p>
           <div className="mt-2 space-x-4">
+            <Link href="/contact" className="hover:underline hover:text-primary transition-colors">Agenda vuestra fecha</Link>
             <Link href="/privacy-policy" className="hover:underline hover:text-primary transition-colors">Política de privacidad</Link>
             <Link href="/cookie-policy" className="hover:underline hover:text-primary transition-colors">Cookies</Link>
           </div>
