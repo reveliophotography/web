@@ -56,7 +56,9 @@ Para mantener la página web rápida y posicionar bien en Google, las fotos pesa
 2. Abre la terminal (`Terminal -> New Terminal`).
 3. Ejecuta el siguiente comando para optimizarlas:
    ```bash
-   node optimize.mjs
+   npm run optimize:bodas
++ actualizar web y gallery.ts 
+Invoke-RestMethod -Method Post http://localhost:9002/api/gallery/sync
    ```
 4. El script procesará todas las fotos y creará copias ultra-ligeras (redimensionadas y comprimidas) directamente dentro de la carpeta `/public` con el mismo nombre.
 5. Usa los nombres de esas fotos en el archivo `src/data/gallery.ts` como siempre. ¡Tu web cargará súper rápido!
