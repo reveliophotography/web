@@ -1,5 +1,15 @@
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Aviso Legal | Revelio Photography',
+  description:
+    'Aviso legal de Revelio Photography, estudio de fotografia y video de bodas en Sevilla.',
+  alternates: {
+    canonical: '/legal-notice',
+  },
+};
 
 export default function LegalNoticePage() {
   const siteName = "Revelio Photography";

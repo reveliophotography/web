@@ -9,28 +9,13 @@ import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 import AnalyticsGate from '@/components/layout/AnalyticsGate';
 import { siteConfig } from '@/lib/site';
+import JsonLd from '@/components/seo/JsonLd';
+import { getBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: siteConfig.title,
   description: siteConfig.description,
-  keywords: [
-    'fotógrafo de bodas Sevilla',
-    'fotografía de bodas Sevilla',
-    'fotógrafo bodas natural',
-    'fotógrafo bodas mascotas',
-    'fotografía documental bodas',
-    'fotógrafo bodas Andalucía',
-    'fotografía boda espontánea',
-    'fotógrafo bodas sin poses',
-    'fotografía boda divertida',
-    'fotógrafo bodas originales',
-    'fotografía boda Sevilla',
-    'fotógrafo bodas con perros',
-    'fotógrafo bodas con gatos',
-    'fotografía boda fiesta',
-    'fotógrafo bodas naturales Sevilla',
-  ],
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
@@ -71,6 +56,7 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <JsonLd data={getBusinessSchema()} />
       </head>
       <body className={`${greatVibes.variable} ${cormorantGaramond.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <Header />

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
+import FaqSection from '@/components/home/FaqSection';
 
 // --- CONFIGURACIÓN DEL CARRUSEL PRINCIPAL ---
 const heroSlides = [
@@ -273,6 +274,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* Preguntas frecuentes */}
+      <FaqSection />
 
     </div>
   );

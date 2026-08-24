@@ -1,5 +1,15 @@
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Politica de Privacidad | Revelio Photography',
+  description:
+    'Politica de privacidad de Revelio Photography: que datos recogemos, para que los usamos y como ejercer vuestros derechos.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
+};
 
 export default function PrivacyPolicyPage() {
   const siteName = "Revelio Photography";
