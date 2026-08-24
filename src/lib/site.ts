@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = "https://reveliophotography.es";
+const FALLBACK_SITE_URL = "https://www.reveliophotography.es";
 
 export const siteConfig = {
   name: "Revelio Photography",

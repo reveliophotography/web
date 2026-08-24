@@ -1,5 +1,15 @@
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Politica de Cookies | Revelio Photography',
+  description:
+    'Politica de cookies de Revelio Photography: que cookies usamos en la web y como configurarlas.',
+  alternates: {
+    canonical: '/cookie-policy',
+  },
+};
 
 export default function CookiePolicyPage() {
   const siteName = "Revelio Photography";

@@ -1,5 +1,15 @@
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Declaracion de Accesibilidad | Revelio Photography',
+  description:
+    'Declaracion de accesibilidad de la web de Revelio Photography y como avisarnos de una barrera.',
+  alternates: {
+    canonical: '/accessibility-statement',
+  },
+};
 
 export default function AccessibilityStatementPage() {
   return (
