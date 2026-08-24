@@ -9,8 +9,6 @@ export const businessInfo = {
   founder: 'Alejandro Montalvo Carrasco',
   email: 'info@reveliophotography.es',
   phone: '+34698480039',
-  streetAddress: 'Antonio Guzman, 1',
-  postalCode: '41007',
   addressLocality: 'Sevilla',
   addressRegion: 'Andalucia',
   addressCountry: 'ES',
@@ -50,8 +48,6 @@ export function getBusinessSchema() {
         currenciesAccepted: 'EUR',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: businessInfo.streetAddress,
-          postalCode: businessInfo.postalCode,
           addressLocality: businessInfo.addressLocality,
           addressRegion: businessInfo.addressRegion,
           addressCountry: businessInfo.addressCountry,

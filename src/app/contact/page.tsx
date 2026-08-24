@@ -125,7 +125,7 @@ export default function ContactPage() {
             <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
               <h4 className="font-serif text-xl font-bold mb-3 text-primary">¿Cuánto tardáis en entregar las fotos?</h4>
               <p className="text-muted-foreground text-sm leading-relaxed font-sans">
-                Solemos enviar un pequeño avance en la primera semana. La galería completa está lista entre 2 y 6 semanas después de la boda.
+                Solemos enviar un pequeño avance en la primera semana. La galería completa está lista entre 3 y 6 semanas después de la boda.
               </p>
             </div>
             <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">

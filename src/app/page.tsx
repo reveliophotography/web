@@ -32,7 +32,7 @@ const heroSlides = [
     src: '/IMG_3153.jpg',
     alt: 'Fiesta de boda con alma, celebracion en Sevilla',
     dataAiHint: 'foto boda',
-    caption: 'Entrega completa en 2-6 semanas',
+    caption: 'Entrega completa en 3-6 semanas',
   },
 ];
 
