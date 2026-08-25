@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucia.',
   alternates: {
-    canonical: '/gallery',
+    canonical: '/galeria',
   },
   openGraph: {
     title: 'Galeria de Bodas | Revelio Photography',
     description:
       'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucia.',
-    url: `${siteConfig.siteUrl}/gallery`,
+    url: `${siteConfig.siteUrl}/galeria`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <Breadcrumbs name="Galería" path="/gallery" />
+      <Breadcrumbs name="Galería" path="/galeria" />
       <Suspense fallback={<div className="w-full h-96 flex items-center justify-center text-muted-foreground">Cargando galería...</div>}>
         <GalleryClientPage />
       </Suspense>

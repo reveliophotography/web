@@ -9,9 +9,9 @@ import Image from 'next/image';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
- { href: '/about', label: 'Sobre Nosotros' },
-  { href: '/gallery', label: 'Galería' },
-  { href: '/contact', label: 'Contacto' },
+ { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/galeria', label: 'Galería' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 
 const Logo = ({ className }: { className?: string }) => (
@@ -30,7 +30,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const isHomePage = pathname === '/';
-  const isContactPage = pathname === '/contact';
+  const isContactPage = pathname === '/contacto';
 
   React.useEffect(() => {
     const handleScroll = () => {

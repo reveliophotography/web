@@ -124,7 +124,7 @@ export function getBusinessSchema() {
         name: businessInfo.founder,
         jobTitle: 'Fotografo de bodas',
         worksFor: { '@id': businessId },
-        url: `${url}/about`,
+        url: `${url}/sobre-nosotros`,
         sameAs: [...businessInfo.socials],
       },
       {

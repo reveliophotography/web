@@ -130,7 +130,7 @@ export default function CollaboratorsPage() {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-serif italic tracking-wide"
           >
-            <Link href="/contact">Escríbenos</Link>
+            <Link href="/contacto">Escríbenos</Link>
           </Button>
         </Reveal>
       </section>

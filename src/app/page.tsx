@@ -111,7 +111,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary w-full sm:w-auto">
-              <Link href="/contact">
+              <Link href="/contacto">
                 Hablemos de vuestra boda <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -140,7 +140,7 @@ export default function HomePage() {
               Como Revelio Photography, nos mueve una fotografia de bodas con alma que respire verdad. Trabajamos en Sevilla y en toda Andalucia con cercania, para que cada pareja se sienta acompañada y libre de poses forzadas.
             </p>
             <Link
-              href="/about"
+              href="/sobre-nosotros"
               className="inline-flex items-center text-primary border-b border-primary pb-1 hover:text-primary/80 transition-colors uppercase text-sm tracking-widest font-sans font-medium mt-4"
             >
               Conoced nuestra filosofía
@@ -268,7 +268,7 @@ export default function HomePage() {
             ))}
           </div>
           <Link
-            href="/gallery"
+            href="/galeria"
             className="inline-flex items-center text-primary border-b border-primary pb-1 hover:text-primary/80 transition-colors uppercase text-sm tracking-widest font-sans font-medium mt-12"
           >
             Explorar mas historias

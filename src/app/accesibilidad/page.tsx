@@ -8,14 +8,14 @@ export const metadata: Metadata = {
   description:
     'Declaracion de accesibilidad de la web de Revelio Photography y como avisarnos de una barrera.',
   alternates: {
-    canonical: '/accessibility-statement',
+    canonical: '/accesibilidad',
   },
 };
 
 export default function AccessibilityStatementPage() {
   return (
     <div className="space-y-8 max-w-3xl mx-auto">
-      <Breadcrumbs name="Declaración de accesibilidad" path="/accessibility-statement" />
+      <Breadcrumbs name="Declaración de accesibilidad" path="/accesibilidad" />
       <section className="text-center">
         <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Declaración de Accesibilidad</h1>
       </section>
@@ -65,7 +65,7 @@ export default function AccessibilityStatementPage() {
           Tus comentarios son importantes para nosotros.
         </p>
         <p>
-          Puedes contactarnos a través de nuestra página de <Link href="/contact" className="underline hover:text-primary">Contacto</Link>.
+          Puedes contactarnos a través de nuestra página de <Link href="/contacto" className="underline hover:text-primary">Contacto</Link>.
         </p>
         <p>
           Haremos todos los esfuerzos razonables para abordar tus inquietudes.

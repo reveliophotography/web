@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description:
     'Contacta con Revelio Photography para tu boda en Sevilla o cualquier punto de Espana. Respuesta rapida y presupuesto personalizado.',
   alternates: {
-    canonical: '/contact',
+    canonical: '/contacto',
   },
   openGraph: {
     title: 'Contacto | Revelio Photography',
     description:
       'Contacta con Revelio Photography para tu boda en Sevilla o cualquier punto de Espana. Respuesta rapida y presupuesto personalizado.',
-    url: `${siteConfig.siteUrl}/contact`,
+    url: `${siteConfig.siteUrl}/contacto`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
@@ -39,7 +39,7 @@ const contactInfo = {
 export default function ContactPage() {
   return (
     <div className="bg-background text-foreground transition-colors duration-300 antialiased font-sans">
-      <Breadcrumbs name="Contacto" path="/contact" />
+      <Breadcrumbs name="Contacto" path="/contacto" />
 
       {/* Hero Header */}
       <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center pt-20">

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Politica de privacidad de Revelio Photography: que datos recogemos, para que los usamos y como ejercer vuestros derechos.',
   alternates: {
-    canonical: '/privacy-policy',
+    canonical: '/politica-de-privacidad',
   },
 };
 
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
-      <Breadcrumbs name="Política de privacidad" path="/privacy-policy" />
+      <Breadcrumbs name="Política de privacidad" path="/politica-de-privacidad" />
       <div className="space-y-8">
         <section className="text-center">
           <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Política de Privacidad</h1>
