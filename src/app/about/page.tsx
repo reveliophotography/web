@@ -64,11 +64,6 @@ export default function AboutPage() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-background rounded-full flex items-center justify-center shadow-lg border border-border z-10">
-                <span className="font-serif italic text-primary text-center leading-tight text-sm font-bold">
-                  Desde<br />2015
-                </span>
-              </div>
             </div>
           </div>
         </Reveal>
