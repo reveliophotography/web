@@ -4,9 +4,9 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Declaracion de Accesibilidad | Revelio Photography',
+  title: 'Declaración de Accesibilidad | Revelio Photography',
   description:
-    'Declaracion de accesibilidad de la web de Revelio Photography y como avisarnos de una barrera.',
+    'Declaración de accesibilidad de la web de Revelio Photography y cómo avisarnos de una barrera.',
   alternates: {
     canonical: '/accesibilidad',
   },

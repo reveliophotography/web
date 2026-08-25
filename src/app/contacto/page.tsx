@@ -1,7 +1,6 @@
 import BookingForm from '@/components/contact/BookingForm';
-import { MapPin, Mail, Phone, MessageCircleHeart } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
 import Reveal from '@/components/motion/Reveal';
@@ -12,14 +11,14 @@ import { contactFaqs } from '@/data/faq';
 export const metadata: Metadata = {
   title: 'Contacto | Revelio Photography',
   description:
-    'Contacta con Revelio Photography para tu boda en Sevilla o cualquier punto de Espana. Respuesta rapida y presupuesto personalizado.',
+    'Contacta con Revelio Photography para vuestra boda en Sevilla o en cualquier punto de España. Respuesta rápida y presupuesto personalizado.',
   alternates: {
     canonical: '/contacto',
   },
   openGraph: {
     title: 'Contacto | Revelio Photography',
     description:
-      'Contacta con Revelio Photography para tu boda en Sevilla o cualquier punto de Espana. Respuesta rapida y presupuesto personalizado.',
+      'Contacta con Revelio Photography para vuestra boda en Sevilla o en cualquier punto de España. Respuesta rápida y presupuesto personalizado.',
     url: `${siteConfig.siteUrl}/contacto`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,

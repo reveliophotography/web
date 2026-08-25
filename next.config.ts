@@ -16,11 +16,13 @@ const nextConfig: NextConfig = {
       { source: '/accessibility-statement', destination: '/accesibilidad', permanent: true },
     ];
   },
+  // Sin red de seguridad a proposito: si TypeScript o ESLint fallan, el
+  // despliegue se para en vez de publicar algo roto.
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   experimental: {
     serverActions: {
