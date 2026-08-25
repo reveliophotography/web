@@ -1,6 +1,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Declaracion de Accesibilidad | Revelio Photography',
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function AccessibilityStatementPage() {
   return (
     <div className="space-y-8 max-w-3xl mx-auto">
+      <Breadcrumbs name="Declaración de accesibilidad" path="/accessibility-statement" />
       <section className="text-center">
         <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Declaración de Accesibilidad</h1>
       </section>

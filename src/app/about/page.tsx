@@ -5,6 +5,7 @@ import { PawPrint, Quote } from 'lucide-react';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
 import Reveal from '@/components/motion/Reveal';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Revelio Photography',
@@ -21,12 +22,14 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 
 export default function AboutPage() {
   return (
     <div className="bg-background text-foreground transition-colors duration-300 antialiased font-sans flex flex-col pt-20">
+      <Breadcrumbs name="Sobre nosotros" path="/about" />
 
       {/* Intro Section */}
       <section className="py-24 bg-muted/30 transition-colors duration-300">

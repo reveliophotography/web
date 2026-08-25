@@ -23,14 +23,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.siteUrl,
     type: 'website',
-    images: [
-      {
-        url: '/logoRevelio completo sin fondo.png',
-        width: 1000,
-        height: 600,
-        alt: 'Revelio Weddings - Fotógrafos de bodas en Sevilla',
-      },
-    ],
+    images: [siteConfig.ogImage],
     locale: siteConfig.locale,
     siteName: siteConfig.name,
   },
@@ -38,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['/logoRevelio completo sin fondo.png'],
+    images: [siteConfig.ogImage.url],
   },
   alternates: {
     canonical: '/',

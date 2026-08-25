@@ -1,6 +1,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Politica de Cookies | Revelio Photography',
@@ -18,6 +19,7 @@ export default function CookiePolicyPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
+      <Breadcrumbs name="Política de cookies" path="/cookie-policy" />
       <div className="space-y-8">
         <section className="text-center">
           <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Política de Cookies</h1>

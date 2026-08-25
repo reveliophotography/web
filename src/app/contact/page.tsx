@@ -5,6 +5,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
 import Reveal from '@/components/motion/Reveal';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import { contactFaqs } from '@/data/faq';
 
 
 export const metadata: Metadata = {
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -36,6 +39,7 @@ const contactInfo = {
 export default function ContactPage() {
   return (
     <div className="bg-background text-foreground transition-colors duration-300 antialiased font-sans">
+      <Breadcrumbs name="Contacto" path="/contact" />
 
       {/* Hero Header */}
       <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center pt-20">
@@ -117,29 +121,18 @@ export default function ContactPage() {
           <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12">Lo que soléis preguntar</h2>
 
           <div className="grid md:grid-cols-2 gap-8 text-left">
-            <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
-              <h4 className="font-serif text-xl font-bold mb-3 text-primary">¿Viajáis para bodas?</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed font-sans">
-                ¡Absolutamente! Nos encanta viajar. Tanto si os casáis en una playa lejana como en una montaña nevada, estaremos allí.
-              </p>
-            </div>
-            <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
-              <h4 className="font-serif text-xl font-bold mb-3 text-primary">¿Cuánto tardáis en entregar las fotos?</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed font-sans">
-                Solemos enviar un pequeño avance en la primera semana. La galería completa está lista entre 3 y 6 semanas después de la boda.
-              </p>
-            </div>
-            <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
-              <h4 className="font-serif text-xl font-bold mb-3 text-primary">¿Con cuánta antelación debemos reservar la fecha?</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed font-sans">Recomendamos,  reservar con una antelación de entre 8 y 12 meses, aunque si tenemos la fecha libre, estaremos encantados de acompañaros incluso con menos tiempo.</p>
-            </div>
-            <div className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
-              <h4 className="font-serif text-xl font-bold mb-3 text-primary">¿Realizáis sesiones de preboda o postboda?</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed font-sans">¡Sí! Son sesiones maravillosas para que os sintáis cómodos frente a la cámara antes del gran día "preboda" o para volver a poneros vuestros trajes en un entorno natural y relajado sin el estrés de la boda "postboda".</p>
-            </div>
-         
+            {contactFaqs.map((faq) => (
+              <div
+                key={faq.id}
+                className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl"
+              >
+                <h4 className="font-serif text-xl font-bold mb-3 text-primary">{faq.question}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed font-sans">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
-           
         </Reveal>
       </main>
 

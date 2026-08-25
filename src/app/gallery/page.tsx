@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import GalleryClientPage from './gallery-client-page';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const revalidate = 3600;
 
@@ -21,14 +22,18 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 
 export default function GalleryPage() {
   return (
-    <Suspense fallback={<div className="w-full h-96 flex items-center justify-center text-muted-foreground">Cargando galería...</div>}>
-      <GalleryClientPage />
-    </Suspense>
+    <>
+      <Breadcrumbs name="Galería" path="/gallery" />
+      <Suspense fallback={<div className="w-full h-96 flex items-center justify-center text-muted-foreground">Cargando galería...</div>}>
+        <GalleryClientPage />
+      </Suspense>
+    </>
   );
 }
 
