@@ -1,12 +1,11 @@
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Politica de Privacidad | Revelio Photography',
+  title: 'Política de Privacidad | Revelio Photography',
   description:
-    'Politica de privacidad de Revelio Photography: que datos recogemos, para que los usamos y como ejercer vuestros derechos.',
+    'Política de privacidad de Revelio Photography: qué datos recogemos, para qué los usamos y cómo ejercer vuestros derechos.',
   alternates: {
     canonical: '/politica-de-privacidad',
   },
@@ -18,7 +17,6 @@ export default function PrivacyPolicyPage() {
   const nif = "29532679N";
   const address = "Antonio Guzmán, 1, 41007, Sevilla, España";
   const email = "info@reveliophotography.es";
-  const domainName = "reveliophotography.es"
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
@@ -75,7 +73,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside space-y-2 pl-4">
             <li><strong>Derecho de Acceso:</strong> A saber qué datos suyos estamos tratando.</li>
             <li><strong>Derecho de Rectificación:</strong> A solicitar la modificación de los datos que sean inexactos.</li>
-            <li><strong>Derecho de Supresión (o "al olvido"):</strong> A solicitar la eliminación de sus datos cuando, entre otros motivos, ya no sean necesarios para los fines que fueron recogidos.</li>
+            <li><strong>Derecho de Supresión (o &quot;al olvido&quot;):</strong> A solicitar la eliminación de sus datos cuando, entre otros motivos, ya no sean necesarios para los fines que fueron recogidos.</li>
             <li><strong>Derecho a la Limitación del Tratamiento:</strong> En determinadas circunstancias, podrá solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente se conservarán para el ejercicio o la defensa de reclamaciones.</li>
             <li><strong>Derecho de Oposición:</strong> A oponerse al tratamiento de sus datos. {companyName} dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</li>
             <li><strong>Derecho a la Portabilidad de los Datos:</strong> A recibir sus datos personales en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable.</li>

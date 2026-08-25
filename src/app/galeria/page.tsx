@@ -8,16 +8,16 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Galeria de Bodas | Revelio Photography',
+  title: 'Galería de Bodas | Revelio Photography',
   description:
-    'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucia.',
+    'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucía.',
   alternates: {
     canonical: '/galeria',
   },
   openGraph: {
-    title: 'Galeria de Bodas | Revelio Photography',
+    title: 'Galería de Bodas | Revelio Photography',
     description:
-      'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucia.',
+      'Descubre historias reales de bodas capturadas por Revelio Photography en Sevilla y Andalucía.',
     url: `${siteConfig.siteUrl}/galeria`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,

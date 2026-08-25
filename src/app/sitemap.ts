@@ -7,7 +7,7 @@ type Route = {
   changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
 };
 
-// Rutas reales de src/app. Si se anade una pagina nueva, va aqui tambien.
+// Rutas reales de src/app. Si se añade una página nueva, va aquí también.
 const routes: Route[] = [
   { path: '/', priority: 1, changeFrequency: 'weekly' },
   { path: '/galeria', priority: 0.9, changeFrequency: 'weekly' },

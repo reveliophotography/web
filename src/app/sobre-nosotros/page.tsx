@@ -10,14 +10,14 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Revelio Photography',
   description:
-    'Conoce a Revelio Photography: fotografos de bodas en Sevilla con enfoque documental, natural y artistico.',
+    'Conoce a Revelio Photography: fotógrafos de bodas en Sevilla con enfoque documental, natural y artístico.',
   alternates: {
     canonical: '/sobre-nosotros',
   },
   openGraph: {
     title: 'Sobre Nosotros | Revelio Photography',
     description:
-      'Conoce a Revelio Photography: fotografos de bodas en Sevilla con enfoque documental, natural y artistico.',
+      'Conoce a Revelio Photography: fotógrafos de bodas en Sevilla con enfoque documental, natural y artístico.',
     url: `${siteConfig.siteUrl}/sobre-nosotros`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,

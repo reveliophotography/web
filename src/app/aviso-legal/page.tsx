@@ -1,12 +1,11 @@
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Aviso Legal | Revelio Photography',
   description:
-    'Aviso legal de Revelio Photography, estudio de fotografia y video de bodas en Sevilla.',
+    'Aviso legal de Revelio Photography, estudio de fotografía y vídeo de bodas en Sevilla.',
   alternates: {
     canonical: '/aviso-legal',
   },

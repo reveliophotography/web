@@ -4,9 +4,9 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Politica de Cookies | Revelio Photography',
+  title: 'Política de Cookies | Revelio Photography',
   description:
-    'Politica de cookies de Revelio Photography: que cookies usamos en la web y como configurarlas.',
+    'Política de cookies de Revelio Photography: qué cookies usamos en la web y cómo configurarlas.',
   alternates: {
     canonical: '/politica-de-cookies',
   },
