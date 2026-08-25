@@ -13,6 +13,8 @@ export const businessInfo = {
   addressRegion: 'Andalucia',
   addressCountry: 'ES',
   logo: '/logoRevelio%20completo%20sin%20fondo.png',
+  /** Ficha de Google Business Profile, verificada. */
+  googleBusinessProfile: 'https://share.google/aqJfNCjZetmW58qjt',
   socials: [
     'https://www.instagram.com/reveliophotography_/',
     'https://www.tiktok.com/@reveliophotography',
@@ -75,7 +77,8 @@ export function getBusinessSchema() {
           availableLanguage: ['Spanish'],
         },
         founder: { '@id': personId },
-        sameAs: [...businessInfo.socials],
+        sameAs: [...businessInfo.socials, businessInfo.googleBusinessProfile],
+        hasMap: businessInfo.googleBusinessProfile,
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
@@ -171,6 +174,40 @@ export function getBreadcrumbSchema(trail: readonly { name: string; path: string
       position: index + 1,
       name: crumb.name,
       item: `${siteConfig.siteUrl}${crumb.path}`,
+    })),
+  };
+}
+
+/**
+ * ItemList de proveedores recomendados. Le dice a Google y a las IAs
+ * que esta pagina es una lista de negocios, no prosa suelta.
+ */
+export function getCollaboratorsSchema(
+  items: readonly {
+    name: string;
+    description: string;
+    city: string;
+    website?: string;
+    instagram: string;
+  }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Proveedores de boda recomendados por Revelio Photography',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Organization',
+        name: item.name,
+        description: item.description,
+        areaServed: item.city,
+        ...(item.website ? { url: item.website } : {}),
+        sameAs: [item.website, item.instagram].filter(Boolean),
+      },
     })),
   };
 }

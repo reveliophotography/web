@@ -60,6 +60,7 @@ export default function Footer() {
           <p>© {currentYear} Revelio Photography. Todos los derechos reservados.</p>
           <div className="mt-2 space-x-4">
             <Link href="/contact" className="hover:underline hover:text-primary transition-colors">Agenda vuestra fecha</Link>
+            <Link href="/colaboradores" className="hover:underline hover:text-primary transition-colors">Colaboradores</Link>
             <Link href="/privacy-policy" className="hover:underline hover:text-primary transition-colors">Política de privacidad</Link>
             <Link href="/cookie-policy" className="hover:underline hover:text-primary transition-colors">Cookies</Link>
           </div>
