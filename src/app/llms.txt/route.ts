@@ -1,3 +1,4 @@
+import { collaborators } from '@/data/collaborators';
 import { faqs } from '@/data/faq';
 import { businessInfo } from '@/lib/schema';
 import { siteConfig } from '@/lib/site';
@@ -32,6 +33,14 @@ export function GET() {
     `- [Sobre nosotros](${url}/about): nuestro enfoque documental y las bodas con mascotas.`,
     `- [Galería](${url}/gallery): reportajes completos de bodas reales.`,
     `- [Contacto](${url}/contact): formulario, teléfono y disponibilidad de fechas.`,
+    `- [Colaboradores](${url}/colaboradores): proveedores de boda con los que trabajamos.`,
+    '',
+    '## Proveedores que recomendamos',
+    '',
+    ...collaborators.map(
+      (item) =>
+        `- ${item.name} (${item.category}, ${item.city}): ${item.description} ${item.website ?? item.instagram}`,
+    ),
     '',
     '## Preguntas frecuentes',
     '',

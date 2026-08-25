@@ -13,6 +13,7 @@ const routes: Route[] = [
   { path: '/gallery', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/colaboradores', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/legal-notice', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/cookie-policy', priority: 0.3, changeFrequency: 'yearly' },
