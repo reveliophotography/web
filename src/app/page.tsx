@@ -13,6 +13,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
 import FaqSection from '@/components/home/FaqSection';
+import Reveal from '@/components/motion/Reveal';
 
 // --- CONFIGURACIÓN DEL CARRUSEL PRINCIPAL ---
 const heroSlides = [
@@ -125,7 +126,7 @@ export default function HomePage() {
       {/* About Us Section */}
       <section className="py-24 sm:py-32 bg-background">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
+          <Reveal className="order-2 md:order-1">
             <h2 className="text-4xl font-serif font-semibold text-primary mb-6">
               Somos Revelio
             </h2>
@@ -145,8 +146,8 @@ export default function HomePage() {
               Conoced nuestra filosofía
               <Heart className="ml-2 w-4 h-4" />
             </Link>
-          </div>
-          <div className="order-1 md:order-2">
+          </Reveal>
+          <Reveal className="order-1 md:order-2" delay={0.12}>
             <Image
               src="/miguel.jpg"
               alt="Retrato del equipo de fotógrafos de bodas"
@@ -156,7 +157,7 @@ export default function HomePage() {
               data-ai-hint="photographer portrait team"
               quality={95}
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -174,13 +175,14 @@ export default function HomePage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-14">
+          <Reveal className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="text-4xl font-serif font-semibold text-primary-foreground mb-4">Nuestro proceso, sin complicaciones</h2>
             <p className="text-lg text-primary-foreground/90">
               Queremos que viváis vuestra boda, no que poséis todo el día. Así trabajamos para que todo fluya natural.
-            </p>          </div>
+            </p>
+          </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <Reveal className="grid md:grid-cols-3 gap-8" delay={0.1}>
             <article className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl">
               <p className="text-xs uppercase tracking-widest text-primary mb-3">Paso 1</p>
               <h3 className="text-2xl font-serif text-primary mb-3">Nos conocemos</h3>
@@ -208,13 +210,13 @@ export default function HomePage() {
                 <span>Galería final cuidada</span>
               </div>
             </article>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Wedding Stories Section */}
       <section className="py-24 sm:py-32 bg-muted">
-        <div className="container mx-auto px-4 text-center">
+        <Reveal className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-serif font-semibold text-primary mb-4">
             Historias de Boda
           </h2>
@@ -272,7 +274,7 @@ export default function HomePage() {
             Explorar mas historias
             <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       {/* Preguntas frecuentes */}

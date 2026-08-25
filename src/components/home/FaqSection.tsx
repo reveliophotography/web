@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLd from '@/components/seo/JsonLd';
+import Reveal from '@/components/motion/Reveal';
 import { faqs } from '@/data/faq';
 import { getFaqSchema } from '@/lib/schema';
 
@@ -12,7 +13,7 @@ export default function FaqSection() {
   return (
     <section className="py-24 sm:py-32 bg-background">
       <JsonLd data={getFaqSchema(faqs)} />
-      <div className="container mx-auto px-4 max-w-3xl">
+      <Reveal className="container mx-auto px-4 max-w-3xl">
         <h2 className="text-4xl font-serif font-semibold text-primary mb-4 text-center">
           Preguntas frecuentes
         </h2>
@@ -31,7 +32,7 @@ export default function FaqSection() {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
+      </Reveal>
     </section>
   );
 }
