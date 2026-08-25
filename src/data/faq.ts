@@ -1,3 +1,5 @@
+import { conIva, euros, paquetes, precioDesde } from '@/data/packages';
+
 export type FaqItem = {
   /** Identificador estable, para elegir que preguntas salen en cada pagina. */
   id: string;
@@ -12,10 +14,16 @@ export type FaqItem = {
  */
 export const faqs: FaqItem[] = [
   {
+    id: 'precio',
+    question: '¿Cuánto cuesta un reportaje de boda?',
+    answer:
+      `Nuestros packs de fotografía empiezan en ${euros(precioDesde)} más IVA (${euros(conIva(precioDesde))} en total) y los de foto más vídeo en ${euros(paquetes.find((p) => p.video)!.price)} más IVA. Todos cubren desde los preparativos hasta una hora de barra libre. Tenéis los cuatro con su desglose en la página de precios, sin llamadas de por medio.`,
+  },
+  {
     id: 'entrega',
     question: '¿Cuándo tendremos las fotos de la boda?',
     answer:
-      'Os mandamos un adelanto durante la primera semana, para que tengáis algo que enseñar mientras todavía estáis con la resaca del día. La galería completa y editada os llega entre 3 y 6 semanas después de la boda.',
+      'Os mandamos cinco fotos de adelanto en 48 horas, para que tengáis algo que enseñar mientras todavía estáis con la resaca del día. La galería completa y editada os llega entre 3 y 6 semanas después de la boda.',
   },
   {
     id: 'cobertura',
