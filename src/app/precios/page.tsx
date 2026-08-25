@@ -40,7 +40,9 @@ export default function PreciosPage() {
       <Breadcrumbs name="Precios" path="/precios" />
 
       <section className="py-24 sm:py-28">
-        <Reveal className="container mx-auto px-4 max-w-3xl text-center">
+        {/* Sin Reveal a proposito: es el bloque del pliegue y no queremos
+            servir el H1 en opacity 0, que retrasaria el LCP. */}
+        <div className="container mx-auto px-4 max-w-3xl text-center">
           <h1 className="text-5xl font-script font-semibold text-primary mb-6">
             Cuánto cuesta
           </h1>
@@ -56,7 +58,7 @@ export default function PreciosPage() {
             Los precios que veis son sin IVA. Debajo de cada uno tenéis el total con el 21%
             aplicado, que es lo que acabáis pagando.
           </p>
-        </Reveal>
+        </div>
       </section>
 
       <section className="pb-8">
@@ -148,6 +150,13 @@ export default function PreciosPage() {
           </ul>
 
           <p className="text-sm text-muted-foreground mt-8 leading-relaxed">
+            El fotomatón y el videobooth los ponen{' '}
+            <Link href="/colaboradores" className="underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+              dos de nuestros colaboradores
+            </Link>
+            , así que trabajáis con gente que ya conocemos.
+          </p>
+          <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
             La galería web se mantiene disponible {vigenciaGaleria} desde la entrega, tiempo de
             sobra para que la descarguéis y la compartáis con vuestra gente. Si necesitáis algo
             que no veis aquí, preguntadnos: casi todo se puede ajustar.

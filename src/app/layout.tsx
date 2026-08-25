@@ -27,11 +27,10 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     siteName: siteConfig.name,
   },
+  // Solo la tarjeta: asi cada pagina hereda su propio titulo y descripcion
+  // en vez de repetir los de la home al compartirse.
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage.url],
   },
   alternates: {
     canonical: '/',
@@ -39,6 +38,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 

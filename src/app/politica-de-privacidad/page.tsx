@@ -1,13 +1,26 @@
 
 import type { Metadata } from 'next';
+import { siteConfig } from '@/lib/site';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
+const title = 'Política de Privacidad | Revelio Photography';
+const description =
+  'Política de privacidad de Revelio Photography: qué datos recogemos, para qué los usamos y cómo ejercer vuestros derechos.';
+
 export const metadata: Metadata = {
-  title: 'Política de Privacidad | Revelio Photography',
-  description:
-    'Política de privacidad de Revelio Photography: qué datos recogemos, para qué los usamos y cómo ejercer vuestros derechos.',
+  title,
+  description,
   alternates: {
     canonical: '/politica-de-privacidad',
+  },
+  openGraph: {
+    title,
+    description,
+    url: `${siteConfig.siteUrl}/politica-de-privacidad`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 

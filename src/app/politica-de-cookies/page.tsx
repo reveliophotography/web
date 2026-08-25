@@ -1,14 +1,27 @@
 
 import type { Metadata } from 'next';
+import { siteConfig } from '@/lib/site';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
+const title = 'Política de Cookies | Revelio Photography';
+const description =
+  'Política de cookies de Revelio Photography: qué cookies usamos en la web y cómo configurarlas.';
+
 export const metadata: Metadata = {
-  title: 'Política de Cookies | Revelio Photography',
-  description:
-    'Política de cookies de Revelio Photography: qué cookies usamos en la web y cómo configurarlas.',
+  title,
+  description,
   alternates: {
     canonical: '/politica-de-cookies',
+  },
+  openGraph: {
+    title,
+    description,
+    url: `${siteConfig.siteUrl}/politica-de-cookies`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 

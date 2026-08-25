@@ -94,7 +94,7 @@ export default function CollaboratorsPage() {
                           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                         >
                           <Globe className="w-4 h-4" />
-                          Su web
+                          Web de {collaborator.name}
                         </a>
                       ) : null}
                       <a
@@ -104,7 +104,7 @@ export default function CollaboratorsPage() {
                         className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                       >
                         <Instagram className="w-4 h-4" />
-                        Instagram
+                        {collaborator.name} en Instagram
                       </a>
                     </div>
                   </div>

@@ -5,11 +5,10 @@ import { cn } from '@/lib/utils';
 const Logo = ({ className }: { className?: string }) => (
   <Image
     src="/logoRevelio completo sin fondo.png"
-    alt="Logo Revelio"
+    alt=""
     width={163}
     height={53}
     className={cn("h-6 md:h-8 w-auto", className)}
-    priority
   />
 );
 
@@ -64,6 +63,8 @@ export default function Footer() {
             <Link href="/colaboradores" className="hover:underline hover:text-primary transition-colors">Colaboradores</Link>
             <Link href="/politica-de-privacidad" className="hover:underline hover:text-primary transition-colors">Política de privacidad</Link>
             <Link href="/politica-de-cookies" className="hover:underline hover:text-primary transition-colors">Cookies</Link>
+            <Link href="/aviso-legal" className="hover:underline hover:text-primary transition-colors">Aviso legal</Link>
+            <Link href="/accesibilidad" className="hover:underline hover:text-primary transition-colors">Accesibilidad</Link>
           </div>
         </div>
 

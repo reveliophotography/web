@@ -1,20 +1,33 @@
 
 import type { Metadata } from 'next';
+import { siteConfig } from '@/lib/site';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
+const title = 'Declaración de Accesibilidad | Revelio Photography';
+const description =
+  'Declaración de accesibilidad de la web de Revelio Photography y cómo avisarnos de una barrera.';
+
 export const metadata: Metadata = {
-  title: 'Declaración de Accesibilidad | Revelio Photography',
-  description:
-    'Declaración de accesibilidad de la web de Revelio Photography y cómo avisarnos de una barrera.',
+  title,
+  description,
   alternates: {
     canonical: '/accesibilidad',
+  },
+  openGraph: {
+    title,
+    description,
+    url: `${siteConfig.siteUrl}/accesibilidad`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 
 export default function AccessibilityStatementPage() {
   return (
-    <div className="space-y-8 max-w-3xl mx-auto">
+    <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
       <Breadcrumbs name="Declaración de accesibilidad" path="/accesibilidad" />
       <section className="text-center">
         <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Declaración de Accesibilidad</h1>
@@ -24,7 +37,7 @@ export default function AccessibilityStatementPage() {
         <p>Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
         <p>
-          En Revelio Weddings, estamos comprometidos a garantizar que nuestro sitio web sea accesible para todas las personas, incluidas aquellas con discapacidades.
+          En Revelio Photography, estamos comprometidos a garantizar que nuestro sitio web sea accesible para todas las personas, incluidas aquellas con discapacidades.
           Nos esforzamos por cumplir con las Pautas de Accesibilidad al Contenido en la Web (WCAG) 2.1 Nivel AA, un conjunto de recomendaciones para hacer que el contenido web sea más accesible.
         </p>
 
@@ -42,7 +55,7 @@ export default function AccessibilityStatementPage() {
         <h2 className="text-2xl font-serif font-semibold text-primary pt-4">Esfuerzos continuos</h2>
         <p>
           La accesibilidad es un esfuerzo continuo. Revisamos y mejoramos activamente nuestro sitio web para asegurar que cumplimos con los estándares de accesibilidad y las mejores prácticas.
-          Agradecemos tus comentarios sobre la accesibilidad de Revelio Weddings.
+          Agradecemos tus comentarios sobre la accesibilidad de Revelio Photography.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary pt-4">Limitaciones conocidas</h2>

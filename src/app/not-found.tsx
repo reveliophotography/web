@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Página no encontrada | Revelio Photography',
+  // Sin canonical: heredar el de la home junto a un noindex son dos
+  // senales contradictorias y Google desaconseja combinarlas.
+  alternates: { canonical: null },
   robots: {
     index: false,
     follow: true,

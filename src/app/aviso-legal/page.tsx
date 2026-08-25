@@ -1,13 +1,26 @@
 
 import type { Metadata } from 'next';
+import { siteConfig } from '@/lib/site';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
+const title = 'Aviso Legal | Revelio Photography';
+const description =
+  'Aviso legal de Revelio Photography, estudio de fotografía y vídeo de bodas en Sevilla.';
+
 export const metadata: Metadata = {
-  title: 'Aviso Legal | Revelio Photography',
-  description:
-    'Aviso legal de Revelio Photography, estudio de fotografía y vídeo de bodas en Sevilla.',
+  title,
+  description,
   alternates: {
     canonical: '/aviso-legal',
+  },
+  openGraph: {
+    title,
+    description,
+    url: `${siteConfig.siteUrl}/aviso-legal`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: 'website',
+    images: [siteConfig.ogImage],
   },
 };
 
