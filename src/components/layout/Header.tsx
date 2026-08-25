@@ -11,6 +11,7 @@ const navItems = [
   { href: '/', label: 'Inicio' },
  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/galeria', label: 'Galería' },
+  { href: '/precios', label: 'Precios' },
   { href: '/contacto', label: 'Contacto' },
 ];
 

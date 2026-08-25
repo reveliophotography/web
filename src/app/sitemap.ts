@@ -11,6 +11,7 @@ type Route = {
 const routes: Route[] = [
   { path: '/', priority: 1, changeFrequency: 'weekly' },
   { path: '/galeria', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/precios', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/contacto', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/sobre-nosotros', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/colaboradores', priority: 0.7, changeFrequency: 'monthly' },
