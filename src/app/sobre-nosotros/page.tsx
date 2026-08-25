@@ -33,15 +33,16 @@ export default function AboutPage() {
 
       {/* Intro Section */}
       <section className="py-24 bg-muted/30 transition-colors duration-300">
-        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Sin Reveal: es el bloque del pliegue y lleva el H1. */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div className="mb-12 lg:mb-0 pr-0 lg:pr-8">
-              <h2 className="font-script font-semibold text-primary text-5xl mb-4">
-                Somos Revelio
-              </h2>
-              <h3 className="font-serif text-3xl text-muted-foreground mb-6 italic">
+              <h1 className="font-script font-semibold text-primary text-5xl mb-4">
+                Somos Revelio, fotógrafos de boda en Sevilla
+              </h1>
+              <p className="font-serif text-3xl text-muted-foreground mb-6 italic">
                 Narradores de historias auténticas
-              </h3>
+              </p>
               <div className="prose prose-lg text-muted-foreground font-light font-sans leading-relaxed">
                 <p className="mb-6">
                   Más que fotógrafos, somos narradores de historias. Nuestra pasión es descubrir y capturar la esencia única de cada pareja, incluyendo a esos compañeros de vida incondicionales que son vuestras mascotas. Creamos un recuerdo visual que va más allá de la fotografía tradicional, celebrando el amor en todas sus formas.
@@ -66,7 +67,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       {/* Mascotas Section */}

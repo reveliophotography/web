@@ -63,7 +63,7 @@ export default function ContactPage() {
       </header>
 
       {/* Main Content Form & Details */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10 mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10 mb-20">
         <div className="bg-card shadow-2xl rounded-sm overflow-hidden flex flex-col md:flex-row border border-border">
 
           {/* Form Side */}
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 key={faq.id}
                 className="bg-muted/90 p-8 rounded-lg border-l-4 border-primary shadow-xl"
               >
-                <h4 className="font-serif text-xl font-bold mb-3 text-primary">{faq.question}</h4>
+                <h3 className="font-serif text-xl font-bold mb-3 text-primary">{faq.question}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed font-sans">
                   {faq.answer}
                 </p>
@@ -133,7 +133,7 @@ export default function ContactPage() {
             ))}
           </div>
         </Reveal>
-      </main>
+      </div>
 
     </div>
   );

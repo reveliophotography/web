@@ -59,7 +59,7 @@ export default function Header() {
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
     {
       "bg-transparent": isHomePage && !isScrolled && !isMenuOpen,
-      "bg-primary/20 backdrop-blur-lg shadow-md": !isHomePage || isScrolled,
+      "bg-primary/95 backdrop-blur-lg shadow-md": !isHomePage || isScrolled,
       "bg-primary/90 backdrop-blur-lg shadow-md": isMenuOpen,
     }
   );
@@ -112,7 +112,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-primary/20 backdrop-blur-lg">
+        <div className="md:hidden bg-primary/95 backdrop-blur-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
