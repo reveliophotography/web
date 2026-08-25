@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Politica de cookies de Revelio Photography: que cookies usamos en la web y como configurarlas.',
   alternates: {
-    canonical: '/cookie-policy',
+    canonical: '/politica-de-cookies',
   },
 };
 
@@ -19,7 +19,7 @@ export default function CookiePolicyPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24 max-w-4xl">
-      <Breadcrumbs name="Política de cookies" path="/cookie-policy" />
+      <Breadcrumbs name="Política de cookies" path="/politica-de-cookies" />
       <div className="space-y-8">
         <section className="text-center">
           <h1 className="text-4xl font-serif font-semibold text-primary mb-6">Política de Cookies</h1>
@@ -75,7 +75,7 @@ export default function CookiePolicyPage() {
 
           <h2 className="text-2xl font-serif font-semibold text-primary pt-6">5. Contacto</h2>
           <p>
-            Si tienes alguna pregunta sobre esta Política de Cookies, puedes contactarnos a través de nuestro <Link href="/contact" className="underline hover:text-primary">formulario de contacto</Link> o escribiéndonos a {contactEmail}.
+            Si tienes alguna pregunta sobre esta Política de Cookies, puedes contactarnos a través de nuestro <Link href="/contacto" className="underline hover:text-primary">formulario de contacto</Link> o escribiéndonos a {contactEmail}.
           </p>
         </section>
       </div>

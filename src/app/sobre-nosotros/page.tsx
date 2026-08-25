@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     'Conoce a Revelio Photography: fotografos de bodas en Sevilla con enfoque documental, natural y artistico.',
   alternates: {
-    canonical: '/about',
+    canonical: '/sobre-nosotros',
   },
   openGraph: {
     title: 'Sobre Nosotros | Revelio Photography',
     description:
       'Conoce a Revelio Photography: fotografos de bodas en Sevilla con enfoque documental, natural y artistico.',
-    url: `${siteConfig.siteUrl}/about`,
+    url: `${siteConfig.siteUrl}/sobre-nosotros`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: 'website',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="bg-background text-foreground transition-colors duration-300 antialiased font-sans flex flex-col pt-20">
-      <Breadcrumbs name="Sobre nosotros" path="/about" />
+      <Breadcrumbs name="Sobre nosotros" path="/sobre-nosotros" />
 
       {/* Intro Section */}
       <section className="py-24 bg-muted/30 transition-colors duration-300">
@@ -155,7 +155,7 @@ export default function AboutPage() {
             Si nuestra visión de la fotografía de bodas resuena con vosotros, nos encantaría escuchar vuestra historia.
           </p>
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-serif italic tracking-wide">
-            <Link href="/contact">
+            <Link href="/contacto">
               Contactad con nosotros
             </Link>
           </Button>
