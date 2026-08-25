@@ -57,6 +57,23 @@ export function getBusinessSchema() {
           { '@type': 'AdministrativeArea', name: 'Andalucia' },
         ],
         serviceType: 'Fotografia y video de bodas',
+        knowsAbout: [
+          'Fotografia de bodas',
+          'Video de bodas',
+          'Fotografia documental de bodas',
+          'Bodas en Sevilla',
+          'Bodas en Andalucia',
+          'Sesiones de preboda y postboda',
+          'Fotografia de bodas con mascotas',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer service',
+          telephone: businessInfo.phone,
+          email: businessInfo.email,
+          areaServed: 'ES',
+          availableLanguage: ['Spanish'],
+        },
         founder: { '@id': personId },
         sameAs: [...businessInfo.socials],
         openingHoursSpecification: [
@@ -135,6 +152,25 @@ export function getFaqSchema(items: readonly { question: string; answer: string 
         '@type': 'Answer',
         text: item.answer,
       },
+    })),
+  };
+}
+
+/**
+ * BreadcrumbList. Google la usa para pintar la ruta en los resultados
+ * en lugar de la URL cruda.
+ */
+export function getBreadcrumbSchema(trail: readonly { name: string; path: string }[]) {
+  const crumbs = [{ name: 'Inicio', path: '/' }, ...trail];
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: `${siteConfig.siteUrl}${crumb.path}`,
     })),
   };
 }
