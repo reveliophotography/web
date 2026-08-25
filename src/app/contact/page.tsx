@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
+import Reveal from '@/components/motion/Reveal';
 
 
 export const metadata: Metadata = {
@@ -111,7 +112,7 @@ export default function ContactPage() {
         </div>
 
         {/* FAQs */}
-        <div className="mt-32 text-center max-w-4xl mx-auto">
+        <Reveal className="mt-32 text-center max-w-4xl mx-auto">
           <span className="text-primary uppercase tracking-widest text-xs font-bold mb-2 block">Preguntas Frecuentes</span>
           <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12">Lo que soléis preguntar</h2>
 
@@ -139,7 +140,7 @@ export default function ContactPage() {
          
           </div>
            
-        </div>
+        </Reveal>
       </main>
 
     </div>

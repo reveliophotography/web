@@ -11,6 +11,8 @@ import AnalyticsGate from '@/components/layout/AnalyticsGate';
 import { siteConfig } from '@/lib/site';
 import JsonLd from '@/components/seo/JsonLd';
 import { getBusinessSchema } from '@/lib/schema';
+import MotionProvider from '@/components/motion/MotionProvider';
+import PageTransition from '@/components/motion/PageTransition';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -57,11 +59,20 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <JsonLd data={getBusinessSchema()} />
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: '[data-reveal]{opacity:1!important;transform:none!important}',
+            }}
+          />
+        </noscript>
       </head>
       <body className={`${greatVibes.variable} ${cormorantGaramond.variable} ${lato.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <Header />
         <main className="flex-grow">
-          {children}
+          <MotionProvider>
+            <PageTransition>{children}</PageTransition>
+          </MotionProvider>
         </main>
         <CookieConsentBanner />
         <Footer />

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { PawPrint, Quote } from 'lucide-react';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
+import Reveal from '@/components/motion/Reveal';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Revelio Photography',
@@ -29,7 +30,7 @@ export default function AboutPage() {
 
       {/* Intro Section */}
       <section className="py-24 bg-muted/30 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div className="mb-12 lg:mb-0 pr-0 lg:pr-8">
               <h2 className="font-script font-semibold text-primary text-5xl mb-4">
@@ -67,12 +68,12 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Mascotas Section */}
       <section className="py-24 bg-background transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-script font-semibold text-5xl text-primary mb-4">
               Mascotas: Un Miembro Más de la Familia
@@ -115,7 +116,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Testimonio Section */}
@@ -143,17 +144,19 @@ export default function AboutPage() {
 
       {/* CTA Final */}
       <section className="py-24 text-center bg-background">
-        <h2 className="text-5xl font-script font-semibold text-primary mb-6">
-          ¿Listos para crear algo inolvidable?
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          Si nuestra visión de la fotografía de bodas resuena con vosotros, nos encantaría escuchar vuestra historia.
-        </p>
-        <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-serif italic tracking-wide">
-          <Link href="/contact">
-            Contactad con nosotros
-          </Link>
-        </Button>
+        <Reveal>
+          <h2 className="text-5xl font-script font-semibold text-primary mb-6">
+            ¿Listos para crear algo inolvidable?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Si nuestra visión de la fotografía de bodas resuena con vosotros, nos encantaría escuchar vuestra historia.
+          </p>
+          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-serif italic tracking-wide">
+            <Link href="/contact">
+              Contactad con nosotros
+            </Link>
+          </Button>
+        </Reveal>
       </section>
 
     </div>
