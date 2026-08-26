@@ -11,7 +11,7 @@ const navItems = [
   { href: '/', label: 'Inicio' },
  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/galeria', label: 'Galería' },
-  { href: '/precios', label: 'Precios' },
+  { href: '/precios', label: 'Packs' },
   { href: '/contacto', label: 'Contacto' },
 ];
 
@@ -31,7 +31,6 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const isHomePage = pathname === '/';
-  const isContactPage = pathname === '/contacto';
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -73,10 +72,9 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <Logo className={cn(
-                "transition-all duration-300",
-                (isHomePage && !isScrolled && !isMenuOpen) || isContactPage ? "brightness-0 invert" : ""
-              )} />
+              {/* Blanco en todos los estados: el fondo del header es o la
+                  foto del hero o el vino solido, y el logo original es vino. */}
+              <Logo className="brightness-0 invert" />
             </Link>
           </div>
 

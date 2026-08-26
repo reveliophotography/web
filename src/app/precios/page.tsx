@@ -3,19 +3,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import Reveal from '@/components/motion/Reveal';
-import {
-  cobertura,
-  conIva,
-  euros,
-  extras,
-  paquetes,
-  precioDesde,
-  vigenciaGaleria,
-} from '@/data/packages';
+import { cobertura, extras, paquetes, vigenciaGaleria } from '@/data/packages';
 import { siteConfig } from '@/lib/site';
 
-const title = 'Precios | Revelio Photography';
-const description = `Cuánto cuesta un fotógrafo de bodas en Sevilla: nuestros packs desde ${euros(precioDesde)} más IVA (${euros(conIva(precioDesde))} en total), sin letra pequeña. Foto y foto + vídeo.`;
+const title = 'Packs de boda | Revelio Photography';
+const description =
+  'Cuatro packs de fotografía y vídeo de boda en Sevilla y Andalucía: qué incluye cada uno, equipo, número de fotos y plazos de entrega.';
 
 export const metadata: Metadata = {
   title,
@@ -37,26 +30,22 @@ export const metadata: Metadata = {
 export default function PreciosPage() {
   return (
     <div className="bg-background text-foreground transition-colors duration-300 antialiased font-sans pt-20">
-      <Breadcrumbs name="Precios" path="/precios" />
+      <Breadcrumbs name="Packs de boda" path="/precios" />
 
       <section className="py-24 sm:py-28">
         {/* Sin Reveal a proposito: es el bloque del pliegue y no queremos
             servir el H1 en opacity 0, que retrasaria el LCP. */}
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h1 className="text-5xl font-script font-semibold text-primary mb-6">
-            Cuánto cuesta
+            Packs de boda en Sevilla y Andalucía
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-            Os lo decimos aquí y no en una llamada, porque entendemos que lo primero que
-            necesitáis saber es si encajamos en vuestro presupuesto.
+            Cuatro formas de cubrir vuestro día. Todas parten de lo mismo:{' '}
+            {cobertura.toLowerCase()}. Lo que cambia es cuánta gente somos y si hay vídeo.
           </p>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            Todos los packs cubren lo mismo: {cobertura.toLowerCase()}. Lo que cambia es cuánta
-            gente somos ese día y si hay vídeo.
-          </p>
-          <p className="text-sm text-muted-foreground mt-6">
-            Los precios que veis son sin IVA. Debajo de cada uno tenéis el total con el 21%
-            aplicado, que es lo que acabáis pagando.
+            Contadnos vuestra fecha y el sitio y os pasamos el presupuesto cerrado, sin
+            sorpresas después.
           </p>
         </div>
       </section>
@@ -77,14 +66,7 @@ export default function PreciosPage() {
                       El que más contratan
                     </p>
                   ) : null}
-                  <h2 className="text-2xl font-serif text-primary mb-2">{paquete.name}</h2>
-                  <p className="text-4xl font-serif text-foreground mb-1">
-                    {euros(paquete.price)}
-                    <span className="text-base text-muted-foreground"> + 21% IVA</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    {euros(conIva(paquete.price))} en total
-                  </p>
+                  <h2 className="text-2xl font-serif text-primary mb-6">{paquete.name}</h2>
 
                   <dl className="space-y-4 text-sm flex-grow">
                     <div>
@@ -126,24 +108,12 @@ export default function PreciosPage() {
           </h2>
           <ul className="list-none p-0 divide-y divide-border">
             {extras.map((extra) => (
-              <li key={extra.name} className="flex justify-between items-baseline gap-6 py-4">
+              <li key={extra.name} className="py-4">
                 <span className="text-foreground/80">
                   {extra.name}
                   {extra.nota ? (
                     <span className="text-muted-foreground text-sm"> · {extra.nota}</span>
                   ) : null}
-                </span>
-                <span className="font-serif text-xl text-primary whitespace-nowrap text-right">
-                  {extra.price === null ? (
-                    'A consultar'
-                  ) : (
-                    <>
-                      + {euros(extra.price)}
-                      <span className="block text-xs text-muted-foreground font-sans">
-                        {euros(conIva(extra.price))} con IVA
-                      </span>
-                    </>
-                  )}
                 </span>
               </li>
             ))}

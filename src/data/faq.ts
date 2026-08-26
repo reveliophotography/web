@@ -1,4 +1,4 @@
-import { conIva, euros, paquetes, precioDesde } from '@/data/packages';
+import { euros, paquetes, precioDesde } from '@/data/packages';
 
 export type FaqItem = {
   /** Identificador estable, para elegir que preguntas salen en cada pagina. */
@@ -17,7 +17,7 @@ export const faqs: FaqItem[] = [
     id: 'precio',
     question: '¿Cuánto cuesta un reportaje de boda?',
     answer:
-      `Nuestros packs de fotografía empiezan en ${euros(precioDesde)} más IVA (${euros(conIva(precioDesde))} en total) y los de foto más vídeo en ${euros(paquetes.find((p) => p.video)!.price)} más IVA. Todos cubren desde los preparativos hasta una hora de barra libre. Tenéis los cuatro con su desglose en la página de precios, sin llamadas de por medio.`,
+      `Nuestros packs de fotografía empiezan en ${euros(precioDesde)} más IVA y los de foto más vídeo en ${euros(paquetes.find((p) => p.video)!.price)} más IVA. Todos cubren desde los preparativos hasta una hora de barra libre. Contadnos vuestra fecha y el sitio y os pasamos el presupuesto cerrado.`,
   },
   {
     id: 'entrega',

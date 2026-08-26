@@ -12,7 +12,7 @@ import { siteConfig } from '@/lib/site';
 
 const title = 'Colaboradores | Revelio Photography';
 const description =
-  'Proveedores de boda con los que trabajamos en Sevilla y Andalucía: fotomatón, catering y más. Gente con la que hemos coincidido en bodas reales.';
+  'Proveedores de confianza con los que colaboramos en Sevilla y Andalucía: fotomatón, videobooth, animación y catering.';
 
 export const metadata: Metadata = {
   title,
@@ -43,8 +43,8 @@ export default function CollaboratorsPage() {
             Con quién trabajamos
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            Estos son los proveedores que recomendamos. Están aquí porque hemos coincidido con
-            ellos en bodas de verdad y sabemos cómo trabajan: si vais a montar la vuestra, es un
+            Proveedores de confianza con los que colaboramos en Sevilla y Andalucía. Los
+            recomendamos porque sabemos cómo trabajan: si estáis montando vuestra boda, es un
             buen sitio por donde empezar.
           </p>
         </Reveal>
