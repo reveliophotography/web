@@ -20,6 +20,16 @@ export type Collaborator = {
  */
 export const collaborators: Collaborator[] = [
   {
+    slug: 'clara-martin',
+    name: 'Clara Martín',
+    category: 'Maestra de ceremonias',
+    city: 'Sevilla',
+    description:
+      'Oficia bodas simbólicas hechas a medida, en español, inglés o francés. Escribe vuestra historia de amor, coordina el día y deja la ceremonia en 25-40 minutos. También hace elopements y renovaciones de votos.',
+    website: 'https://www.maestradeceremonias-sevilla.com',
+    instagram: 'https://www.instagram.com/maestradeceremonias.sevilla/',
+  },
+  {
     slug: 'jumpinggo',
     name: 'JumpinGo',
     category: 'Fotomatón y videobooth',
