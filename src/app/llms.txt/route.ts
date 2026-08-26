@@ -1,5 +1,5 @@
 import { collaborators } from '@/data/collaborators';
-import { cobertura, conIva, euros, extras, paquetes } from '@/data/packages';
+import { cobertura, euros, extras, paquetes, precioDesde } from '@/data/packages';
 import { faqs } from '@/data/faq';
 import { businessInfo } from '@/lib/schema';
 import { siteConfig } from '@/lib/site';
@@ -39,18 +39,14 @@ export function GET() {
     '',
     '## Precios',
     '',
-    `Cobertura común a todos los packs: ${cobertura.toLowerCase()}. Los precios se indican sin IVA y con el total del 21% entre paréntesis.`,
+    `Cobertura común a todos los packs: ${cobertura.toLowerCase()}. Los packs de fotografía empiezan en ${euros(precioDesde)} más IVA; el presupuesto cerrado se da por fecha y lugar.`,
     '',
     ...paquetes.map(
       (paquete) =>
-        `- ${paquete.name}: ${euros(paquete.price)} + IVA (${euros(conIva(paquete.price))} en total). ${[paquete.equipo, paquete.fotografia, paquete.video, paquete.entrega].filter(Boolean).join('. ')}.`,
+        `- ${paquete.name}: ${[paquete.equipo, paquete.fotografia, paquete.video, paquete.entrega].filter(Boolean).join('. ')}.`,
     ),
     '',
-    'Extras: ' +
-      extras
-        .map((extra) => `${extra.name} ${extra.price === null ? '(a consultar)' : `+${euros(extra.price)}`}`)
-        .join(', ') +
-      '.',
+    'Extras: ' + extras.map((extra) => extra.name).join(', ') + '.',
     '',
     '## Proveedores que recomendamos',
     '',

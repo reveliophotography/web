@@ -1,4 +1,4 @@
-import { conIva, euros, paquetes } from '@/data/packages';
+import { paquetes } from '@/data/packages';
 import { siteConfig } from '@/lib/site';
 
 /**
@@ -96,25 +96,18 @@ export function getBusinessSchema() {
             closes: '21:00',
           },
         ],
-        priceRange: `${euros(conIva(Math.min(...paquetes.map((p) => p.price))))} - ${euros(conIva(Math.max(...paquetes.map((p) => p.price))))}`,
+        priceRange: '€€',
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Reportajes de boda',
           itemListElement: paquetes.map((paquete) => ({
+            // Sin precio a proposito: la pagina de packs ya no los muestra y
+            // Google exige que el dato estructurado coincida con lo visible.
+            // La cifra de partida vive en la FAQ, que si es contenido visible.
             '@type': 'Offer',
             name: paquete.name,
             url: `${url}/precios#${paquete.slug}`,
             availability: 'https://schema.org/InStock',
-            // El precio del Offer es el que paga la pareja, IVA incluido:
-            // es el que Google contrasta con lo que se ve en la pagina.
-            price: conIva(paquete.price),
-            priceCurrency: 'EUR',
-            priceSpecification: {
-              '@type': 'PriceSpecification',
-              price: conIva(paquete.price),
-              priceCurrency: 'EUR',
-              valueAddedTaxIncluded: true,
-            },
             itemOffered: {
               '@type': 'Service',
               name: paquete.name,

@@ -116,7 +116,7 @@ export default function HomePage() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground hover:text-primary w-full sm:w-auto">
-              <Link href="/precios">Ver precios de nuestros packs</Link>
+              <Link href="/precios">Ver nuestros packs</Link>
             </Button>
           </div>
           <p className="pt-2 text-lg md:text-xl font-serif italic text-primary-foreground/85">
